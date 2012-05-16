@@ -237,7 +237,7 @@ border-spacing:21px;
 }
 form#showbill {
 width: 836px;
-margin-left:auto;
+margin-left:-83px;
 margin-right:auto;
 }
 #select_category {
@@ -262,6 +262,10 @@ margin-left:45px;
 }
 
 span.noprint{
+float:left;
+}
+
+.dontprint{
 float:left;
 }
 

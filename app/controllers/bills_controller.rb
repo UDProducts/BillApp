@@ -50,6 +50,8 @@ class BillsController < ApplicationController
   # GET /bills/1/edit
   def edit
     @bill = Bill.find(params[:id])
+    #0product_name=Product.find(params[:bill.items.product_id])
+    
   end
 
   # POST /bills

@@ -34,7 +34,7 @@
     </br>
     <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small balance_input" %>
   </div> 
-  <div id="_Ctrl_s"></div>  
+  
    <div class="bill_buttons">
     <%= submit_tag "Save", :class => "btn-primary dontprint" %>
   </div>
