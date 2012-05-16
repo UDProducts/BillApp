@@ -1,4 +1,0 @@
-<div class = 'well form-inline form_center'><center><h1>New product</h1></center>
-<%= render 'form' %>
-
-
