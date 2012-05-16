@@ -1,67 +1,41 @@
 <center><%= form_for @bill , :html => { :class => 'well form-inline',:id =>'showbill'} do |f|  %>
 <p>
+  <h2 id="store_name">Royal Woods</h2> </p>
+
+  <p>
    
-   <b><%= @bill.created_at.strftime("%a, %d %b %Y") %></b>
+  <b><%= @bill.created_at.strftime("%a, %d %b %Y") %></b>
   
-  <span id="showcode"><b>Code:
-  <%= @bill.id + 1001 %></b></span>
+  <span id="showcode"><b>Code: <%= @bill.code %></b></span>
   
-  <span id="customername">
-  <b><%= @bill.customer_name %></b>
-  </span>
+  <span id="customername"><b><%= @bill.customer_name %></b></span>
   </p>
+  <table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Product</th>
+      <th>Size</th>
+      <th>Length</th>
+      <th>Rate</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
 
-<table class="show">
-  <tr>
-    <th id="prcode">Product Code</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th id="prname">Product Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th id="soldquan">Length</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th id="billrate">Rate</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th id="billsize">Size</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th id="itemamt">Amount</th>
-  </tr>
+    <% @bill.items.each do |item| %>
+    <tr>
+      <td><%= item.product.code %></td>
+      <td><%= item.product.name %></td>
+      <td><%= item.product.size %></td>
+      <td><%= item.length %></td>
+      <td><%= item.rate %></td>
+      <td><%= item.length.to_i * item.rate.to_i %></td>
+    </tr>
+    <% end %>
 
-<% @bill.items.each do |item| %>
-  <tr>
-    <td><%= item.product.code %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= item.product.name %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= item.length %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= item.rate %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= item.product.size %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= Integer(item.length)*Integer(item.rate)%></td>
-  </tr>
-<% end %>
-</table>
+  </tbody>
+  </table>
 
 </br></br>
 <div class="bill_final_inputs">

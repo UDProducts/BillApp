@@ -14,20 +14,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//=require autocomplete-rails
-//=require best_in_place
-//=require bills
-//=require dynasearch
-//=require extremes
-//=require home
-//=require items
-//=require jquery.purr
-//=require jquery.hotkeys
-//=require jquery-1.4.2
-//=require twitter/bootstrap
+//= require jquery.purr
+//= require jquery.hotkeys
+//= require autocomplete-rails
+//= require best_in_place
+//= require twitter/bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
-//=require_tree .
+//= require bills
+//= require dynasearch
+//= require extremes
+//= require home
+//= require items
 
 
    

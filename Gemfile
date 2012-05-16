@@ -58,3 +58,4 @@ gem 'simple_form'
 gem 'jquery-datatables-rails',:git => 'git://github.com/rweng/jquery-datatables-rails'
 gem 'kaminari'
 
+gem 'simplecov', :require => false, :group => :test

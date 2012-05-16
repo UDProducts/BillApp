@@ -10,7 +10,6 @@ function add_fields(link, association, content) {
         
 }
 $(document).ready(function() {
-  $('input.item_product_name').setAttribute("readonly", "true");
 
 
 });

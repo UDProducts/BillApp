@@ -9,7 +9,7 @@ $(document).ready(function() {
 // });
    
 
-  $('div.items_input_fields input').live('keyup', function() {
+  $('div.items_input_fields input').live('keypress', function() {
 //	alert("keypress");
 	$('input#bill_amount').val($('input.item_amount').sumValues());
   });
@@ -32,7 +32,7 @@ $(document).ready(function() {
     return false;
 });
 
- /* $('div.items_input_fields input.item_rate').live('keyup',function() {
+ /* $('div.items_input_fields input.item_rate').live('keypress',function() {
        var $rate = parseInt($(this).val(), 10);
        alert($rate);
        //var $length_id = $(this).data("length-id");
@@ -97,8 +97,8 @@ $(document).ready(function() {
 //        alert("#"+$rate_id.val());
        //alert($rate_id);
        var $amount_id = $(this).data("amount-id");
-      // var $rate = parseInt($("#"+$rate_id).val(), 10);
-         var $rate = $(this).prev().val();
+       var $rate = parseInt($("#"+$rate_id).val(), 10);
+//         var $rate = $(this).prev().val();
         // alert($rate);
         // alert($rate);
 //       if(isNaN($rate*$length)) {
@@ -116,7 +116,7 @@ $(document).ready(function() {
   });
 
 
-  $('input#bill_advance').live('keyup', function() {
+  $('input#bill_advance').live('keypress', function() {
 //     $('input#bill_amount').val($('input.item_amount').sumValues());
 //	alert("keypress");
  
@@ -133,12 +133,12 @@ $(document).ready(function() {
 
   });
 
-  $('input#bill_vat').live('keyup', function() {
+  $('input#bill_vat').live('keypress', function() {
             
       $('input#bill_amount').val($('div.items_input_fields input.item_amount').sumValues());
   //    alert("hi");
       var $bill_amount = parseInt($('input#bill_amount').val(), 10);
-      alert($bill_amount);
+//      alert($bill_amount);
       var $bill_vat = parseInt($('input#bill_vat').val(), 10);
       var $vat_amount = parseInt($bill_amount * $bill_vat / 100, 10);
 //      alert($vat_amount);

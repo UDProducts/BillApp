@@ -1,4 +1,5 @@
 
+<% if @bills.count > 0 %>
 
 <%= form_tag bills_path, :method => 'get', :id => "bills_search_form", :class => "search_box" do %>
         
@@ -7,5 +8,14 @@
 <br />
 <div id="bills_result"><%= render 'bills' %></div>
 
+<% else %>
+
+  <div class="empty_area">
+    <%= image_tag "empty.jpg" %>
+    <span class="empty_message">
+      This place seems to be empty.. go to new and add something
+    </span>
+  </div>
+<% end %>
 
 
