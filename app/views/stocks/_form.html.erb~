@@ -1,5 +1,5 @@
 <% rand_number = rand(100000).to_s %>
-<%= form_for @stock , :html => { :class => 'well form-inline'} do |f| %>
+<%= form_for(@stock) do |f| %>
   <% if @stock.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>

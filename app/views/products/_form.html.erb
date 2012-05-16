@@ -1,4 +1,5 @@
-<%= form_for @product, :html => { :class => 'well form-inline'} do |f| %>
+
+ <%= form_for @product, :html => { :class => 'well form-inline'} do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -11,26 +12,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-   <%= f.label :Unit %></br>
-   <%= f.select :category, options_for_select([["cft", "0"], ["feet","1"],["mm","2"],["sqft","3"]]), { :selected => "mm" }, { :class => "input-small", :id => "select_category" } %>
+  <div align="center" class="product_inputs">
+    <%= f.text_field :name, :placeholder => "Product Name", :class => "input-small" %>
+ 
+    <%= f.text_field :size, :placeholder => "Size", :class => "input-small" %>
+
+    <%= f.text_field :code, :placeholder => "Code", :class => "input-small" %>
+    
+    <%= f.select :category, options_for_select([["cft", "0"], ["feet","1"],["mm","2"],["sqft","3"]]), { :selected => "mm" }, { :class => "input-small", :id => "select_category" } %>
    </div> 
   </br></br>  </br></br>
   <div class="actions">
-    <%= f.submit 'create', :class => "btn primary" %>
+    
 <%= link_to 'Back', products_path, :class => "btn info" %>
+<%= f.submit 'Create', :class => "btn-primary" %>
   </div>
 
 <% end %>

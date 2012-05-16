@@ -7,6 +7,7 @@ $(document).ready(function() {
 //   $('.colors').extremes({
 // diameter: 50
 // });
+   
 
   $('div.items_input_fields input').live('keypress', function() {
 //	alert("keypress");
@@ -19,11 +20,17 @@ $(document).ready(function() {
     if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
     $('#new_bill').submit();
     event.preventDefault();
+    window.print();
     return false;
 });
 
   
-
+   $(window).keypress(function(event) {
+    if (!(event.which == 112 && event.ctrlKey) && !(event.which == 16)) return true;
+   
+    window.print();
+    return false;
+});
 
  /* $('div.items_input_fields input.item_rate').live('keypress',function() {
        var $rate = parseInt($(this).val(), 10);

@@ -3,8 +3,8 @@
   <div class="items_input_fields" >
     <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name", :size => "#product_size", :category => "#product_metric"+rand_number }, :class => "input-small" %> 
  
-  <%= text_field_tag :product_name,nil, :placeholder => "Product Name", :class => "input-small item_product_name", :id => "product_name", :readonly => "true" %>
-  <%= text_field_tag :product_size, nil, :placeholder => "Size", :class => "input-small", :id => "product_size", :readonly => "true" %>
+  <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-small item_product_name", :id => "product_name", :readonly => "true" %>
+  <%= f.text_field :product_size,  :placeholder => "Size", :class => "input-small", :id => "product_size", :readonly => "true" %>
     <% unless f.object.nil? || f.object.new_record? %>
       <%= f.label :_destroy, 'Remove:', :class => "input-small" %>
       <%= f.check_box :_destroy %>
@@ -16,9 +16,9 @@
     
     <%= f.text_field :length, :id => "item_length" + rand_number, :placeholder =>"Length", :class => "input-small item_length", :data => { :rate_id => "item_rate" + rand_number, :amount_id =>  "item_amount" + rand_number, :metric_id =>"product_metric"+rand_number  }  %> 
       
-    <%= f.text_field :no, :placeholder =>"No", :class => "input-small", :id => "item_no"  %> 
+    <%= f.text_field :no, :placeholder =>"No", :class => "input-small item_no", :id => "item_no"  %> 
         
-    <%= text_field_tag :total_amount, nil, :placeholder =>"Total Amount", :class => "input-small item_amount", :id => "item_amount" + rand_number %> 
+    <%= text_field_tag :total_amount, nil, :placeholder =>"Total Amount", :class => "input-small item_amount", :id => "item_amount" + rand_number, :readonly => "true" %> 
     
     <%= hidden_field_tag :metric, nil, :class => "input-small", :id => "product_metric"+rand_number %>
 

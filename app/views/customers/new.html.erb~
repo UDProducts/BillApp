@@ -1,0 +1,5 @@
+<div class = 'well form_cust form-inline custform_center'><center><h1>New customer</h1></center>
+
+<%= render 'form' %>
+
+
