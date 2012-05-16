@@ -1,3 +1,5 @@
+<% if @customers.count > 0 %>
+
 <h1>Listing customers</h1>
 
 <table>
@@ -26,4 +28,15 @@
 
 <br />
 
+<% else %>
+
+  <div class="empty_area">
+    <%= image_tag "empty.jpg" %>
+    <span class="empty_message">
+      This place seems to be empty.. go to new and add something
+    </span>
+  </div>
+<% end %>
+
 <%= link_to 'New Customer', new_customer_path %>
+

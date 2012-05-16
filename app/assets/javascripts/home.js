@@ -1,7 +1,8 @@
 
 $(document).ready(function(){
-// $('.colors').extremes({
-// diameter: 50
-// });
-
+  $("#signin_modal").modal({
+    backdrop: false,
+    keyboard: false,
+    show: true
+  });
 });

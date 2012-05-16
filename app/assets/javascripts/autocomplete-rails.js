@@ -128,4 +128,3 @@ $("#bills_search_box").keyup(function() {
 });
 
 
-$('.dropdown-toggle').dropdown()
