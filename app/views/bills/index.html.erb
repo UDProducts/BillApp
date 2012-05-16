@@ -1,8 +1,11 @@
 
 <% if @bills.count > 0 %>
 
+<%= link_to "Today Bills", 
 <%= form_tag bills_path, :method => 'get', :id => "bills_search_form", :class => "search_box" do %>
-        
+
+
+
  <%= text_field_tag :search, params[:search], :placeholder => "Royal Search", :id => "bills_search_box", :class => "search_field" %><%= link_to 'New Bill', new_bill_path , :class => "btn btn-primary pull-right" %>
  <% end %>
 <br />

@@ -20,4 +20,23 @@ a:link:after, a:visited:after {content:" (" attr(href) ")";font-size:90%;}
 .dontprint {display: none}
 
 form#showbill {background: none; box-shadow: none; border: none; border-radius: none}
+
+table.table-striped.table-bordered.table-condensed { box-shadow: none; background: none; border-top: 2px solid #F0F8FF; border-bottom: 2px solid #F0F8FF; border-left: none; border-right: none; border-radius: none; }
+table.table-striped.table-bordered.table-condensed thead { box-shadow: none;  background: none;}
+table.table-striped.table-bordered.table-condensed thead tr{ box-shadow: none;  background: none; }
+table.table-striped.table-bordered.table-condensed thead tr th{ box-shadow: none;  background: none; padding: 10px;}
+table.table-striped.table-bordered.table-condensed thead:first-child tr:first-child th:first-child { box-shadow: none; background: none; border-right: none; border-left: none; border-radius: none;}
+table.table-striped.table-bordered.table-condensed thead:first-child tr:first-child { box-shadow: none; background: none; border-right:none; border-left: none; border-radius: none;}
+table.table-striped.table-bordered.table-condensed thead tr td:first-child { box-shadow: none; background: white; border-right: none; border-left: none; border-radius: none;}
+table.table-striped.table-bordered.table-condensed tbody { box-shadow: none; background: white; border-right: 1px solid #f0f8ff; border-left: 1px solid #f0f8ff; border-radius: none;}
+
+.hide.print { display: inline;} 
+
+#store_contacts { margin-bottom: 15px; }
+
+span#thankyou { display: block; background: black;}
+
+span#showcode { float:right; }
+
+span#billdate { float:left; }
 }

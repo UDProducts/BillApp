@@ -17,6 +17,7 @@ class Bill < ActiveRecord::Base
   end
  end 
 
+  scope :today, lambda { where('created_at = ?', Time.zone.now) }
 
   def customer_name
     customer.name if customer

@@ -1,14 +1,28 @@
 <center><%= form_for @bill , :html => { :class => 'well form-inline',:id =>'showbill'} do |f|  %>
-<p>
-  <h2 id="store_name">Royal Woods</h2> </p>
+  <p class="hide print">
+    <h2 class="hide print" id="store_name">Royal Woods</h2>
+  </p>
+
+  <p class="hide print">
+    <h4 class="hide print" id="stor_address"> No. 32/6, M.T.H. Road, Thirumullaivoyal, <br />Chennai - 600 062 </h4>
+  </p>
+
+  <p class="hide print">
+    <span class="hide print" id="store_contacts">Phone: 9840132810, 9840336783<br /><br /></span> 
+  </p>
+
+  <p class="hide print">
+    <span class="hide print" id="bill_type">Memo/Quotation<br /></span>
+  </p>
 
   <p>
    
-  <b><%= @bill.created_at.strftime("%a, %d %b %Y") %></b>
+  <span id="billdate"><b><%= @bill.created_at.strftime("%a, %d %b %Y") %></b></span>
   
   <span id="showcode"><b>Code: <%= @bill.code %></b></span>
   
   <span id="customername"><b><%= @bill.customer_name %></b></span>
+  <br />
   </p>
   <table class="table table-striped table-bordered table-condensed">
   <thead>
@@ -55,19 +69,19 @@
   </br>
 
   <b id="advance">Balance:
-  <%= @bill.balance %></b>
+    <%= @bill.balance %></b>
 
   </div>
 
-<span class="noprint"><%= link_to 'Edit', edit_bill_path(@bill) %> |
+<span class="dontprint"><%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %>|
 <%= link_to 'New', new_bill_path %></span></br></br></br></br>
 
- <div class="bill_buttons">
+ <div class="dontprint bill_buttons">
     <%= submit_tag "Print", :class => "btn dontprint", :onClick => "window.print()" %>
     <%= submit_tag "Save", :class => "btn-primary dontprint" %>
  </div>
 
-
 <% end %>
+  <span class="hide print" id="thankyou">Thank You!<br/>Visit Again!!</span>
 </center>
