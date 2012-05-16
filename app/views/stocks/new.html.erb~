@@ -1,0 +1,5 @@
+<div class = 'well form_stoc form-inline stocform_center'><center><h1>New Stock</h1></center>
+
+<%= render 'form' %>
+</div>
+

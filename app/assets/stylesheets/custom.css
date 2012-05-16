@@ -66,6 +66,18 @@ select,
  
  
  }
+.form_prod.form-inline{
+ display: block;
+ 
+ 
+ }
+.form_cust.form-inline{
+display: block;
+}
+
+.form_stoc.form-inline{
+display: block;
+}
 
 .field{
  display: inline-block;
@@ -235,9 +247,9 @@ border-spacing:21px;
 .pagination{
   float:right;
 }
-form#showbill {
+form#showbill{
 width: 836px;
-margin-left:-78px;
+margin-left:auto;
 margin-right:auto;
 }
 #select_category {
@@ -245,7 +257,6 @@ margin-right:auto;
     width: 60px;
     padding: 7px;
 }
-
 #error_explanation{
 float:right;
 }
@@ -267,4 +278,25 @@ float:left;
 
 .dontprint{
 float:left;
+}
+
+.form_center
+{
+margin-left:auto;
+margin-right:auto;
+width:415px;
+}
+
+.custform_center
+{
+margin-left:auto;
+margin-right:auto;
+width:600px;
+}
+.stocform_center
+{
+margin-left:auto;
+margin-right:auto;
+width:600px;
+
 }

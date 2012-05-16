@@ -13,10 +13,10 @@
 
   <div class="customer_inputs">
     
-    <%= f.text_field :name, :placeholder => " Name", :class => "input-small" %>
-    <%= f.text_field :address, :placeholder => " Address" %>
-    <%= f.text_field :phoneno, :placeholder => " Phone", :class => "input-small" %> 
-    <%= f.text_field :email, :placeholder => " Email", :class => "input-small" %>
+    <%= f.text_field :name, :placeholder => "Customer Name", :class => "input-small" %>
+    <%= f.text_field :address, :placeholder => "Customer Address" %>
+    <%= f.text_field :phoneno, :placeholder => "Customer Phone", :class => "input-small" %> 
+    <%= f.text_field :email, :placeholder => "Customer Email", :class => "input-small" %>
   </div>
   </br></br>  </br></br>
 <div class="actions">
