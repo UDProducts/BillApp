@@ -6,7 +6,11 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Kaminari.paginate_array(Bill.scoped.order("created_at DESC").search(params[:search])).page(params[:page]).per(6)
+    if params[:from_date] && params[:to_date]
+      @bills = Kaminari.paginate_array(Bill.order("created_at DESC").where(:created_at => Date.parse(params[:from_date]).midnight..Date.parse(params[:to_date]).midnight)).page(params[:page]).per(6)
+    else
+      @bills = Kaminari.paginate_array(Bill.order("created_at DESC").search(params[:search])).page(params[:page]).per(6)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
