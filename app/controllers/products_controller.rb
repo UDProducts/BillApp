@@ -12,13 +12,16 @@ autocomplete :product, :code, :extra_data => [:name, :size, :category]
   # GET /products.json
   def index
     
-    #@products = Product.order("created_at DESC").page(params[:page]).search(params[:search])
-     @products = Kaminari.paginate_array(Product.order("created_at DESC").search(params[:search])).page(params[:page]).per(5)
+   if params[:from_date] && params[:to_date]
+      @products = Kaminari.paginate_array(Product.order("created_at DESC").where(:created_at => Date.parse(params[:from_date]).midnight..Date.parse(params[:to_date]).midnight)).page(params[:page]).per(6)
+    else
+      @products = Kaminari.paginate_array(Product.order("created_at DESC").search(params[:search])).page(params[:page]).per(6)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.js
-    end
-  end
+    end  end
 
   # GET /products/1
   # GET /products/1.json

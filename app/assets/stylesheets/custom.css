@@ -190,7 +190,10 @@ div.bill_final_inputs div.total_amount #balance{
 
 div.well.items_area div.items_input_fields {
   margin: 3px;
+  
 }
+
+
 
 form#new_bill div.bill_final_inputs input {
   float: right;

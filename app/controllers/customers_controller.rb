@@ -2,11 +2,15 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    if params[:from_date] && params[:to_date]
+      @customers = Kaminari.paginate_array(Customer.order("created_at DESC").where(:created_at => Date.parse(params[:from_date]).midnight..Date.parse(params[:to_date]).midnight)).page(params[:page]).per(6)
+    else
+@customers = Kaminari.paginate_array(Customer.order("created_at DESC").search(params[:search])).page(params[:page]).per(6)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @customers }
+      format.js
     end
   end
 
@@ -44,7 +48,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to new_customer_path, notice: 'Customer was successfully created.' }
         format.json { render json: @customer, status: :created, location: @customer }
       else
         format.html { render action: "new" }
