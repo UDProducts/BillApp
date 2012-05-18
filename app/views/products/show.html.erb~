@@ -6,13 +6,8 @@
 </p>
 
 <p>
-  <b>Size1:</b>
-  <%= @product.size1 %>
-</p>
-
-<p>
-  <b>Size2:</b>
-  <%= @product.size2 %>
+  <b>Size:</b>
+  <%= @product.size %>
 </p>
 
 <p>

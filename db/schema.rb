@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120517102234) do
+ActiveRecord::Schema.define(:version => 20120518075210) do
 
   create_table "bills", :force => true do |t|
     t.string   "code"
@@ -52,11 +52,12 @@ ActiveRecord::Schema.define(:version => 20120517102234) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "size"
     t.string   "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "category"
+    t.integer  "size1"
+    t.integer  "size2"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

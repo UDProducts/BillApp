@@ -22,7 +22,7 @@
 
     <%= f.text_field :size1, :placeholder => "Dimensions", :class => "input-small" %>
     
-    <%= f.text_field :size2, :placeholder => "Dimensions", :class => "input-small" %>
+    <%= f.text_field :size1, :placeholder => "Dimensions", :class => "input-small" %>
    </div> 
   </br></br>  </br></br>
   <div class="actions">

@@ -101,13 +101,14 @@ $(document).ready(function() {
         //alert($metric);
         switch($metric)
          {
-          case 0 :alert("Wood");
+          case 0 :alert("cft");
                    break;
-          case 1 :alert("Plywood");
+          case 1 :alert("feet");
 		     break;	
-          case 2 :alert("Bedding");
+          case 2 :alert("mm");
                    break;
-	  
+	   case 3 :alert("sqft");
+                   break;
          }
 
         if(isNaN($rate*$length)) {
