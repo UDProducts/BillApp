@@ -1,7 +1,5 @@
 <% if @customers.count > 0 %>
 
-<%= link_to "Today Customers", customers_path(:from_date => (Time.zone.today - 1), :to_date => Time.zone.today)%> 
-<%= link_to "All", customers_path %>
 <%= form_tag customers_path, :method => 'get', :id => "customers_search_form", :class => "search_box" do %>
 
 
@@ -11,7 +9,7 @@
   </div>
   <div class="span6 pull-right">
     <div class="btn-group pull-right" data-toggle="buttons-radio"> 
-      <%= link_to "All", customers_path, :class=>"btn", :remote => true %>
+      <%= link_to raw('<i class="icon-th-large"></i>'), customers_path, :class=>"btn", :remote => true, :rel => "tooltip", :data => { :original_title => "Show All" }%>
       <%= link_to "Today", customers_path(:from_date => (Time.zone.today - 1), :to_date => Time.zone.today), :class => "btn", :remote => true %> 
       <%= link_to "Yesterday", customers_path(:from_date => (Time.zone.today - 2), :to_date => Time.zone.today - 1), :class => "btn", :remote => true %> 
       <%= link_to "Week", customers_path(:from_date => (Time.zone.today.at_beginning_of_week), :to_date => Time.zone.today.at_end_of_week), :class => "btn", :remote => true %> 
@@ -19,14 +17,10 @@
     </div>
   </div>
   <div class="span2 last">
-    <%= link_to 'New Bill', new_bill_path , :class => "btn btn-primary pull-right" %>
+    <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Customer'), new_customer_path , :class => "btn btn-primary pull-right" %>
   </div>
  <% end %>
 </div>
-
-
-<h1>Listing customers</h1>
-
 <table class="table table-striped">
   <tr>
     <th>Name</th>

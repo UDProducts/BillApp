@@ -19,7 +19,7 @@
 
     <%= f.text_field :code, :placeholder => "Code", :class => "input-small" %>
     
-    <%= f.select :category, options_for_select([["cft", "0"], ["feet","1"],["mm","2"],["sqft","3"]]), { :selected => "mm" }, { :class => "input-small", :id => "select_category" } %>
+    <%= f.select :category, options_for_select([["Type-Wood", "0"], ["Type-Plywood","1"],["Type-Bedding","2"]]), { :selected => "mm" }, { :id => "select_category" } %>
    </div> 
   </br></br>  </br></br>
   <div class="actions">

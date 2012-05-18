@@ -257,7 +257,7 @@ margin-right:auto;
 }
 #select_category {
     height: 35px;
-    width: 60px;
+    width: 117px;
     padding: 7px;
 }
 #error_explanation{
@@ -290,6 +290,19 @@ margin-right:auto;
 width:415px;
 }
 
+.prodform_center
+{
+margin-left:auto;
+margin-right:auto;
+width:600px;
+}
+.product_inputs
+{
+width:553px;
+margin-left:auto;
+margin-right:auto;
+
+}
 .custform_center
 {
 margin-left:auto;
