@@ -27,7 +27,7 @@ class Item < ActiveRecord::Base
  end
   
   def product_size1=(size1)
-   self.product= Product.find_by_size(size1) unless size1.blank?
+   self.product= Product.find_by_size1(size1) unless size1.blank?
   end
   
  def product_size2
@@ -35,7 +35,7 @@ class Item < ActiveRecord::Base
  end
   
   def product_size2=(size2)
-   self.product= Product.find_by_size(size2) unless size1.blank?
+   self.product= Product.find_by_size2(size2) unless size2.blank?
   end
   
  def product_category
