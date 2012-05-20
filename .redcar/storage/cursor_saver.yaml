@@ -54,37 +54,37 @@ cursor_positions:
   - :path: app/assets/javascripts/autocomplete-rails.js
     :cursor_offset: 0
     :timestamp: 2012-04-26 18:20:48 +05:30
-  - :path: app/views/bills/_item_fields.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-04-27 16:57:19 +05:30
-  - :path: app/views/home/index.html.erb
-    :cursor_offset: 1822
-    :timestamp: 2012-04-30 15:26:22 +05:30
-  - :path: app/assets/javascripts/application.js
-    :cursor_offset: 0
-    :timestamp: 2012-05-02 10:07:43 +05:30
-  - :path: app/assets/javascripts/bills.js
-    :cursor_offset: 0
-    :timestamp: 2012-05-02 10:05:02 +05:30
   - :path: app/views/bills/_form.html.erb
     :cursor_offset: 0
-    :timestamp: 2012-04-27 17:29:22 +05:30
+    :timestamp: 2012-05-19 05:26:05 +05:30
   - :path: db/seeds.rb
-    :cursor_offset: 342
-    :timestamp: 2012-03-17 00:54:00 +05:30
+    :cursor_offset: 0
+    :timestamp: 2012-05-19 05:26:05 +05:30
+  - :path: app/assets/javascripts/application.js
+    :cursor_offset: 0
+    :timestamp: 2012-05-19 05:26:05 +05:30
+  - :path: app/views/home/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-05-19 05:26:05 +05:30
   - :path: app/assets/javascripts/home.js
-    :cursor_offset: 73
-    :timestamp: 2012-04-30 15:28:01 +05:30
+    :cursor_offset: 0
+    :timestamp: 2012-05-19 05:26:05 +05:30
   - :path: app/views/layouts/application.html.erb
     :cursor_offset: 0
-    :timestamp: 2012-05-02 13:03:28 +05:30
+    :timestamp: 2012-05-19 05:26:05 +05:30
   - :path: app/views/bills/_bills.html.erb
-    :cursor_offset: 224
-    :timestamp: 2012-04-30 16:12:28 +05:30
+    :cursor_offset: 0
+    :timestamp: 2012-05-19 05:26:05 +05:30
   - :path: app/assets/stylesheets/custom.css
     :cursor_offset: 0
-    :timestamp: 2012-05-02 13:04:30 +05:30
+    :timestamp: 2012-05-19 05:26:05 +05:30
   - :path: app/assets/stylesheets/application.css
     :cursor_offset: 0
-    :timestamp: 2012-05-02 10:07:53 +05:30
+    :timestamp: 2012-05-19 05:26:05 +05:30
+  - :path: app/assets/javascripts/bills.js
+    :cursor_offset: 1067
+    :timestamp: 2012-05-19 06:38:53 +05:30
+  - :path: app/views/bills/_item_fields.html.erb
+    :cursor_offset: 1398
+    :timestamp: 2012-05-19 06:15:30 +05:30
 files_to_retain: 0
