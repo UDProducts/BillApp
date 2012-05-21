@@ -134,11 +134,6 @@ display: block;
 div.well.items_area {
   margin-top: 25px;
 }
-div.bill_final_inputs div.total_amount #bill_amount{
-  margin: 4px;
-  margin-top: 0px;
-  
-}
 div.bill_final_inputs div.total_amount #amount{
  margin: 4px;
  margin-top: 0px;
@@ -150,8 +145,8 @@ div.bill_final_inputs div.total_amount #amount{
 float: right;
 }
 div.bill_final_inputs #bill_advance{
-  margin-top: 3px;
-  margin-right: -105px;
+  margin-top: -11px;
+  margin-right: -445px;
   
 }
 div.bill_final_inputs div.total_amount #vat{
@@ -166,7 +161,7 @@ div.bill_final_inputs div.total_amount #vat{
 
 div.bill_final_inputs #bill_balance{
   margin-top: 6px;
-  margin-right: 2px;
+  margin-right: -447px;
   
 }
 div.bill_final_inputs div.total_amount #advance{
@@ -186,6 +181,17 @@ div.bill_final_inputs div.total_amount #balance{
   
 }
 
+#bill_amount{
+float:right;
+margin-top:3px;
+ margin-right:-409px;
+}
+
+#bill_vat{
+float:right;
+margin-top:3px;
+margin-right:-279px;
+}
 
 
 div.well.items_area div.items_input_fields {
@@ -317,12 +323,35 @@ width:600px;
 
 }
 @font-face { font-family: "WebRupee"; font-style: normal; font-weight: normal; src: local("WebRupee"), url("http://cdn.webrupee.com/WebRupee.V2.0.ttf") format("truetype"), url("http://cdn.webrupee.com/WebRupee.V2.0.woff") format("woff"), url("http://cdn.webrupee.com/WebRupee.V2.0.svg") format("svg"); } 
-.WebRupee { font-family: 'WebRupee'; float:right;margin-right:-215px;margin-top:16px;} 
+.WebRupee { font-family: 'WebRupee'; float:right;margin-right:-215px;margin-top:16px;color:brown;} 
 
 .WebRupeeAdvance{
-font-family: 'WebRupee'; float:right;margin-right:-117px;margin-top:18px;
+font-family: 'WebRupee'; float:right;margin-right:-117px;margin-top:18px;color:brown;
 }
 
-.WebRupeeBalance{
-font-family: 'WebRupee'; float:right;margin-right:-112px;margin-top:22px;
+.add-on.WebRupee.Total{
+margin-right:-309px;
+margin-top:3px;
+height:25px;
+vertical-align:right;
+float:right;
+width:auto;
+
+}
+.add-on.WebRupee.Advance{
+height:25px;
+margin-top:-11px;
+margin-right:-349px;
+vertical-align:right;
+float:right;
+width:20px;
+}
+
+.add-on.WebRupee.Balance{
+height:25px;
+margin-top:6px;
+margin-right:-349px;
+vertical-align:right;
+float:right;
+width:20px;
 }

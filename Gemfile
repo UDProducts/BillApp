@@ -14,7 +14,7 @@ gem 'rails3-jquery-autocomplete'
 #gem 'sqlite3'
 group :development, :test do
   gem 'sqlite3'
-  gem 'redcar'  
+  
 end
 group :production do
 #  gem 'pg'
@@ -59,3 +59,7 @@ gem 'jquery-datatables-rails',:git => 'git://github.com/rweng/jquery-datatables-
 gem 'kaminari'
 
 gem 'simplecov', :require => false, :group => :test
+#gem 'jruby-openssl'
+
+
+

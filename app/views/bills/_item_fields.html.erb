@@ -9,20 +9,21 @@
   <%= f.text_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1"+rand_number, :readonly => "true" %>
   
   <%= f.text_field :product_size2,  :placeholder => "Size2", :class => "input-small", :id => "product_size2"+rand_number, :readonly => "true" %>
-   
-  <%= f.text_field :length, :id => "item_length" + rand_number, :placeholder =>"Length", :class => "input-small item_length", :data => { :rate_id => "item_rate" + rand_number, :amount_id =>  "item_amount" + rand_number, :metric_id =>"product_metric"+rand_number, :size1_id => "product_size1"+rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  }  %> 
   
   <%= f.text_field :sold_qty, :placeholder => "Sold Quantity", :class => "input-small",:id =>"sold_qty"+rand_number  %> 
   
   <%= f.text_field :rate, :id => "item_rate" + rand_number, :placeholder => "Rate", :class => "input-small item_rate", :data => { :length_id => "item_length" + rand_number, :amount_id =>  "item_amount" + rand_number, :metric_id =>"product_metric"+rand_number, :size1_id => "product_size1"+rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  } %> 
+ 
+  <%= f.text_field :length, :id => "item_length" + rand_number, :placeholder =>"Length", :class => "input-small item_length", :data => { :rate_id => "item_rate" + rand_number, :amount_id =>  "item_amount" + rand_number, :metric_id =>"product_metric"+rand_number, :size1_id => "product_size1"+rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  }  %> 
   
+    
   <%= text_field_tag :total_amount, nil, :placeholder =>"Total Amount", :class => "input-small item_amount", :id => "item_amount" + rand_number %> 
   
   <%= hidden_field_tag :metric, nil, :class => "input-small", :id => "product_metric"+rand_number %>
   
   <span id="metric"></span>
   
-  <%= link_to_remove_fields raw("<i class='icon-remove close_item'>  </i>"), f %>
+ <a id="remove"> <%= link_to_remove_fields raw("<i class='icon-remove close_item'>  </i>"), f %></a>
 
 </div>
 
