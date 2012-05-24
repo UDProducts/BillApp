@@ -1,53 +1,13 @@
 var olds=new Array();
+var oldids=new Array();
 function remove_fields(link) {
- /*if(typeof x=='undefined')
-  x=1;
-  else
-  x++;
-  alert(x);
-  
-  if($index>x)
-     {$index=$index-x+1;}
-  else
-     {$index=$index;}
-  
-  alert($index);*/
-  //alert($('#remove').attr("onclick"));
-  var $index=$(link).closest("div").index();
-  if(typeof x=='undefined')
-  x=0;
-  else
-  x++;
-   olds[x]=$index;
-  $(link).prev("input[type=hidden]").val("0");
-
-  $(link).closest(".items_input_fields").hide();
-   
-  $('input#bill_amount').val($('div.items_input_fields input.item_amount').netValues($index,olds));
+ //alert($(link).prev("input[type=hidden]").val());
+ $(link).prev("input[type=hidden]").val("1");
+ 
+$(link).closest(".items_input_fields").hide();
+$(link).prev().prev().prev().prev().prev("input[type=text]").val('0'); 
+$('input#bill_amount').val($('div.items_input_fields input.item_amount').sumValues());
 }
-
-$.fn.netValues = function($index,olds) {
-//        alert(olds.length);
-  	var sum = 0; 
-        var i=0;
-  	this.each(function() {
-
-      if ( $(this).is(':input') && (i==$index || jQuery.inArray(i,olds)==0)) {//alert("Remove"+i+"element");
-  			var val = 0;
-  		}
-      else if ( $(this).is(':input') &&jQuery.inArray(i,olds)==-1) {
-  			var val = $(this).val();
-  		}
-      else {
-  	    var val = $(this).text();
-  	   }
-  		sum += parseFloat( ('0' + val).replace(/[^0-9-\.]/g, ''), 10 );
-               i++;
-  	});
-        //alert("i=="+i);
-       // alert(sum);
-  	return sum;
-  };
 
 $(document).ready(function() {
 
