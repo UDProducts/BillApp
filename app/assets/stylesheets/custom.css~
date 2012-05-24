@@ -300,11 +300,11 @@ width:415px;
 {
 margin-left:auto;
 margin-right:auto;
-width:600px;
+width:790px;
 }
 .product_inputs
 {
-width:553px;
+width:790px;
 margin-left:auto;
 margin-right:auto;
 
@@ -319,7 +319,7 @@ width:600px;
 {
 margin-left:auto;
 margin-right:auto;
-width:600px;
+width:665px;
 
 }
 @font-face { font-family: "WebRupee"; font-style: normal; font-weight: normal; src: local("WebRupee"), url("http://cdn.webrupee.com/WebRupee.V2.0.ttf") format("truetype"), url("http://cdn.webrupee.com/WebRupee.V2.0.woff") format("woff"), url("http://cdn.webrupee.com/WebRupee.V2.0.svg") format("svg"); } 
@@ -336,7 +336,7 @@ height:25px;
 vertical-align:right;
 float:right;
 width:auto;
-
+color:brown;
 }
 .add-on.WebRupee.Advance{
 height:25px;
@@ -345,6 +345,7 @@ margin-right:-349px;
 vertical-align:right;
 float:right;
 width:20px;
+color:brown;
 }
 
 .add-on.WebRupee.Balance{
@@ -354,4 +355,5 @@ margin-right:-349px;
 vertical-align:right;
 float:right;
 width:20px;
+color:brown;
 }

@@ -44,7 +44,7 @@ $.fn.netValues = function($index,olds) {
   		sum += parseFloat( ('0' + val).replace(/[^0-9-\.]/g, ''), 10 );
                i++;
   	});
-        alert("i=="+i);
+        //alert("i=="+i);
        // alert(sum);
   	return sum;
   };

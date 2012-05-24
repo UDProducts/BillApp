@@ -7,17 +7,19 @@
     <th></th>
     <th>Dimensions</th>
     <th></th>
-    <th></th>
+    <th>Quantity</th>
     <th></th>
   </tr>
 
 <% @products.each do |product| %>
   <tr>
-    <td><%= product.name %></td>
+    
     <td><%= product.code %></td>
+    <td><%= product.name %></td>
     <td></td>
     <td><%= product.size1 %></td>
     <td><%= product.size2 %></td>
+    <td><%= product.stock.quantity %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
     <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>

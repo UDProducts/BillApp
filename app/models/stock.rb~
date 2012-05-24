@@ -3,7 +3,7 @@ belongs_to :product
 
 def self.search(search)
   if search
-    find(:all,:conditions => ['cost LIKE ? OR quantity LIKE ? OR created_at LIKE ?', ["%#{search}%"]*3].flatten)
+    find(:all, :include => :stock, :conditions => ['cost LIKE ? OR quantity LIKE ? OR created_at LIKE ?', ["%#{search}%"]*3].flatten)
   else
     find(:all)
   end

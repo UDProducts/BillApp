@@ -14,7 +14,7 @@
 
     <div align="center" class="cust_inputs">
 
-      <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name", :size1 => "#product_size1", :size2 => "#product_size2", :category => "#product_metric"+rand_number }, :class => "input-small" %> 
+      <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name", :size => "#product_size1", :size => "#product_size2", :category => "#product_metric"+rand_number }, :class => "input-small" %> 
  
   <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-small item_product_name", :id => "product_name", :readonly => "true" %>
   <%= f.text_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1", :readonly => "true" %>

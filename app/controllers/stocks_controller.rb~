@@ -47,7 +47,7 @@ if params[:from_date] && params[:to_date]
   # POST /stocks.json
   def create
     @stock = Stock.new(params[:stock])
-    @quantity=Stock.where(:product_id => @stock.product_id).pluck('quantity').last
+    @quantity=Stock.where(:product_id => params[:product_id]).pluck('quantity').last
     @stock.quantity= @stock.quantity+@quantity
     respond_to do |format|
       if @stock.save

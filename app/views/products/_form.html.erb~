@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <div align="center" class="product_inputs">
+  <div class=" well product_inputs">
     
     <%= f.select :category, options_for_select([["Type-Wood", "0"], ["Type-Plywood","1"],["Type-Bedding","2"]]), { :selected => "mm" }, { :id => "select_category" } %>
 
@@ -22,7 +22,12 @@
 
     <%= f.text_field :size1, :placeholder => "Dimensions", :class => "input-small" %>
     
-    <%= f.text_field :size1, :placeholder => "Dimensions", :class => "input-small" %>
+    <%= f.text_field :size2, :placeholder => "Dimensions", :class => "input-small" %>
+  
+    <%= f.fields_for :stocks do |fi| %>
+     <%= render 'stock_fields', :f => fi %>
+    <% end %>
+
    </div> 
   </br></br>  </br></br>
   <div class="actions">

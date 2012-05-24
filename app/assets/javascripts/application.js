@@ -19,8 +19,6 @@
 //= require autocomplete-rails
 //= require best_in_place
 //= require twitter/bootstrap
-//= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap
 //= require bills
 //= require dynasearch
 //= require extremes

@@ -10,8 +10,8 @@
   <div class="span6 pull-right">
     <div class="btn-group pull-right" data-toggle="buttons-radio"> 
       <%= link_to raw('<i class="icon-th-large"></i>'), stocks_path, :class=>"btn", :remote => true, :rel => "tooltip", :data => { :original_title => "Show All" }%>
-      <%= link_to "Today", stocks_path(:from_date => (Time.zone.today - 1), :to_date => Time.zone.today), :class => "btn", :remote => true %> 
-      <%= link_to "Yesterday", stocks_path(:from_date => (Time.zone.today - 2), :to_date => Time.zone.today - 1), :class => "btn", :remote => true %> 
+      <%= link_to "Today", stocks_path(:from_date => (Time.zone.today), :to_date => Time.zone.today+1), :class => "btn", :remote => true %> 
+      <%= link_to "Yesterday", stocks_path(:from_date => (Time.zone.today - 1), :to_date => Time.zone.today ), :class => "btn", :remote => true %> 
       <%= link_to "Week", stocks_path(:from_date => (Time.zone.today.at_beginning_of_week), :to_date => Time.zone.today.at_end_of_week), :class => "btn", :remote => true %> 
       <%= link_to "Month", stocks_path(:from_date => (Time.zone.today.at_beginning_of_month), :to_date => Time.zone.today.at_end_of_month), :class => "btn", :remote => true %> 
     </div>
@@ -21,33 +21,7 @@
   </div>
  <% end %>
 </div>
-
-<h1>Listing stocks</h1>
-
-<table class="table table-striped">
-  <tr>
-    <th>Product Code</th>
-    <th>Product Name</th>
-    <th>Quantity</th>
-    <th>Cost</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @stocks.each do |stock| %>
-  <tr>
-    <td><%= stock.product_code %></td> 
-    <td><%= stock.product_name %></td>
-    <td><%= stock.quantity %></td>
-    <td><%= stock.cost %></td>
-    <td><%= link_to 'Show', stock %></td>
-    <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-    <td><%= link_to 'Destroy', stock, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<div id="stocks_result"><%= render 'stocks' %></div>
 
 <% else %>
 

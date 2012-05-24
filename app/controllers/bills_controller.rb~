@@ -81,8 +81,8 @@ class BillsController < ApplicationController
        
          if
          @stock.quantity<0
-         raise ActiveRecord::Rollback, "Stock not available"
-          #@stock.save!
+         #raise ActiveRecord::Rollback, "Stock not available"
+          @stock.save!
          #format.html { redirect_to new_bill_path, notice: 'Quantity to be sold exceeds stock' }
          end
        
