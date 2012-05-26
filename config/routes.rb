@@ -10,7 +10,7 @@ BillApp::Application.routes.draw do
   resources :bills  do
     get :autocomplete_bill_code, :on => :collection
     get :autocomplete_bill_rate, :on => :collection 
-    
+       
   end
 
   
@@ -22,7 +22,7 @@ BillApp::Application.routes.draw do
 
 
   get "home/index"
-  
+  get "bills/nostock"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

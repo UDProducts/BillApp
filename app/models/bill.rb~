@@ -2,14 +2,12 @@ class Bill < ActiveRecord::Base
   
   belongs_to :customer
   has_many :items
-  has_many :stocks
   validates :items, :presence =>true
   validates :code,:presence => true
   
   
 
   accepts_nested_attributes_for :items, :allow_destroy => true
-  accepts_nested_attributes_for :stocks, :allow_destroy => true
 
   def self.search(search)
   if search

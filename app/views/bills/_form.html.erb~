@@ -10,7 +10,7 @@
   </div>
 
   <div class="bill_code">
-    <%= generate_bill_codespan  in %>
+    <%= generate_bill_code %>
     <%= f.hidden_field :code, :value => generate_bill_code %>
   </div>
   </br>
@@ -58,6 +58,9 @@
       <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
       <ul>
         <% @bill.errors.full_messages.each do |msg| %>
+          <% if msg=="Stocks quantity is not a number"%> 
+              msg=="Stock does not meet requirement"
+	  <% end %>
           <li ><%= msg %></li>
         <% end %>
       </ul>

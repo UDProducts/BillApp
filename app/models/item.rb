@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   belongs_to :bill
   belongs_to :product
   validates :sold_qty, :presence =>true
+  validates :product_id, :presence =>true
   validates :rate, :presence =>true
 
 

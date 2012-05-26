@@ -1,0 +1,4 @@
+class AddBillIdToStock < ActiveRecord::Migration
+  def change
+  end
+end

@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :bill
   belongs_to :product
-  validates :sold_qty, :presence =>true
+  validates :sold_qty, :presence =>true, :product_id, :presence =>true
   validates :rate, :presence =>true
 
 
@@ -26,10 +26,17 @@ class Item < ActiveRecord::Base
    product.size1 if product
  end
   
-  def product_size1=(size)
-   self.product= Product.find_by_size(size1) unless size.blank?
+  def product_size1=(size1)
+   self.product= Product.find_by_size1(size1) unless size1.blank?
   end
   
+ def product_size2
+   product.size2 if product
+ end
+  
+  def product_size2=(size2)
+   self.product= Product.find_by_size2(size2) unless size2.blank?
+  end
   
  def product_category
   product.category if product
