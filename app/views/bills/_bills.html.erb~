@@ -1,10 +1,37 @@
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  new Highcharts.Chart({
+            chart:{
+              renderTo:"income_chart"
+             },
+            title: {
+	      text:"Income by Day"
+            },
+            xAxis:{
+ 	      type:"datetime"
+            },
+            yAxis:{
+              title:{ 
+                    text:"Amount in Rupees"
+                   }
+           },
+           series: [{
+            pointInterval: <%= 1.day*1000 %>,
+	    pointStart: <%= 1.week.ago.to_i*1000 %>,
+	    //data: <%= (1.week.ago.to_date..Date.today).map{ |date| Bill.total_on(date).to_f}.inspect %>
+            data: <%= income_chart_series(bills,1.week.ago) %>
+          }]
+   });
+ });
+</script>
+<div id="income_chart" style="width:560px;height:300px;" onload="function" ></div>
 <table class="table table-striped">
   <tr>
     
     <th>Code</th>
     <th>Customer Name</th>
     <th>Items</th>
-    <th>Vat</th>
+    
     <th>Vatamt</th>
     <th>Amount</th>
     <th>Advance</th>

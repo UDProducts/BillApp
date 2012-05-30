@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def sortable(column, title=nil)
     title ||=column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil
@@ -16,6 +17,10 @@ module ApplicationHelper
     else
       Bill.last.id + 1001
     end
+  end
+
+  def rand_number
+   return Random.rand(1234342).to_s
   end
 
   def link_to_add_fields(name, f, association)

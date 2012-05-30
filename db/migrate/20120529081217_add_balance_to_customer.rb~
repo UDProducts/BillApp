@@ -1,0 +1,4 @@
+class AddBalanceToCustomer < ActiveRecord::Migration
+  def change
+  end
+end

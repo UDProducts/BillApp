@@ -21,7 +21,8 @@ autocomplete :product, :code, :extra_data => [:name, :size1, :size2, :category]
     respond_to do |format|
       format.html # index.html.erb
       format.js
-    end  end
+    end
+  end
 
   # GET /products/1
   # GET /products/1.json

@@ -47,6 +47,7 @@ class Item < ActiveRecord::Base
  self.product= Product.find_by_category(category) unless name.blank?
  end
 
+  
 
 
 end

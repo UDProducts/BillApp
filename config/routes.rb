@@ -5,7 +5,9 @@ BillApp::Application.routes.draw do
   end
   resources :stocks
 
-  resources :customers
+  resources :customers do
+   get :autocomplete_customer_phoneno, :on => :collection
+  end
 
   resources :bills  do
     get :autocomplete_bill_code, :on => :collection

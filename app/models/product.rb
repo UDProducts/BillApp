@@ -13,5 +13,7 @@ accepts_nested_attributes_for :stocks, :allow_destroy => true
   end
  end 
 
+ 
+
 
 end

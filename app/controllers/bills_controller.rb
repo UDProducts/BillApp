@@ -63,9 +63,12 @@ class BillsController < ApplicationController
   # POST /bills.json
   def create
     @bill = Bill.new(params[:bill])
-     if @bill
-       
-     end
+    
+    @customer=Customer.find_or_create_by_phoneno(params[:bill][:customer_phoneno])
+     #@customer=Customer.find_or_create_by_name(params[:bill][:code])
+    @customer.update_attributes(:name=>params[:bill][:customer_name],:balance=>params[:bill][:customer_dues])
+    # @customer.update_attributes(:name=>params[:bill][:customer_name],:balance=>params[:bill][:customer_dues])
+   # @bill.customer_dues(params[:bill][:customer_dues])
    #@bill = Bill.new(params[:id])
    # @bill.items.build
     #3.times { @bill.items.build }

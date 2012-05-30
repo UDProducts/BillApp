@@ -1,4 +1,4 @@
-<center><%= form_for @customer, :html => { :class => 'well form-inline'} do |f| %>
+<%= form_for @customer, :html => { :class => 'well form-inline'} do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -24,4 +24,4 @@
 <%= f.submit 'Create', :class => "btn-primary" %>
 </div>
 <% end %>
-</center>
+
