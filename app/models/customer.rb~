@@ -3,7 +3,7 @@ has_many :bills
 
 def self.search(search)
   if search
-    find(:all, :include => :customer, :conditions => ['amount LIKE ? OR code LIKE ? OR created_at LIKE ?', ["%#{search}%"]*3].flatten)
+    find(:all, :conditions => ['name LIKE ? OR email LIKE ? OR balance LIKE ? OR ADDRESS LIKE ? OR PHONENO LIKE ?', ["%#{search}%"]*5].flatten)
   else
     find(:all)
   end

@@ -5,8 +5,13 @@
     <%= Date.today.strftime("%a, %d %b %Y") %>
   </div>
 
+
+  <div class="bill_customer_phoneno">
+    <%= f.autocomplete_field :customer_phoneno, autocomplete_customer_phoneno_customers_path, :update_elements => { :name => "#customer_name", :balance => "#customer_dues" }, :placeholder => "Customer Phoneno", :class => "input-small dontprint" %>
+  </div>
+
   <div class="bill_customer_name">
-    <%= f.text_field :customer_name, :placeholder => "Customer Name", :class => "input-small dontprint" %>
+    <%= f.text_field :customer_name, :class =>"input-small", :id =>"customer_name" %>
   </div>
 
   <div class="bill_code">
@@ -27,12 +32,23 @@
          <span class="add-on WebRupee Total">Rs.</span>
       <%= f.text_field :amount, :placeholder => "Total Amount", :class => "input-small" %>
        
-      <%= f.text_field :vat, :placeholder => "Vat %", :class => "input-small" %>
-       </div> 
+      <%= f.text_field :vatamt, :placeholder => "Vat %", :class => "input-small" %>
+
+      <%= f.text_field :discount,:placeholder =>"Discount", :class => "input-small bill_discount", :id => "bill_discount"  %> 
+
+      </div> 
     </div>
 
     </br>
     </br>
+
+    <div class="input-prepend">
+    <span class="add-on WebRupee Net">Rs.</span>
+    <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small net_input" %>
+     </div>   
+    </br>
+    </br>
+
     
     <div class="input-prepend">
     <span class="add-on WebRupee Advance">Rs.</span>
@@ -40,6 +56,16 @@
      </div>   
     </br>
     </br>
+
+  
+   <div class="input-prepend">
+    <span class="add-on WebRupee Outs">Rs.</span>
+        <%= f.text_field :customer_dues, :placeholder => "Dues", :class => "input-small balance_input" , :id =>"customer_dues"%>
+   </div>
+ 
+    </br>
+    </br>
+
 
     <div class="input-prepend">
       <span class="add-on WebRupee Balance">Rs.</span>
@@ -58,9 +84,6 @@
       <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
       <ul>
         <% @bill.errors.full_messages.each do |msg| %>
-          <% if msg=="Stocks quantity is not a number"%> 
-              msg=="Stock does not meet requirement"
-	  <% end %>
           <li ><%= msg %></li>
         <% end %>
       </ul>

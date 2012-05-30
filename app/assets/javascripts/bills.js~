@@ -1,10 +1,9 @@
-var olds=new Array();
-var oldids=new Array();
+var x;
 function remove_fields(link) {
  //alert($(link).prev("input[type=hidden]").val());
  $(link).prev("input[type=hidden]").val("1");
  
- $(link).closest(".items_input_fields").hide();
+$(link).closest(".items_input_fields").hide();
 $(link).prev().prev().prev().prev().prev("input[type=text]").val('0'); 
 $('input#bill_amount').val($('div.items_input_fields input.item_amount').sumValues());
 }
@@ -28,54 +27,71 @@ $(document).ready(function() {
     return false;
   });
 
-  $('div.items_input_fields input.item_rate').live('keyup',function() {
-    var $rate = parseFloat($(this).val(), 10);
+  $('div.items_input_fields input.item_length').live('keyup',function() {
+    var $length = parseFloat($(this).val(), 10);
+    
+    var $rate_id = $(this).data("rate-id");
+   // var $rate = parseFloat($("#"+$rate_id).val(), 10);
+     var $rate = $(this).prev().val();
+    
     if(isNaN($rate)) {
       $rate = 1
     }
-    var inp = $('div.items_input_fields input');
-    var $index = inp.index($(this));
-    var $prev = $(this).prev().val();
-    var $size1_id = $(this).data("size1-id");
-    var $size1 = parseFloat($("#"+$size1_id).val(), 10);
-    var $size2_id = $(this).data("size2-id");
-    var $size2 = parseFloat($("#"+$size2_id).val(), 10);
-    var $length_id = $(this).data("length-id");
-    var $length = parseFloat($("#"+$length_id).val(), 10);
-    var $quantity_id = $(this).data("quantity-id");
-    var $quantity = parseFloat($("#"+$quantity_id).val(), 10);  
-    var $metric_id = $(this).data("metric-id");
-    var $metric = parseFloat($("#"+$metric_id).val(), 10);
-    var $amount_id = $(this).data("amount-id");
     
+    //var $size1_id = $(this).data("size1-id");
+    var $size1 =parseFloat($(this).prev().prev().prev().prev().val());
+    
+    var $size2_id = $(this).data("size2-id");
+    var $size2 = parseFloat($(this).prev().prev().prev().val());
+    
+    //var $length_id = $(this).data("length-id");
+    //var $length = parseFloat($("#"+$length_id).val(), 10);
+    var $quantity_id = $(this).data("quantity-id");
+    var $quantity = parseFloat($(this).prev().prev().val()); 
+    
+    var $metric_id = $(this).data("metric-id");
+    var $metric = parseFloat($(this).next().next().val()); 
+    
+    var $amount_id = $(this).data("amount-id");
+    /*alert("metric= "+$metric);
+    alert("rate= "+$rate);
+    alert("length= "+$length);
+    alert("size1= "+$size1);
+    alert("size2= "+$size2);
+    alert("quantity= "+$quantity);
+    alert("v = "+ ($length*$quantity/144)*$size1*$size2*$rate);*/
+    //alert("val="+(($length*$quantity)/144)*$size1*$size2*$rate));
     switch($metric)
     {
       case 0 :
         if(isNaN((($length*$quantity)/144)*$size1*$size2*$rate)) {
-          $("#"+$amount_id).val(0);
+          $(this).next().val(0);
         }else{
-          $("#"+$amount_id).val((($length*$quantity)/144)*$size1*$size2*$rate);
+          $(this).next().val((($length*$quantity)/144)*$size1*$size2*$rate).toFixed(2);
         }
         break;
       case 1 :
         if(isNaN($size1*$rate*$size2*$quantity)) {
-          $("#"+$amount_id).val(0);
+          $(this).next().val(0);
         }else{
-          $("#"+$amount_id).val($size1*$rate*$size2*$quantity);
+         $(this).next().val($size1*$rate*$size2*$quantity).toFixed(2);
         }
-		    break;	
+        break;	
       case 2 :
         if(isNaN($size1*$rate*$quantity)) {
-          $("#"+$amount_id).val(0);
+          $(this).next().val(0);
         }else{
-          $("#"+$amount_id).val($size1*$rate*$quantity);
+          $(this).next().val($size1*$rate*$quantity).toFixed(2);
         }
         break;
     }
 
+   alert ($(this).next().val()) ;
+$('input#bill_amount').val(parseFloat($('div.items_input_fields input.item_amount').sumValues()));
+
   });
 
-  $('div.items_input_fields input.item_length').live('keyup',function() {
+  /*$('div.items_input_fields input.item_length').live('keyup',function() {
     var $length = parseFloat($(this).val(), 10).toFixed(2);
     var $rate = parseFloat($(this).prev().val(),10).toFixed(2);
     var $amount_id = $(this).data("amount-id");
@@ -85,19 +101,61 @@ $(document).ready(function() {
     }else{
       $("#"+$amount_id).val(parseFloat($rate*$length).toFixed(2));
     }   
+  });*/
+$('div.items_input_fields input.item_vat').live('keyup',function() {
+    var $vat = $(this).val();
+    var $length_id = $(this).data("length-id");
+    var $length = parseFloat($("#"+$length_id).val(), 10);
+    var $rate_id = $(this).data("rate-id");
+    var $rate = parseFloat($("#"+$rate_id).val(), 10);
+    //alert($vat);
+    var $amount_id = $(this).data("amount-id");
+    var $amount = $("#"+$amount_id).val();
+    //alert($amount);
+    var $vatamt = parseFloat(($vat * $length *$rate)/100);
+    $(this).next().val($vatamt);
+     //alert(parseFloat($vatamt)+parseFloat($amount));
+    if(isNaN(parseFloat($vatamt)+parseFloat($length * $rate))) {
+      $("#"+$amount_id).val(0);
+    }else{
+      $("#"+$amount_id).val((parseFloat($vatamt)+parseFloat($length * $rate)).toFixed(2));
+    }   
   });
 
   $('input#bill_advance').live('keyup', function() {
     var $advance = parseFloat($('input#bill_advance').val(), 10).toFixed(2);
     var $amount = parseFloat($('input#bill_amount').val(), 10).toFixed(2);
-        
+    //var $dues = parseFloat($('input#customer_dues').val(), 10).toFixed(2);
+    
     if(isNaN($amount - $advance)) {
    	  parseFloat($('input#bill_balance').val(0)).toFixed(2);
     }else{
    	  ($('input#bill_balance').val(parseFloat($amount - $advance).toFixed(2)));
     }
-  });
+    
+  
+   });
 
+  $('input#bill_advance').live('keydown',function(e) {
+   var keyCode = e.keyCode || e.which; 
+
+  if (keyCode == 9) { 
+    e.preventDefault(); 
+    var $dues = parseFloat($('input#customer_dues').val()).toFixed(2);
+    alert($dues);
+    if(isNaN($dues)) {
+   	  parseFloat($('input#customer_dues').val($('input#bill_balance').val())).toFixed(2);
+    }else{
+   	  $('input#customer_dues').val((parseFloat($('input#bill_balance').val())+parseFloat($dues)));
+    }
+    
+    
+  } 
+  
+
+   });
+
+ 
   $('input#bill_vat').live('keyup', function() {
     $('input#bill_amount').val(parseFloat($('div.items_input_fields input.item_amount').sumValues()));
    // var $bill_amount = parseFloat($('input#bill_amount').val(), 10);
@@ -117,6 +175,17 @@ $(document).ready(function() {
     }
   });
 
+$('input#bill_discount').live('keyup', function() {
+    var $bill_amount = parseFloat($('input#bill_amount').val());
+    var $bill_discount = parseFloat($('input#bill_discount').val());
+    //alert($int_vamount + $bill_amount);
+    if(isNaN( $bill_amount - $bill_discount)) {
+     	$('input#bill_amount').val($bill_amount);
+    }else{
+    	$('input#bill_amount').val(parseFloat( $bill_amount - $bill_discount).toFixed(2));
+    }
+  });
+
   $.fn.sumValues = function() {
   	var sum = 0; 
   	this.each(function() {
@@ -131,12 +200,11 @@ $(document).ready(function() {
   };
 
 
-  $("input.item_no").live("keyup", function(e){
+  $("input.item_amount").live("keyup", function(e){
     var rand=Math.floor((Math.random()*100000)+1).toString();
-    if (e.which == 43 ||e.keyCode == 43 ) 
-    {
-      add_fields(this, "items", "\n  <div class=\"items_input_fields\" >\n    <input class=\"input-small\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name&quot;,&quot;size&quot;:&quot;#product_size&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"bill_items_attributes_new_items_product_code\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n <input class=\"input-small item_product_name\" id=\"product_name\" name=\"product_name\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size\" id=\"product_size\" name=\"product_size\" size=\"30\" type=\"text\" placeholder=\"Product Size\" readonly=\"readonly\" \/>\n\n <input class=\"input-small \" id=\"sold_qty\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" \/> <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_no\" id=\"item_no\" name=\"bill[items_attributes][new_items][no]\" placeholder=\"No\" size=\"30\" type=\"text\" /> \n        \n    <input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"total_amount\" placeholder=\"Total Amount\" type=\"text\" /> \n    \n    <input class=\"input-small\" id=\"product_metric"+rand+"\" name=\"metric\" type=\"hidden\" />\n\n    <span id=\"metric\"><\/span> <label class=\"input-small\" for=\"bill_items_attributes_new_items__destroy\">Remove:<\/label>\n      <input name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"0\" /><input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"checkbox\" value=\"1\" />  <\/div>"); return false;
-    }
+    if (e.which == 9 ||e.keyCode == 9 ) 
+    {  e.preventDefault();
+      add_fields(this, "items", "<div class=\"items_input_fields\" id=\"item_val\" >\n  \n  <input class=\"input-small\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name"+rand+"&quot;,&quot;size1&quot;:&quot;#product_size1"+rand+"&quot;,&quot;size2&quot;:&quot;#product_size2"+rand+"&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"product_code"+rand+"\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n <input class=\"input-small item_product_name\" id=\"product_name"+rand+"\" name=\"product_name"+rand+"\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size1\" id=\"product_size1"+rand+"\" name=\"product_size1"+rand+"\" size=\"30\" type=\"text\" placeholder=\"Product Size\" readonly=\"readonly\" \/>\n\n<input class=\"input-small item_product_size2\" id=\"product_size2"+rand+"\" name=\"product_size2"+rand+"\" size=\"30\" type=\"text\" placeholder=\"Product Size\" readonly=\"readonly\" \/>\n\n <input class=\"input-small \" id=\"sold_qty"+rand+"\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" \/> <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"total_amount\" placeholder=\"Total Amount\" type=\"text\" /> \n    \n    <input class=\"input-small\" id=\"product_metric"+rand+"\" name=\"metric\" type=\"hidden\" />\n  \n  <span id=\"metric\"><\/span>\n  <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" />\n  <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" /><a href=\"#\" onclick=\"remove_fields(this); return false;\"><i class=\'icon-remove close_item\'>  <\/i><\/a>\n\n<\/div>\n\n"); return false;    }
   });
 
   $('i.icon-remove.close_item').live('click',function () {

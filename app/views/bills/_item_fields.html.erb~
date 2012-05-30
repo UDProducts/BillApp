@@ -1,8 +1,7 @@
-
 <% rand_number = rand(100000).to_s %>
 <div class="items_input_fields" id="item_val" >
   
-  <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name"+rand_number, :size1 => "#product_size1"+rand_number,:size2 => "#product_size2"+rand_number,  :category => "#product_metric"+rand_number }, :class => "input-small" %> 
+  <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name"+rand_number, :size1 => "#product_size1"+rand_number,:size2 => "#product_size2"+rand_number,:category => "#product_metric"+rand_number }, :class => "input-small",:id=>"product_code"+rand_number %> 
   
   <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-small item_product_name", :id => "product_name"+rand_number, :readonly => "true" %>
   
@@ -16,6 +15,7 @@
  
   <%= f.text_field :length, :id => "item_length" + rand_number, :placeholder =>"Length", :class => "input-small item_length", :data => { :rate_id => "item_rate" + rand_number, :amount_id =>  "item_amount" + rand_number, :metric_id =>"product_metric"+rand_number, :size1_id => "product_size1"+rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  }  %> 
   
+  
     
   <%= text_field_tag :total_amount, nil, :placeholder =>"Total Amount", :class => "input-small item_amount", :id => "item_amount" + rand_number %> 
   
@@ -23,7 +23,7 @@
   
   <span id="metric"></span>
   <%= f.hidden_field :_destroy %>
-  <%= link_to remove_fields raw("<i class='icon-remove close_item'>  </i>"),  f %>
+  <%= link_to_remove_fields raw("<i class='icon-remove close_item'>  </i>"),  f %>
 
 </div>
 

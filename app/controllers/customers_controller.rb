@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+autocomplete :customer, :phoneno, :extra_data => [:name, :balance] 
   # GET /customers
   # GET /customers.json
   def index
@@ -10,7 +11,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js
+      format.js 
     end
   end
 

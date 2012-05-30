@@ -20,12 +20,15 @@
 //= require best_in_place
 //= require twitter/bootstrap
 //= require bills
+//= require customers
 //= require dynasearch
 //= require extremes
+//= require highcharts
 //= require home
 //= require items
+//= require jquery.highchartTable
 //= require products
-
+//= require stocks
 
    
 
