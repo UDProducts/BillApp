@@ -28,14 +28,37 @@
   <div class="btn dontprint"><%= link_to_add_fields 'Add new',f,:items %>   </div>
   <div class="bill_final_inputs">
     <div class="total_amount">
-       <div class="input-prepend">
-         <span class="add-on WebRupee Total">Rs.</span>
-      <%= f.text_field :amount, :placeholder => "Total Amount", :class => "input-small" %>
        
-      <%= f.text_field :vatamt, :placeholder => "Vat %", :class => "input-small" %>
+      
+      
+      <%= f.text_field :vatamt, :placeholder => "Vat %", :class => "input-small",:id =>"bill_vat" %>
 
-      <%= f.text_field :discount,:placeholder =>"Discount", :class => "input-small bill_discount", :id => "bill_discount"  %> 
+      <div class="input-prepend">
+         <span class="add-on WebRupee Plane">Rs.</span>
+        <%= f.text_field :planecharge, :placeholder => "Plane Charges", :class => "input-small",:id =>"bill_plane" %>
+       </div>
+         
+       <div class="input-prepend">
+         <span class="add-on WebRupee Discount">Rs.</span>
+      <%= f.text_field :discount,:placeholder =>"Discount", :class => "input-small bill_discount", :id =>   	 	"bill_discount"  %> 
+       </div>
+         
+       <div class="input-prepend">
+    <span class="add-on WebRupee Advance">Rs.</span>
+    <%= f.text_field :advance, :placeholder => "Advance", :class => "input-small advance_input",:id =>"bill_advance" %>
+     </div>   
 
+</div>
+        </br></br>
+
+        
+      <div class="input-prepend">
+         <span class="add-on WebRupee Total">Rs.</span>
+         <%= f.text_field :amount, :placeholder => "Gross Amount", :class => "input-small",:id =>"bill_gross" %>
+      </div>
+
+         </span>
+</div>
       </div> 
     </div>
 
@@ -44,19 +67,13 @@
 
     <div class="input-prepend">
     <span class="add-on WebRupee Net">Rs.</span>
-    <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small net_input" %>
+    <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small net_input",:id =>"bill_net" %>
      </div>   
     </br>
     </br>
 
     
-    <div class="input-prepend">
-    <span class="add-on WebRupee Advance">Rs.</span>
-    <%= f.text_field :advance, :placeholder => "Advance", :class => "input-small advance_input" %>
-     </div>   
-    </br>
-    </br>
-
+    
   
    <div class="input-prepend">
     <span class="add-on WebRupee Outs">Rs.</span>
@@ -69,7 +86,7 @@
 
     <div class="input-prepend">
       <span class="add-on WebRupee Balance">Rs.</span>
-      <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small balance_input" %>
+      <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small balance_input",:id =>"bill_balance" %>
         
     </div>
 

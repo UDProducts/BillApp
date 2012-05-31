@@ -60,7 +60,7 @@ class BillsController < ApplicationController
   end
 
   # POST /bills
-  # POST /bills.json
+  # POST /bills.jsonababout:startpageout:startpage
   def create
     @bill = Bill.new(params[:bill])
     

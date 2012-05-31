@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529081217) do
+ActiveRecord::Schema.define(:version => 20120531062120) do
 
   create_table "bills", :force => true do |t|
     t.string   "code"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120529081217) do
     t.integer  "customer_id"
     t.string   "unpaid"
     t.string   "discount"
+    t.string   "planecharge"
   end
 
   create_table "customers", :force => true do |t|

@@ -145,8 +145,8 @@ div.bill_final_inputs div.total_amount #amount{
 float: right;
 }
 div.bill_final_inputs #bill_advance{
-  margin-top: -11px;
-  margin-right: -445px;
+  margin-top: -45px;
+  margin-right: -362px;
   
 }
 div.bill_final_inputs div.total_amount #vat{
@@ -160,8 +160,8 @@ div.bill_final_inputs div.total_amount #vat{
 
 
 div.bill_final_inputs #bill_balance{
-  margin-top: 6px;
-  margin-right: -447px;
+  margin-top: -105px;
+  margin-right: -363px;
   
 }
 div.bill_final_inputs div.total_amount #advance{
@@ -330,7 +330,7 @@ font-family: 'WebRupee'; float:right;margin-right:-117px;margin-top:18px;color:b
 }
 
 .add-on.WebRupee.Total{
-margin-right:-309px;
+margin-right:-225px;
 margin-top:3px;
 height:25px;
 vertical-align:right;
@@ -340,20 +340,78 @@ color:brown;
 }
 .add-on.WebRupee.Advance{
 height:25px;
-margin-top:-11px;
-margin-right:-349px;
+margin-top:-45px;
+margin-right:-263px;
 vertical-align:right;
 float:right;
-width:20px;
+width:auto;
 color:brown;
 }
 
 .add-on.WebRupee.Balance{
 height:25px;
-margin-top:6px;
-margin-right:-349px;
+margin-top:-105px;
+margin-right:-263px;
 vertical-align:right;
 float:right;
-width:20px;
+width:auto;
 color:brown;
+}
+
+.add-on.WebRupee.Plane{
+height:25px;
+margin-top:5px;
+margin-right:-224px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+.add-on.WebRupee.Discount{
+height:25px;
+margin-top:45px;
+margin-right:-225px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+.add-on.WebRupee.Net{
+height:25px;
+margin-top:-49px;
+margin-right:-262px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+
+div.bill_final_inputs div.total_amount #bill_gross{
+float:right;
+margin-right:-324px;
+margin-top:3px;
+}
+div.bill_final_inputs div.total_amount #bill_vat{
+float:right;
+margin-right:-189px;
+margin-top:3px;
+}
+div.bill_final_inputs div.total_amount #bill_discount{
+float:right;
+margin-top:45px;
+margin-right:-325px;
+}
+div.bill_final_inputs #bill_plane{
+float:right;
+margin-top:5px;
+margin-right:-324px;
+}
+
+.input-small.net_input#bill_net{
+float:right;
+margin-right:-362px;
+margin-top:-49px;
 }

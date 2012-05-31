@@ -200,7 +200,7 @@ $('input#bill_discount').live('keyup', function() {
   };
 
 
-  $("input.item_amount").live("keyup", function(e){
+  $("span#remove").live("keyup", function(e){
     var rand=Math.floor((Math.random()*100000)+1).toString();
     if (e.which == 9 ||e.keyCode == 9 ) 
     {  e.preventDefault();

@@ -1,7 +1,7 @@
 class Stock < ActiveRecord::Base
 belongs_to :product
 belongs_to :bill
-validates_numericality_of :quantity, :greater_than_or_equal_to =>:minimum_quantity, :only_integer =>:true, :on => :create, :message => "Stock does not meet requirement"
+#validates_numericality_of :quantity, :greater_than_or_equal_to =>:minimum_quantity, :only_integer =>:true, :on #=> :create, :message => "Stock does not meet requirement"
 #validates :quantity, :numericality => true, :length => { :minimum => 0 }
 def self.search(search)
   if search

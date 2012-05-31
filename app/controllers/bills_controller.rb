@@ -60,7 +60,7 @@ class BillsController < ApplicationController
   end
 
   # POST /bills
-  # POST /bills.json
+  # POST /bills.jsonababout:startpageout:startpage
   def create
     @bill = Bill.new(params[:bill])
     
@@ -73,6 +73,7 @@ class BillsController < ApplicationController
    # @bill.items.build
     #3.times { @bill.items.build }
      #@bill.items.build
+     @bill.customer_id=@customer.id
      @bill.created_at = Time.now 
        @i=0
     @bill.items.each do|item|

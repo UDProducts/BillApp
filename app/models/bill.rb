@@ -31,8 +31,8 @@ class Bill < ActiveRecord::Base
   end
 
  def customer_name=(name)
-    #self.customer=Customer.find_by_name(name) unless name.blank?
-    #return name
+    self.customer=Customer.find_by_name(name) unless name.blank?
+    return name
  end
  
   

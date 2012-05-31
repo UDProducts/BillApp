@@ -1,0 +1,4 @@
+class AddPlaneChargesToBill < ActiveRecord::Migration
+  def change
+  end
+end
