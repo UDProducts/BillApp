@@ -144,11 +144,6 @@ div.bill_final_inputs div.total_amount #amount{
 #customername{
 float: right;
 }
-div.bill_final_inputs #bill_advance{
-  margin-top: -45px;
-  margin-right: -362px;
-  
-}
 div.bill_final_inputs div.total_amount #vat{
  margin: 4px;
  margin-top: 3px;
@@ -160,8 +155,8 @@ div.bill_final_inputs div.total_amount #vat{
 
 
 div.bill_final_inputs #bill_balance{
-  margin-top: -105px;
-  margin-right: -363px;
+  margin-top: -53px;
+  margin-right: -460px;
   
 }
 div.bill_final_inputs div.total_amount #advance{
@@ -329,9 +324,19 @@ width:665px;
 font-family: 'WebRupee'; float:right;margin-right:-117px;margin-top:18px;color:brown;
 }
 
+.add-on.WebRupee.Gross{
+margin-right:87px;
+margin-top:-20px;
+height:25px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
 .add-on.WebRupee.Total{
-margin-right:-225px;
-margin-top:3px;
+margin-right:-231px;
+margin-top:-52px;
 height:25px;
 vertical-align:right;
 float:right;
@@ -340,8 +345,8 @@ color:brown;
 }
 .add-on.WebRupee.Advance{
 height:25px;
-margin-top:-45px;
-margin-right:-263px;
+margin-top:-34px;
+margin-right:-562px;
 vertical-align:right;
 float:right;
 width:auto;
@@ -350,8 +355,8 @@ color:brown;
 
 .add-on.WebRupee.Balance{
 height:25px;
-margin-top:-105px;
-margin-right:-263px;
+margin-top:-53px;
+margin-right:-360px;
 vertical-align:right;
 float:right;
 width:auto;
@@ -360,8 +365,8 @@ color:brown;
 
 .add-on.WebRupee.Plane{
 height:25px;
-margin-top:5px;
-margin-right:-224px;
+margin-top:-34px;
+margin-right:-307px;
 vertical-align:right;
 float:right;
 width:auto;
@@ -371,7 +376,7 @@ color:brown;
 .add-on.WebRupee.Discount{
 height:25px;
 margin-top:45px;
-margin-right:-225px;
+margin-right:-434px;
 vertical-align:right;
 float:right;
 width:auto;
@@ -380,38 +385,53 @@ color:brown;
 
 .add-on.WebRupee.Net{
 height:25px;
-margin-top:-49px;
-margin-right:-262px;
+margin-top:-53px;
+margin-right:-105px;
 vertical-align:right;
 float:right;
 width:auto;
 color:brown;
 }
 
-
+span.add-on.percent{
+vertical-align:middle;
+color:brown;
+margin-right:150px;
+margin-top:45px;
+width:auto;
+height:25px;
+}
 div.bill_final_inputs div.total_amount #bill_gross{
 float:right;
-margin-right:-324px;
-margin-top:3px;
+margin-right:-128px;
+margin-top:-20px;
 }
 div.bill_final_inputs div.total_amount #bill_vat{
 float:right;
-margin-right:-189px;
-margin-top:3px;
+margin-right:-127px;
+margin-top:45px;
 }
 div.bill_final_inputs div.total_amount #bill_discount{
 float:right;
 margin-top:45px;
-margin-right:-325px;
+margin-right:-534px;
 }
 div.bill_final_inputs #bill_plane{
 float:right;
-margin-top:5px;
-margin-right:-324px;
+margin-top:-34px;
+margin-right:-407px;
 }
 
 .input-small.net_input#bill_net{
 float:right;
-margin-right:-362px;
-margin-top:-49px;
+margin-right:-205px;
+margin-top:-53px;
 }
+
+.tot_input#bill_total{
+float:right;
+margin-top:-52px;
+margin-right:-330px;
+}
+
+

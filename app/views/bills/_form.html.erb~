@@ -30,66 +30,81 @@
     <div class="total_amount">
        
       
-      
-      <%= f.text_field :vatamt, :placeholder => "Vat %", :class => "input-small",:id =>"bill_vat" %>
-
+             
       <div class="input-prepend">
-         <span class="add-on WebRupee Plane">Rs.</span>
+         <span class="add-on WebRupee Plane">Rs.</span></div>
         <%= f.text_field :planecharge, :placeholder => "Plane Charges", :class => "input-small",:id =>"bill_plane" %>
-       </div>
+       
+
+       <div class="input-prepend">
+       <span class="add-on Vat Percent">%
+      <%= f.text_field :vatamt, :placeholder => "Vat %", :class => "input-small",:id =>"bill_vat" %></span></div>
+      
          
        <div class="input-prepend">
          <span class="add-on WebRupee Discount">Rs.</span>
       <%= f.text_field :discount,:placeholder =>"Discount", :class => "input-small bill_discount", :id =>   	 	"bill_discount"  %> 
-       </div>
+      </div>
+
+       
+
+      <div class="input-prepend">
+         <span class="add-on WebRupee Gross">Rs.</span>
+         <%= f.text_field :amount, :placeholder => "Gross Amount", :class => "input-small",:id =>"bill_gross" %>
+      </div>
+      
+
          
        <div class="input-prepend">
     <span class="add-on WebRupee Advance">Rs.</span>
     <%= f.text_field :advance, :placeholder => "Advance", :class => "input-small advance_input",:id =>"bill_advance" %>
-     </div>   
-
-</div>
-        </br></br>
-
-        
-      <div class="input-prepend">
-         <span class="add-on WebRupee Total">Rs.</span>
-         <%= f.text_field :amount, :placeholder => "Gross Amount", :class => "input-small",:id =>"bill_gross" %>
       </div>
-         </span>
-</div>
-      </div> 
     </div>
-
-    </br>
-    </br>
-
-    <div class="input-prepend">
+     
+    
+      
+    <div class="subalign">    
+      <div class="input-prepend">
     <span class="add-on WebRupee Net">Rs.</span>
     <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small net_input",:id =>"bill_net" %>
-     </div>   
-    </br>
-    </br>
+     </div>
 
-    
-    
-  
-   <div class="input-prepend">
+     <div class="input-prepend">
+    <span class="add-on WebRupee Total">Rs.</span>
+    <%= f.text_field :net, :placeholder => "Total Amt", :class => "input-small tot_input",:id =>"bill_total" %>
+     </div>
+
+    <div class="input-prepend">
+     <span class="add-on WebRupee Balance">Rs.</span>
+    <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small balance_input",:id =>"bill_balance" %>
+     </div>
+
+     <div class="input-prepend">
     <span class="add-on WebRupee Outs">Rs.</span>
         <%= f.text_field :customer_dues, :placeholder => "Dues", :class => "input-small dues_input" , :id =>"customer_dues"%>
    </div>
  
-    </br>
-    </br>
-
-
-    <div class="input-prepend">
-      <span class="add-on WebRupee Balance">Rs.</span>
-      <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small balance_input",:id =>"bill_balance" %>
         
     </div>
+   
+</div>
 
-  </div> 
+       
+
+    </br>
+    </br>
+
+       
+    
+    
+  
+   
+    </br>
+    </br>
+
+
+    
+   
   
    <div class="bill_buttons"> 
     <%= submit_tag "Save", :class => "btn-primary dontprint" %>
@@ -106,7 +121,7 @@
     </div>
   <% end %>
 
-
+</div>
 <% end %>
 
 
