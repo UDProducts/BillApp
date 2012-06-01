@@ -23,7 +23,7 @@
   
   <span id="metric"></span>
   <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields raw("<i class='icon-remove close_item'>  </i>"),  f %>
+ <span id="remove"> <%= link_to_remove_fields raw("<i class='icon-remove close_item'>  </i>"),  f %></span>
 
 </div>
 

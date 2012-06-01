@@ -42,7 +42,7 @@ float: left;
     top: 11px;
     left: -6px;
 }
-
+/*
 input,
 textarea,
 select,
@@ -60,7 +60,7 @@ select,
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-
+*/
 .form-inline {
  display: inline-block;
  
@@ -134,15 +134,17 @@ display: block;
 div.well.items_area {
   margin-top: 25px;
 }
+#customername{
+float: right;
+}
+
+/*
 div.bill_final_inputs div.total_amount #amount{
  margin: 4px;
  margin-top: 0px;
  margin-right: 39px;
  float: right;
   
-}
-#customername{
-float: right;
 }
 div.bill_final_inputs div.total_amount #vat{
  margin: 4px;
@@ -202,6 +204,7 @@ form#new_bill div.bill_final_inputs input {
 div.bill_final_inputs input {
   float: right;
 }
+*/
 #select01
 {
 width: 50px;
@@ -213,16 +216,21 @@ width: 100px;
 }
 
 .ui-autocomplete {
-  height:30px;
+  height:130px;
   width:40px;
   overflow:auto;
   background:lightgray;
 }
+li.ui-menu-item :hover{
+  color:red;
+}
+/*
 .billresult {
 overflow: scroll;
 height: 500px;
 width: 100%;
 }
+*/
 #bills_search_form a:visited, #products_search_form a:visited {
 color: white;
 }
@@ -324,8 +332,115 @@ width:665px;
 font-family: 'WebRupee'; float:right;margin-right:-117px;margin-top:18px;color:brown;
 }
 
-div.bill_final_inputs div.total_amount#bill_advance{
-  margin-top: -35px;
-  margin-right: -2px;
-  
+.add-on.WebRupee.Gross{
+margin-right:87px;
+margin-top:-20px;
+height:25px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
 }
+
+.add-on.WebRupee.Total{
+margin-right:-231px;
+margin-top:-52px;
+height:25px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+.add-on.WebRupee.Advance{
+height:25px;
+margin-top:-34px;
+margin-right:-562px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+.add-on.WebRupee.Balance{
+height:25px;
+margin-top:-53px;
+margin-right:-360px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+.add-on.WebRupee.Plane{
+height:25px;
+margin-top:-34px;
+margin-right:-307px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+.add-on.WebRupee.Discount{
+height:25px;
+margin-top:45px;
+margin-right:-434px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+.add-on.WebRupee.Net{
+height:25px;
+margin-top:-53px;
+margin-right:-105px;
+vertical-align:right;
+float:right;
+width:auto;
+color:brown;
+}
+
+span.add-on.percent{
+vertical-align:middle;
+color:brown;
+margin-right:150px;
+margin-top:45px;
+width:auto;
+height:25px;
+}
+/*
+div.bill_final_inputs div.total_amount #bill_gross{
+float:right;
+margin-right:-128px;
+margin-top:-20px;
+}
+div.bill_final_inputs div.total_amount #bill_vat{
+float:right;
+margin-right:-127px;
+margin-top:45px;
+}
+div.bill_final_inputs div.total_amount #bill_discount{
+float:right;
+margin-top:45px;
+margin-right:-534px;
+}
+div.bill_final_inputs #bill_plane{
+float:right;
+margin-top:-34px;
+margin-right:-407px;
+}
+
+.input-small.net_input#bill_net{
+float:right;
+margin-right:-205px;
+margin-top:-53px;
+}
+
+.tot_input#bill_total{
+float:right;
+margin-top:-52px;
+margin-right:-330px;
+}
+
+*/

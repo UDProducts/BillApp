@@ -1,4 +1,8 @@
 --- 
 open_files: 
-  - app/assets/javascripts/bills.js
+  - app/assets/stylesheets/custom.css
   - app/views/bills/_item_fields.html.erb
+  - app/views/bills/_form.html.erb
+  - app/assets/stylesheets/scaffolds.css.scss
+  - app/helpers/application_helper.rb
+  - app/assets/javascripts/bills.js

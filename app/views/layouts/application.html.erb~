@@ -27,7 +27,7 @@
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
 
    <%= javascript_include_tag "application" %>
-
+   
 
    <%= csrf_meta_tags %>
  
@@ -64,8 +64,11 @@
             <li><%= link_to "Customer", new_customer_path, :class=>"bill" %></li>
             <li><%= link_to "Stock", new_stock_path, :class=>"bill" %></li>
           </ul>
+          
           <ul class="nav pull-right">
-            <li class="dropdown" id="menu_search">
+            <li><%= link_to image_tag("Analytics1.png"), statistics_path, :class => "analytics" %></li>
+             <li class="dropdown" id="menu_search">
+
               <a class="dropdown-toggle bill" data-toggle="dropdown" href="#menu_search">
                 Search
                 <b class="caret"></b>

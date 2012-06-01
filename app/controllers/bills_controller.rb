@@ -19,6 +19,20 @@ class BillsController < ApplicationController
     end
   end
 
+  def statistics
+    if params[:from_date] && params[:to_date]
+      @bills = Kaminari.paginate_array(Bill.order("created_at DESC").where(:created_at => Date.parse(params[:from_date]).midnight..Date.parse(params[:to_date]).midnight)).page(params[:page]).per(6)
+    else
+      @bills = Kaminari.paginate_array(Bill.order("created_at DESC").search(params[:search])).page(params[:page]).per(6)
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+    end
+  end
+
+
   # GET /bills/1
   # GET /bills/1.json
   def show
@@ -100,8 +114,10 @@ class BillsController < ApplicationController
           end 
           respond_to do |format|
       if @bill.save
-        format.html { redirect_to new_bill_path, notice: 'Bill was successfully updated.' }
+
+        format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
         format.json { head :no_content }
+
       else
         format.html { render action: "new" }
         format.json { render json: @bill.errors, status: :unprocessable_entity }

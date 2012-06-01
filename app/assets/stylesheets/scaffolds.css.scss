@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: lightblue;
+  color: darkblue;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; }
@@ -54,3 +54,32 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
+ul.item_headers_group {
+  
+  list-style: none;
+  padding: 5px;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 15px;
+  li.item_header:first {
+      padding-left: 5px;
+    }
+    
+  li.item_header {
+
+    float: left;
+    padding-left: 12px;
+    padding-right: 58px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+  }
+}
+
+
+.input-prepend.long {
+  width: 247px;
+}

@@ -1,10 +1,11 @@
-<center><%= form_for @bill , :html => { :class => 'well form-inline',:id =>'showbill'} do |f|  %>
+<body class="span"><center><%= form_for @bill , :html => { :class => 'well form-inline',:id =>'showbill'} do |f|  %>
+<div class="wholepage">
   <p class="hide print">
-    <h2 class="hide print" id="store_name">Royal Woods</h2>
+    <h4 class="hide print" id="store_name">Royal Woods</h2>
   </p>
 
   <p class="hide print">
-    <h4 class="hide print" id="stor_address"> No. 32/6, M.T.H. Road, Thirumullaivoyal, <br />Chennai - 600 062 </h4>
+    <h6 class="hide print" id="stor_address"> No. 32/6, M.T.H. Road, Thirumullaivoyal, <br />Chennai - 600 062 </h4>
   </p>
 
   <p class="hide print">
@@ -60,7 +61,7 @@
   </br>
   </br>
   <b id="vat">Vat:
-  <%=@bill.vat %></b>
+  <%# @bill.vat %></b>
    </br>
    </br>
   <b id="advance">Advance:
@@ -75,11 +76,11 @@
 
  <div class="dontprint pull-right">
     
-    <%= link_to raw('<i class="icon-print icon-white"></i> Print'), "#", :class => "btn btn-info dontprint pull-right", :onClick => "window.print()" %> 
+    <%= link_to raw('<i class="icon-print icon-white"></i> Print'), "#", :class => "btn btn-info dontprint pull-right", :onload => "window.print()" %> 
     <%= submit_tag "Save", :class => "btn dontprint" %>  
  </div>
 
-
+</div>
 <% end %>
   <span class="hide print" id="thankyou">Thank You!<br/>Visit Again!!</span>
-</center>
+</center></body>

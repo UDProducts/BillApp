@@ -21,12 +21,12 @@ BillApp::Application.routes.draw do
   end
 
   match "items/add_items" => "items#add_items", :via => :post
-
+  get "statistics" => "bills#statistics"
 
   get "home/index"
   get "bills/nostock"
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
+ mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
 
