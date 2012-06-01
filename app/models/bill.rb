@@ -13,7 +13,11 @@ class Bill < ActiveRecord::Base
 
   def self.search(search)
   if search
-    find(:all, :include => :customer, :conditions => ['bills.amount LIKE ? OR bills.code LIKE ? OR customers.phoneno LIKE ?', ["%#{search}%"]*3].flatten)
+find(:all, :include => :customer, :conditions => ['bills.amount LIKE ? OR bills.code LIKE ? OR customers.phoneno LIKE ?', ["%#{search}%"]*3].flatten)
+
+   #Bill.find :all, :joins => :customer, :conditions => {:customer =>
+#{:id => :Bill.customer_id}}, :order => "comments.created_at DESC"
+
   else
     find(:all)
   end
@@ -41,8 +45,8 @@ class Bill < ActiveRecord::Base
   end
   
  def customer_phoneno=(phoneno)
-    self.customer=Customer.find_by_phoneno(phoneno) unless phoneno.blank?
-    return phoneno
+    #self.customer=Customer.find_by_phoneno(phoneno) unless phoneno.blank?
+    #return phoneno
  end
   
  
