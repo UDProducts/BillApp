@@ -10,7 +10,7 @@ gem 'twitter-bootstrap-rails'
 gem 'rails3-jquery-autocomplete'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+#gem 'redcar'
 #gem 'sqlite3'
 group :development, :test do
   gem 'sqlite3'

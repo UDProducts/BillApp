@@ -1,5 +1,0 @@
-class RemoveSizeFromProducts < ActiveRecord::Migration
-  def change
-   
-  end
-end

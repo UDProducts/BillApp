@@ -1,5 +1,0 @@
-class ChangeQuantityTypeInStock < ActiveRecord::Migration
-  def change
-  
-  end
-end

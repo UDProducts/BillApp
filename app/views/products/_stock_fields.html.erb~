@@ -1,8 +1,0 @@
-<%= f.text_field :quantity, :placeholder => "Quantity", :class => "input-small" %>
-
-<%= f.text_field :cost, :placeholder => "Cost", :class => "input-small" %>
-
-
-<%= f.error_messages :header_message => "Quantity required exceeds stock",
-  :message => "You'll need to fix the following fields:",
-  :header_tag => :h3 %>
