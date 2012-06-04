@@ -466,14 +466,14 @@ html, body {
 }
 
 .total_amount {
-  width: 600px;
+  width: 700px;
   padding: 10px;
   float: right;
 }
 
 .subalign {
   padding: 10px;
-  width: 600px;
+  width: 570px;
   float: right;
 }
 
@@ -483,6 +483,7 @@ html, body {
   margin-right:auto;
   width:860px;
 }
+
 .analytics img
 {
     height: 29px;

@@ -61,14 +61,16 @@
         search: function() {
           // custom minLength
           var term = extractLast( this.value );
-          if ( term.length < 2 ) {
+          if ( term.length < 1 ) {
             return false;
           }
         },
         focus: function() {
           // prevent value inserted on focus
-          return false;
+          return true;
         },
+        autoFocus: true,
+        delay: 0,
         select: function( event, ui ) {
           var terms = split( this.value );
           // remove the current input

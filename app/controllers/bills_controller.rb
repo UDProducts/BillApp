@@ -80,7 +80,7 @@ class BillsController < ApplicationController
     
     @customer=Customer.find_or_create_by_phoneno(params[:bill][:customer_phoneno])
      #@customer=Customer.find_or_create_by_name(params[:bill][:code])
-    @customer.update_attributes(:name=>params[:bill][:customer_name],:balance=>params[:bill][:customer_dues])
+    @customer.update_attributes(:name=>params[:bill][:customer_name])
     # @customer.update_attributes(:name=>params[:bill][:customer_name],:balance=>params[:bill][:customer_dues])
    # @bill.customer_dues(params[:bill][:customer_dues])
    #@bill = Bill.new(params[:id])
@@ -88,31 +88,8 @@ class BillsController < ApplicationController
     #3.times { @bill.items.build }
      #@bill.items.build
      @bill.customer_id=@customer.id
-     @bill.created_at = Time.now 
-       @i=0
-    @bill.items.each do|item|
-        
-         @stock=Stock.new
-         @stock.product_id=item.product_id
-         #@olds = Stock.where(:product_id => item.product_id).pluck('quantity')
-        # @olds=Stock.find_by_sql("SELECT quantity FROM stocks ORDER BY stocks.created_at desc LIMIT 1")
-         #@oldqty=@olds.last
-         unless @stock.product_id.nil?
-         @stock.quantity=Stock.where(:product_id => item.product_id).pluck('quantity').last
-         @quantity=(@stock.quantity)-(item.sold_qty.to_i)
-         @stock.quantity = @quantity.to_i
-         @cost=Stock.where(:product_id => item.product_id).pluck('cost').last
-         @stock.cost=@cost
-         
-        if @quantity<0
-           @bill.stocks.build
 
-         else
-           @stock.save
-         end
-      end
-          end 
-          respond_to do |format|
+    respond_to do |format|
       if @bill.save
 
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
@@ -122,8 +99,7 @@ class BillsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
-     end
-          
+    end
   end
 
   # PUT /bills/1

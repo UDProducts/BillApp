@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
   validates :sold_qty, :presence =>true
   validates :product_id, :presence =>true
   validates :rate, :presence =>true
+  
+  attr_accessor :item_volume
 
 
  def product_code

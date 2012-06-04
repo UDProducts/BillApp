@@ -12,9 +12,6 @@ cursor_positions:
   - :path: config/routes.rb
     :cursor_offset: 506
     :timestamp: 2012-04-24 12:44:46 +05:30
-  - :path: app/models/customer.rb
-    :cursor_offset: 0
-    :timestamp: 2012-04-04 20:34:11 +05:30
   - :path: app/controllers/items_controller.rb
     :cursor_offset: 211
     :timestamp: 2012-04-24 12:51:58 +05:30
@@ -33,9 +30,6 @@ cursor_positions:
   - :path: app/assets/javascripts/dynasearch.js
     :cursor_offset: 280
     :timestamp: 2012-04-24 16:29:30 +05:30
-  - :path: app/controllers/products_controller.rb
-    :cursor_offset: 260
-    :timestamp: 2012-04-24 16:00:53 +05:30
   - :path: app/views/bills/show.html.erb
     :cursor_offset: 23
     :timestamp: 2012-04-24 15:31:07 +05:30
@@ -48,9 +42,6 @@ cursor_positions:
   - :path: db/schema.rb
     :cursor_offset: 0
     :timestamp: 2012-04-27 12:41:51 +05:30
-  - :path: app/assets/javascripts/autocomplete-rails.js
-    :cursor_offset: 0
-    :timestamp: 2012-04-26 18:20:48 +05:30
   - :path: db/seeds.rb
     :cursor_offset: 0
     :timestamp: 2012-05-19 05:26:05 +05:30
@@ -93,4 +84,19 @@ cursor_positions:
   - :path: app/assets/javascripts/bills.js
     :cursor_offset: 2565
     :timestamp: 2012-06-01 13:41:39 +05:30
+  - :path: app/models/customer.rb
+    :cursor_offset: 373
+    :timestamp: 2012-06-02 21:31:19 +05:30
+  - :path: app/controllers/products_controller.rb
+    :cursor_offset: 305
+    :timestamp: 2012-06-02 21:22:33 +05:30
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 153
+    :timestamp: 2012-06-02 21:22:31 +05:30
+  - :path: app/assets/javascripts/autocomplete-rails.js
+    :cursor_offset: 960
+    :timestamp: 2012-06-02 21:17:59 +05:30
+  - :path: app/models/product.rb
+    :cursor_offset: 219
+    :timestamp: 2012-06-02 21:31:13 +05:30
 files_to_retain: 0

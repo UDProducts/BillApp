@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-autocomplete :customer, :phoneno, :extra_data => [:name, :balance] 
+autocomplete :customer, :phoneno, :extra_data => [:name, :balance], :display_value => :customer_details
   # GET /customers
   # GET /customers.json
   def index

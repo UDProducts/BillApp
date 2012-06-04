@@ -6,6 +6,8 @@ class Bill < ActiveRecord::Base
   validates :items, :presence =>true
   validates :code,:presence => true
   
+    
+  attr_accessor :bill_volume
   
 
   accepts_nested_attributes_for :items, :allow_destroy => true

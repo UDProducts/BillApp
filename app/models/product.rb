@@ -13,7 +13,9 @@ accepts_nested_attributes_for :stocks, :allow_destroy => true
   end
  end 
 
- 
+  def product_details
+    self.code + " [" + self.name.camelize + "]"
+  end
 
 
 end
