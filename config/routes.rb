@@ -1,4 +1,6 @@
 BillApp::Application.routes.draw do
+  resources :total_stocks
+
   resources :products do
     get :autocomplete_product_code, :on => :collection
     get :autocomplete_product_name, :on => :collection

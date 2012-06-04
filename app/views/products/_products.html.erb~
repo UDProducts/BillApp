@@ -22,7 +22,7 @@
 </script>
 
 
-<!--<div id="quantity_chart" style="width:560px;height:300px;" onload="function" ></div>-->
+<div id="quantity_chart" style="width:560px;height:300px;" onload="function" ></div>
 <table class="table table-striped">
   <tr>
     

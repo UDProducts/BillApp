@@ -1,3 +1,21 @@
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Product Name</th>
+          <th>Quantity</th>
+      </tr>
+   </thead>
+   <tbody>
+     <% @stocks.each do |stock| %>
+  <tr>
+  
+    <td><%= stock.product_name %></td>
+    <td><%= stock.quantity %></td>
+    
+  </tr>
+<% end %>
+  </tbody>
+</table>
 
 <table class="table table-striped">
   <tr>

@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-
+has_many :total_stocks
 has_many :items
 has_many :stocks
 validates :code,:name,:category, :presence => true

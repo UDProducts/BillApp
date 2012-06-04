@@ -1,0 +1,2 @@
+module TotalStocksHelper
+end

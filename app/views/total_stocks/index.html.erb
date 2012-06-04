@@ -1,0 +1,25 @@
+<h1>Listing total_stocks</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Total quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @total_stocks.each do |total_stock| %>
+  <tr>
+    <td><%= total_stock.product_id %></td>
+    <td><%= total_stock.total_quantity %></td>
+    <td><%= link_to 'Show', total_stock %></td>
+    <td><%= link_to 'Edit', edit_total_stock_path(total_stock) %></td>
+    <td><%= link_to 'Destroy', total_stock, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Total stock', new_total_stock_path %>

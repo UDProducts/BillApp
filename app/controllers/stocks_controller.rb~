@@ -49,7 +49,7 @@ if params[:from_date] && params[:to_date]
     @stock = Stock.new(params[:stock])
     #@oldstock=Stock.where(:product_id => @stock.product_id).last
     @current_stock = TotalStock.where("product_id = ?", @stock.product.id).total_quantity
-    @total_stock = @current_stock + @stock.quantity
+   # @total_stock = @current_stock + @stock.quantity
     #@stock.quantity= @stock.quantity+@oldstock.quantity
     respond_to do |format|
       if @stock.save && @total_stock.save

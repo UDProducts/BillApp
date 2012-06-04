@@ -8,7 +8,7 @@ function remove_fields(link) {
     //alert( $(link).prev().prev().prev("input[type=text]").val());
   //$(link).closest(".items_input_fields").hide();
  // alert($(link).prev().prev("input[type=hidden]").val());
-  alert($(link).prev().prev().prev("input[type=text]").val());
+  $(link).prev().prev().prev("input[type=text]").val('0');
   
   $('input#bill_gross').val($('div.items_input_fields input.item_amount').sumValues());
 }
