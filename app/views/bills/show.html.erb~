@@ -51,7 +51,7 @@
 </br></br>
 <div class="bill_final_inputs">
   <b id="planecharge">Planecharge:
-  <%= @bill.planecharge %></b>
+  <%= @bill.planecharge %>%</b>
    
   
   <b id="vat">Vat:

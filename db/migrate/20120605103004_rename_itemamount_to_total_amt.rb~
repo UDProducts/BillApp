@@ -1,0 +1,5 @@
+class RenameItemamountToTotalAmt < ActiveRecord::Migration
+  def change
+  rename_column(:items,:item_amount,:advance)
+  end
+end
