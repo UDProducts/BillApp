@@ -52,7 +52,11 @@
     <% end %>
      
   </div>
-  <div class="btn dontprint"><%= link_to_add_fields 'Add new',f,:items %>   </div>
+  <div class="btn dontprint">
+    <%# render 'add_new_item', :f => f, :items => :items %>
+    <%= link_to_add_fields 'Add new',f,:items%>   
+
+  </div>
   <div class="bill_final_inputs">
     <div class="total_amount">
        
@@ -98,6 +102,11 @@
          <%= f.text_field :amount, :placeholder => "Gross Amount", :class => "input-small bill_gross",:id =>"bill_gross" %>
     <span class="add-on">Rs.</span>
       </div>
+      <div class="input-append">
+         
+        <%= f.text_field :planecharge, :placeholder => "P.Amount", :class => "input-small",:id =>"bill_plane_amt" %>
+      <span class="add-on">Rs.</span>
+       </div>
       <div class="input-append">
 
     <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small bill_net",:id =>"bill_net" %>

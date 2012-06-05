@@ -6,9 +6,6 @@ cursor_positions:
   - :path: app/controllers/bills_controller.rb
     :cursor_offset: 753
     :timestamp: 2012-04-23 12:49:38 +05:30
-  - :path: app/helpers/products_helper.rb
-    :cursor_offset: 0
-    :timestamp: 2012-04-03 17:29:40 +05:30
   - :path: config/routes.rb
     :cursor_offset: 506
     :timestamp: 2012-04-24 12:44:46 +05:30
@@ -21,9 +18,6 @@ cursor_positions:
   - :path: app/views/items/index.html.erb
     :cursor_offset: 350
     :timestamp: 2012-04-24 16:13:21 +05:30
-  - :path: app/assets/javascripts/items.js
-    :cursor_offset: 275
-    :timestamp: 2012-04-24 13:06:58 +05:30
   - :path: app/assets/javascripts/extremes.js
     :cursor_offset: 0
     :timestamp: 2012-04-11 11:23:56 +05:30
@@ -75,12 +69,6 @@ cursor_positions:
   - :path: app/views/bills/_form.html.erb
     :cursor_offset: 1380
     :timestamp: 2012-06-01 13:31:37 +05:30
-  - :path: app/assets/stylesheets/scaffolds.css.scss
-    :cursor_offset: 1433
-    :timestamp: 2012-06-01 13:30:44 +05:30
-  - :path: app/helpers/application_helper.rb
-    :cursor_offset: 1278
-    :timestamp: 2012-06-01 12:54:38 +05:30
   - :path: app/assets/javascripts/bills.js
     :cursor_offset: 2565
     :timestamp: 2012-06-01 13:41:39 +05:30
@@ -96,7 +84,27 @@ cursor_positions:
   - :path: app/assets/javascripts/autocomplete-rails.js
     :cursor_offset: 960
     :timestamp: 2012-06-02 21:17:59 +05:30
+  - :path: app/helpers/products_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-01 18:54:47 +05:30
+  - :path: app/models/stock.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-01 18:54:47 +05:30
+  - :path: app/controllers/stocks_controller.rb
+    :cursor_offset: 1365
+    :timestamp: 2012-06-04 22:15:18 +05:30
+    :selection_offset: 1312
+    :block_selection_mode: false
   - :path: app/models/product.rb
-    :cursor_offset: 219
-    :timestamp: 2012-06-02 21:31:13 +05:30
+    :cursor_offset: 55
+    :timestamp: 2012-06-04 22:15:33 +05:30
+  - :path: app/assets/javascripts/items.js
+    :cursor_offset: 0
+    :timestamp: 2012-06-01 18:54:47 +05:30
+  - :path: app/helpers/application_helper.rb
+    :cursor_offset: 1203
+    :timestamp: 2012-06-04 19:34:13 +05:30
+  - :path: app/assets/stylesheets/scaffolds.css.scss
+    :cursor_offset: 0
+    :timestamp: 2012-06-03 23:50:55 +05:30
 files_to_retain: 0

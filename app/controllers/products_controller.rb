@@ -55,9 +55,9 @@ autocomplete :product, :code, :extra_data => [:name, :size1, :size2, :category],
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
     respond_to do |format|
-      if @product.save
+      if @product.save && @product.create_total_stock!(:total_quantity => 0)
+        
         format.html { redirect_to new_product_path, notice: 'Product was successfully created.' }
         format.json { render json: @product, status: :created, location: @product }
       else

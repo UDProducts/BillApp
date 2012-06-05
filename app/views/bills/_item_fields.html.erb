@@ -19,11 +19,11 @@
     
   <%= text_field_tag :total_amount, nil, :placeholder =>"Total Amount", :class => "input-small item_amount", :id => "item_amount" + rand_number %> 
   
-  <%= hidden_field_tag :metric, nil, :class => "input-small item_metric", :id => "product_metric"+rand_number %>
+  <%= hidden_field_tag :metric, nil, :class => "input-small item_metric", :id => "product_metric"+rand_number ,:data => { :size1_id => "product_size1"+rand_number, :length_id => "item_length" + rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  }%>
   
   
   <%= f.hidden_field :_destroy, :class => "item_destroy" %>
-   <span id="remove"><%= link_to_remove_fields raw("<i class='icon-remove close_item' >  </i>"),  f %></span>
+   <span id="remove"><%= link_to_remove_fields raw("<i class='icon-minus-sign close_item' >  </i>"),  f %></span>
 
 </div>
 

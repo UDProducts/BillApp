@@ -48,11 +48,10 @@ if params[:from_date] && params[:to_date]
   def create
     @stock = Stock.new(params[:stock])
     #@oldstock=Stock.where(:product_id => @stock.product_id).last
-    @current_stock = TotalStock.where("product_id = ?", @stock.product.id).total_quantity
-    @total_stock = @current_stock + @stock.quantity
+    @stock.product.total_stock.total_quantity += @stock.quantity
     #@stock.quantity= @stock.quantity+@oldstock.quantity
     respond_to do |format|
-      if @stock.save && @total_stock.save
+      if @stock.save && @stock.product.total_stock.save
         format.html { redirect_to new_stock_path, notice: 'Stock was successfully created.' }
         format.json { render json: @stock, status: :created, location: @stock }
       else
