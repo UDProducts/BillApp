@@ -39,7 +39,7 @@ autocomplete :product, :code, :extra_data => [:name, :size1, :size2, :category],
   # GET /products/new.json
   def new
     @product = Product.new
-    #@product.stocks.build
+    @product.stocks.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }

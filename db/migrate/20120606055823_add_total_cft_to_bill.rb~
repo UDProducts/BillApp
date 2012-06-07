@@ -1,0 +1,4 @@
+class AddTotalCftToBill < ActiveRecord::Migration
+  def change
+  end
+end

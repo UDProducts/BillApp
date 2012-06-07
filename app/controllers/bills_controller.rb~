@@ -90,27 +90,14 @@ class BillsController < ApplicationController
      @bill.customer_id=@customer.id
     
      
-       
-    @bill.items.each do|item|
-        
-        # @stock=Stock.new
-         #@stock.product_id=item.product_id
-         #@olds = Stock.where(:product_id => item.product_id).pluck('quantity')
-        # @olds=Stock.find_by_sql("SELECT quantity FROM stocks ORDER BY stocks.created_at desc LIMIT 1")
-         #@oldqty=@olds.last
-        # unless @stock.product_id.nil?
-        # @stock.quantity=Stock.where(:product_id => item.product_id).pluck('quantity').last
-         #@quantity=(@stock.quantity)-(item.sold_qty.to_i)
-         #@stock.quantity = @quantity.to_i
-         #@cost=Stock.where(:product_id => item.product_id).pluck('cost').last
-         #@stock.cost=@cost
-         #@stock.save    
-     end
-   end
-
+      
     respond_to do |format|
       if @bill.save
-
+        @bill.items.each do|item|
+          item.product.total_stock.total_quantity -= item.sold_qty
+          item.product.total_stock.save
+        end
+        
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
         format.json { head :no_content }
 

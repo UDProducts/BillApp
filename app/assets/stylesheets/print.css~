@@ -85,7 +85,7 @@ table.table-striped.table-bordered.table-condensed tbody { box-shadow: none; bac
 
 #store_contacts { margin-bottom: 15px; }
 
-span#thankyou { display: block; background: black; text-align:center;float:left;margin-left:250px;}
+span#thankyou { display: block; background: black; text-align:center;float:left;margin-left:150px;}
 
 span#showcode { float:right; font-size: 8px;  }
 

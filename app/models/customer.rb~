@@ -15,7 +15,7 @@ accepts_nested_attributes_for :bills
   #end
 
   def customer_details
-    self.phoneno 
+    self.phoneno + " [" + self.name.camelize + "]"
   end
 
 end

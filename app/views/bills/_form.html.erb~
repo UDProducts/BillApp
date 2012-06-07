@@ -68,7 +68,7 @@
              
       <div class="input-append">
          
-        <%= f.text_field :planecharge, :placeholder => "P.Charges", :class => "input-small",:id =>"bill_plane" %>
+        <%= text_field_tag :planecharge,nil, :placeholder => "P.Charges", :class => "input-small",:id =>"bill_plane" %>
       <span class="add-on">Rs.</span>
        </div>
 
@@ -115,7 +115,7 @@
 
      <div class="input-append">
 
-    <%= f.text_field :net, :placeholder => "Total Amt", :class => "input-small bill_total",:id =>"bill_total" %>
+    <%= f.text_field :amount, :placeholder => "Total Amt", :class => "input-small bill_total",:id =>"bill_total" %>
     <span class="add-on">Rs.</span>
      </div>
 

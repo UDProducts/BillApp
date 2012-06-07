@@ -23,7 +23,10 @@
     
     <%= f.text_field :size2, :placeholder => "Dimensions", :class => "input-small" %>
   
-    
+    <%= f.fields_for :stocks do |fi| %>
+     <%= render 'stock_fields', :f => fi %>
+    <% end %>
+
    </div> 
   </br></br>  </br></br>
   <div class="actions">
