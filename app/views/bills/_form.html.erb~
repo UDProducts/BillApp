@@ -34,8 +34,8 @@
    </div>
 
   <div class="bill_code">
-    <%= generate_bill_code %>
-    <%= f.hidden_field :code, :value => generate_bill_code %>
+    <%= generate_code("bill") %>
+    <%= f.hidden_field :code, :value => generate_bill_code("bill") %>
   </div>
   </br>
   <div class="well items_area">
@@ -62,7 +62,7 @@
        
       <div class="input-append">
          
-        <%= f.text_field :bill_volume, :placeholder => "Volume", :class => "input-small",:id =>"bill_volume" %>
+        <%= f.text_field :total_cft, :placeholder => "Volume", :class => "input-small",:id =>"bill_volume" %>
       <span class="add-on">cft</span>
        </div>
              
