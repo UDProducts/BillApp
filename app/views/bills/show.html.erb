@@ -25,25 +25,27 @@
   <span id="customername"><b><%= @bill.customer_name %></b></span>
   <br />
   </p>
-  <table class="table table-striped table-bordered table-condensed ">
-  <thead>
+  <table class="table table-striped table-bordered table-condensed " id="bill_table">
+  <thead id="bill_headings">
     <tr>
-      
-      <th>Product Details</th>
+      <th>Product Code</th>
+      <th>Product Name-Size </th>
       <th>Length</th>
       <th>No</th>
+      <th>CFT</th>
       <th>Amount</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody >
 <% @total_qty=0 %>
     <% @bill.items.each do |item| %>
     <tr>
-      
-      <td><%= item.product.name %></td>
-      <td><%= item.length %></td>
-      <td><%= item.sold_qty %></td>
-      <td><%= item.total_amount.to_f %></td>
+      <td class="bill_body"><%= item.product.code %></td>
+      <td class="bill_body"><%= item.product.name %></td>
+      <td class="bill_body"><%= item.length %></td>
+      <td class="bill_body"><%= item.sold_qty %></td>
+      <td class="bill_body"><%= item.cft %></td>
+      <td class="bill_body"><%= item.total_amount.to_f %></td>
     </tr>
         
        <% 
@@ -64,7 +66,7 @@
 
   
   <b id="vat">Vat:
-  <%= @bill.vatamt %>%</b>
+  <%= @bill.vatamt %></b>
 
   <b id="tot">Tot:
     <%= @bill.amount %></b>

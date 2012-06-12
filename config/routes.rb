@@ -1,4 +1,8 @@
 BillApp::Application.routes.draw do
+  resources :suppliers do
+  get :autocomplete_supplier_phoneno, :on => :collection
+  end
+
   resources :total_stocks
 
   resources :products do

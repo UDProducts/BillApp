@@ -34,8 +34,8 @@
    </div>
 
   <div class="bill_code">
-    <%= generate_code("bill") %>
-    <%= f.hidden_field :code, :value => generate_bill_code("bill") %>
+    <%= generate_bill_code %>
+    <%= f.hidden_field :code, :value => generate_bill_code %>
   </div>
   </br>
   <div class="well items_area">
@@ -43,6 +43,7 @@
       <li class="item_header">Product Details</li>
       <li class="item_header">Length</li>
       <li class="item_header">Quantity</li>
+      <li class="item_header">CFT</li>
       <li class="item_header">Rate</li>
       <li class="item_header">Amount</li>
     </ul>

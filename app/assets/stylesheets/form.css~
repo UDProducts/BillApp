@@ -1,0 +1,9 @@
+.textbox
+{
+width: 150px;
+margin-left: 30px;
+}
+#new_stock{
+width: 830px:
+}
+

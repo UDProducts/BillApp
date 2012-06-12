@@ -1,11 +1,12 @@
 class Stock < ActiveRecord::Base
 belongs_to :product
 belongs_to :bill
+belongs_to :supplier
 #validates_numericality_of :quantity, :greater_than_or_equal_to =>:minimum_quantity, :only_integer =>:true, :on #=> :create, :message => "Stock does not meet requirement"
 #validates :quantity, :numericality => true, :length => { :minimum => 0 }
 def self.search(search)
   if search
-    find(:all,:conditions => ['cost LIKE ? OR quantity LIKE ? OR created_at LIKE ?', ["%#{search}%"]*3].flatten)
+    find(:all,:include => :supplier ,:conditions => ['stocks.cost LIKE ? OR stocks.quantity LIKE  ? OR suppliers.phoneno LIKE ?' , ["%#{search}%"]*3].flatten)
   else
     find(:all)
   end
@@ -52,6 +53,26 @@ def product_size2
      end
    return 0
   end
+def supplier_name
+    supplier.name if supplier
+    
+  end
+
+ def supplier_name=(name)
+    self.supplier=Supplier.find_by_name(name) unless name.blank?
+    return name
+ end
+ 
+  
+  def supplier_phoneno
+   supplier.phoneno  if supplier
+  end
+  
+ def supplier_phoneno=(phoneno)
+    self.supplier=Supplier.find_by_phoneno(phoneno) unless phoneno.blank?
+    #return phoneno
+ end
+  
 
 end
 

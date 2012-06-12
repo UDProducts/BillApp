@@ -33,33 +33,33 @@ margin-right:2px;
 #planecharge
 {
 float:right;
+margin-right:20px;
 
 }
 
 #discount
 {
 float:right;
-margin-right:27px;
+margin-right:0px;
 }
 
 #net
 {
 float:right;
-margin-right:4px;
+margin-right:0px;
 }
 #cusdues
 {
 float:right;
-margin-right:12px;
-
+margin-right:19px;
 }
+
 
 
 #balance
 {
-
 float:right;
-margin-right:4px;
+margin-right:5px;
 }
 
 #advance
@@ -72,22 +72,25 @@ float:left;
 
 form#showbill {background: none; box-shadow: none; border: none; border-radius: none}
 
-table.table-striped.table-bordered.table-condensed { box-shadow: none; background: none; border-top: 2px solid #F0F8FF; border-bottom: 2px solid #F0F8FF;border: none; border-left: none; border-right: none; border-radius: none; width: 70%;}
-table.table-striped.table-bordered.table-condensed thead { box-shadow: none;border: none;  background: none; width: 100px;}
-table.table-striped.table-bordered.table-condensed thead tr{ box-shadow: none;border: none;  background: none; width: 100px; }
-table.table-striped.table-bordered.table-condensed thead tr th{ box-shadow: none;border: none;  background: none; padding: 5px;}
-table.table-striped.table-bordered.table-condensed thead:first-child tr:first-child th:first-child { box-shadow: none; background: none; border-right: none; border-left: none; border-radius: none;border: none;}
+table.table-striped.table-bordered.table-condensed { box-shadow: none; background: none; border-top: 2px solid #F0F8FF; border-bottom: 2px solid #F0F8FF;border: none; border-left: none; border-right: none; border-radius: none; width: 100%;}
+table.table-striped.table-bordered.table-condensed thead { box-shadow: none;border: none;  background: none; width: 130px;}
+table.table-striped.table-bordered.table-condensed thead tr{ box-shadow: none;border: none;  background: none; width: 130px; }
+table.table-striped.table-bordered.table-condensed thead tr th{ box-shadow: none;border: none;  background: none; font-size:10px;  padding: 5px;}
+table.table-striped.table-bordered.table-condensed thead:first-child tr:first-child th:first-child { box-shadow: none; background: none; border-right: none; border-left: none; border-radius: none;border: none;font-size:10px;  padding: 5px;}
 table.table-striped.table-bordered.table-condensed thead:first-child tr:first-child { box-shadow: none; background: none; border-right:none; border-left: none; border-radius: none;border: none;}
 table.table-striped.table-bordered.table-condensed thead tr td:first-child { box-shadow: none; background: white; border-right: none; border-left: none; border-radius: none; width: 100px;border: none;}
 table.table-striped.table-bordered.table-condensed tbody { box-shadow: none; background: white; border-right: 1px solid #f0f8ff; border-left: 1px solid #f0f8ff; border-radius: none; width: 100px;border: none;}
+table.table-striped.table-bordered.table-condensed tbody tr td{ box-shadow: none; background: white; border-right: 0px; border-left: 0px; border-radius: none; width: 100px;border: none;font-size:8px;}
 
 .hide.print { display: inline;} 
 
 #store_contacts { margin-bottom: 15px; }
 
-span#thankyou { display: block; background: black; text-align:center;float:left;margin-left:150px;}
+span#thankyou { display: block; background: black; text-align:center;float:left;margin-left:250px;}
 
 span#showcode { float:right; font-size: 8px;  }
 
 span#billdate { float:left; font-size: 8px; }
+
+
 }

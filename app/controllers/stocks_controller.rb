@@ -4,9 +4,9 @@ autocomplete :product, :code, :extra_data => [:name, :size1, :size2,:category]
   # GET /stocks.json
   def index
 if params[:from_date] && params[:to_date]
-      @stocks = Kaminari.paginate_array(Stock.order("created_at DESC").where(:created_at => Date.parse(params[:from_date]).midnight..Date.parse(params[:to_date]).midnight)).page(params[:page]).per(6)
+      @stocks = Kaminari.paginate_array(Stock.order("stocks.created_at DESC").where(:stocks.created_at => Date.parse(params[:from_date]).midnight..Date.parse(params[:to_date]).midnight)).page(params[:page]).per(6)
     else
-      @stocks = Kaminari.paginate_array(Stock.order("created_at DESC").search(params[:search])).page(params[:page]).per(6)
+      @stocks = Kaminari.paginate_array(Stock.order("stocks.created_at DESC").search(params[:search])).page(params[:page]).per(6)
     end
 
 
@@ -31,7 +31,7 @@ if params[:from_date] && params[:to_date]
   # GET /stocks/new.json
   def new
     @stock = Stock.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @stock }
@@ -47,6 +47,12 @@ if params[:from_date] && params[:to_date]
   # POST /stocks.json
   def create
     @stock = Stock.new(params[:stock])
+    @supplier=Supplier.find_or_create_by_phoneno(params[:stock][:supplier_phoneno])
+     #@customer=Customer.find_or_create_by_name(params[:bill][:code])
+    #@customer.update_attributes(:name=>params[:bill][:customer_name])
+     @supplier.update_attributes(:name=>params[:stock][:supplier_name])
+     @stock.supplier_id=@supplier.id
+    
     #@oldstock=Stock.where(:product_id => @stock.product_id).last
     @stock.product.total_stock.total_quantity += @stock.quantity
     #@stock.quantity= @stock.quantity+@oldstock.quantity

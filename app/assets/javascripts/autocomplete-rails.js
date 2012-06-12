@@ -129,6 +129,14 @@ $("#customers_search_box").keyup(function() {
     $.get($("#customers_search_form").attr("action"), $("#customers_search_form").serialize(), null, "script");
     return false;
   });
+$("#suppliers_search_box").keyup(function() {
+    $.get($("#suppliers_search_form").attr("action"), $("#suppliers_search_form").serialize(), null, "script");
+    return false;
+  });
+$("#stocks_search_box").keyup(function() {
+    $.get($("#stocks_search_form").attr("action"), $("#stocks_search_form").serialize(), null, "script");
+    return false;
+  });
   
  
 });

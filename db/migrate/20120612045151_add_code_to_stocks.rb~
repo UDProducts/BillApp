@@ -1,0 +1,4 @@
+class AddCodeToStocks < ActiveRecord::Migration
+  def change
+  end
+end

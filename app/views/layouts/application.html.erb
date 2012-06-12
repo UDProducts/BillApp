@@ -63,6 +63,7 @@
             <li><%= link_to "Product", new_product_path, :class=>"bill" %></li>
             <li><%= link_to "Customer", new_customer_path, :class=>"bill" %></li>
             <li><%= link_to "Stock", new_stock_path, :class=>"bill" %></li>
+            <li><%= link_to "Supplier", new_supplier_path, :class=>"bill" %></li>
           </ul>
           
           <ul class="nav pull-right">
@@ -78,6 +79,7 @@
                <li><%= link_to "Bills", bills_path %></li>
                <li><%= link_to "Customers", customers_path %></li>
                <li><%= link_to "Stocks", stocks_path %></li>
+	       <li><%= link_to "Suppliers", suppliers_path %></li>
               </ul>
             </li>
              <% if user_signed_in? %>

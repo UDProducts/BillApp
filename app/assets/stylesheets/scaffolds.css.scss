@@ -59,7 +59,7 @@ ul.item_headers_group {
   
   list-style: none;
   padding: 5px;
-  width: 645px;
+  width: 745px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -70,11 +70,12 @@ ul.item_headers_group {
     
   li.item_header {
 
-    float: left;
-    padding-left: 9.5%;
+    
+    padding-left: 4em;
     padding-right: 1.5%;
     padding-top: 5px;
     padding-bottom: 5px;
+    display:inline;
     
   }
 }

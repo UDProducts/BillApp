@@ -1,0 +1,53 @@
+<% rand_number = rand(100000).to_s %>
+
+  <% if @stock.errors.any? %>
+    <div class="alert alert-block alert-error fade in">
+    <button class="close" data-dismiss="alert">x</button>
+    <h2 class="alert-heading"><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+      <% @bill.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+  </div>
+<% end %>
+
+<center><%= form_for @stock , :html => { :class => 'well form-inline'} do |f| %>
+
+<div class="stock_date">
+    <%= Date.today.strftime("%a, %d %b %Y") %>
+  </div>
+
+ <div class="stock_supplier_phoneno input-prepend long">
+    <span class="add-on"><%= image_tag "small-phone.png"%></span>
+    <%= f.autocomplete_field :supplier_phoneno, autocomplete_supplier_phoneno_suppliers_path, :update_elements => { :name => "#supplier_name" }, :placeholder => "Supplier Cell", :class => "input-large" %>
+  </div>
+
+  
+    <div class="stock_supplier_name input-prepend long">
+    <span class="add-on"><i class="icon-user"></i></span>
+    <%= f.text_field :supplier_name, :class =>"input-large", :id =>"supplier_name", :placeholder => "Supplier Name" %>
+
+<div class="stock_code">
+    <%= generate_stock_code %>
+    <%= f.hidden_field :code, :value => generate_stock_code %>
+  </div>
+
+  </div>
+
+    <div align="center" class="cust_inputs">
+
+      <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name", :size1 => "#product_size1", :size2 => "#product_size2", :category => "#product_metric"+rand_number }, :class => "input-small" %> 
+ 
+  <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-small item_product_name", :id => "product_name", :readonly => "true" %>
+  <%= f.text_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1", :readonly => "true" %>
+<%= f.text_field :product_size2,  :placeholder => "Size2", :class => "input-small", :id => "product_size2", :readonly => "true" %>
+
+     <%= f.text_field :quantity, :placeholder => "Stock Qty", :class => "input-small" %>
+ 
+
+    <%= f.number_field :cost, :placeholder => "Cost", :class => "input-small" %>
+  </div>
+</br></br></br></br>
+  <%= link_to 'Back', stocks_path, :class => "btn info" %>
+<%= f.submit 'Create', :class => "btn-primary" %>
+<% end %>
+</center>

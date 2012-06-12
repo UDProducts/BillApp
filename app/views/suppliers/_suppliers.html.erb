@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phoneno</th>
+    <th>Email</th>
+    
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @suppliers.each do |supplier| %>
+  <tr>
+    <td><%= supplier.name %></td>
+    <td><%= supplier.address %></td>
+    <td><%= supplier.phoneno %></td>
+    <td><%= supplier.email %></td>
+    <td><%= link_to 'Show', supplier %></td>
+    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
+    <td><%= link_to 'Destroy', supplier, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @suppliers %>
+

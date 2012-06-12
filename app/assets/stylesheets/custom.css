@@ -73,6 +73,7 @@ select,
  }
 .form_cust.form-inline{
 display: block;
+width:800px;
 }
 
 .form_stoc.form-inline{
@@ -84,7 +85,7 @@ display: block;
  float: left;
 }
 
-.bill_date {
+.bill_date,.stock_date {
   float: left;
   font-size: 20px;
   color: white;
@@ -103,7 +104,7 @@ display: block;
  
 }
 
-.bill_customer_name input#bill_customer_name {
+.bill_customer_name input#bill_customer_name,.stock_supplier_name input#stock_supplier_name {
   height: 20px;
   width: 300px;
 }
@@ -134,6 +135,9 @@ div.well.items_area {
   margin-top: 25px;
 }
 #customername{
+float: right;
+}
+#suppliername{
 float: right;
 }
 
@@ -325,13 +329,25 @@ margin-left:auto;
 margin-right:auto;
 width:600px;
 }
-.stocform_center
+.supplier_center
+{
+margin-left:206px;
+margin-top:23px;
+width:700px;
+}
+#new_supplier
+{
+margin-left:58px;
+
+}
+
+/*.stocform_center
 {
 margin-left:auto;
 margin-right:auto;
 width:665px;
 
-}
+}*/
 @font-face { font-family: "WebRupee"; font-style: normal; font-weight: normal; src: local("WebRupee"), url("http://cdn.webrupee.com/WebRupee.V2.0.ttf") format("truetype"), url("http://cdn.webrupee.com/WebRupee.V2.0.woff") format("woff"), url("http://cdn.webrupee.com/WebRupee.V2.0.svg") format("svg"); } 
 .WebRupee { font-family: 'WebRupee'; float:right;margin-right:-215px;margin-top:16px;color:brown;} 
 
@@ -520,13 +536,13 @@ float:right;
 #planecharge
 {
 float:right;
-margin-right:13px;
+margin-right:25px;
 }
 
 #discount
 {
 float:right;
-margin-right:30px;
+margin-right:0px;
 }
 
 #net
@@ -537,7 +553,7 @@ margin-right:0px;
 #cusdues
 {
 float:right;
-margin-right:10px;
+margin-right:25px;
 }
 
 #advance
@@ -547,5 +563,32 @@ margin-left:625px;
 #balance
 {
 float:right;
+margin-right:6px;
+}
+#new_stock{
+width: 900px;
+}
+thead#bill_headings{
+font-size:14px;
+}
+.stock_code {
+  float: right;
+  font-size: 20px;
+  color: white;
+  background: #0074CC;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px #E8E6E7;
+  -webkit-box-shadow: 0px 0px 2px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 0px 2px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0px 2px rgba(50, 50, 50, 0.75); 
+  margin-right:-114px;
+}
+#new_customer
+{
+width:650px;
+margin-left:50px;
 }
 

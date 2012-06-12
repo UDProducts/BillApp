@@ -11,14 +11,22 @@ module ApplicationHelper
     end
   end
 
-  def generate_code(param)
-   if param=="bill"
+ def generate_stock_code
+    if Stock.last.nil?
+      1001
+    else
+      Stock.last.id + 1001
+    end
+  end
+
+  def generate_bill_code
+   
     if Bill.last.nil?
       1001
     else
       Bill.last.id + 1001
     end
-   end
+   
   end
 
   def rand_number
