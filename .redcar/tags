@@ -1,9 +1,11 @@
-1338866682
+1338914666
+AddItemamountToItem	/devel/off/ruby/rails/billapp-latest/db/migrate/20120605102247_add_itemamount_to_item.rb	class AddItemamountToItem 
 ApplicationHelper	/devel/off/ruby/rails/billapp-latest/app/helpers/application_helper.rb	module ApplicationHelper
 BillsController	/devel/off/ruby/rails/billapp-latest/app/controllers/bills_controller.rb	class BillsController 
 CreateTotalStocks	/devel/off/ruby/rails/billapp-latest/db/migrate/20120604092537_create_total_stocks.rb	class CreateTotalStocks 
 Product	/devel/off/ruby/rails/billapp-latest/app/models/product.rb	class Product 
 ProductsController	/devel/off/ruby/rails/billapp-latest/app/controllers/products_controller.rb	class ProductsController 
+RenameItemamountToTotalAmt	/devel/off/ruby/rails/billapp-latest/db/migrate/20120605103004_rename_itemamount_to_total_amt.rb	class RenameItemamountToTotalAmt 
 StocksController	/devel/off/ruby/rails/billapp-latest/app/controllers/stocks_controller.rb	class StocksController 
 TotalStock	/devel/off/ruby/rails/billapp-latest/app/models/total_stock.rb	class TotalStock 
 TotalStockTest	/devel/off/ruby/rails/billapp-latest/test/unit/total_stock_test.rb	class TotalStockTest 
@@ -13,6 +15,8 @@ TotalStocksHelper	/devel/off/ruby/rails/billapp-latest/app/helpers/total_stocks_
 TotalStocksHelperTest	/devel/off/ruby/rails/billapp-latest/test/unit/helpers/total_stocks_helper_test.rb	class TotalStocksHelperTest 
 add_hour_and_min	/devel/off/ruby/rails/billapp-latest/app/helpers/application_helper.rb	  def add_hour_and_min
 change	/devel/off/ruby/rails/billapp-latest/db/migrate/20120604092537_create_total_stocks.rb	  def change
+change	/devel/off/ruby/rails/billapp-latest/db/migrate/20120605103004_rename_itemamount_to_total_amt.rb	  def change
+change	/devel/off/ruby/rails/billapp-latest/db/migrate/20120605102247_add_itemamount_to_item.rb	  def change
 create	/devel/off/ruby/rails/billapp-latest/app/controllers/total_stocks_controller.rb	  def create
 create	/devel/off/ruby/rails/billapp-latest/app/controllers/stocks_controller.rb	  def create
 create	/devel/off/ruby/rails/billapp-latest/app/controllers/bills_controller.rb	  def create

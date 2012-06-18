@@ -18,7 +18,10 @@
 //= require jquery.hotkeys
 //= require autocomplete-rails
 //= require best_in_place
-//= require twitter/bootstrap
+//= require bootstrap
+//= require bootstrap-buttons
+//= require bootstrap-twipsy
+//= require bootstrap-popover
 //= require bills
 //= require customers
 //= require dynasearch

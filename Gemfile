@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
 group :production, :development do
-  gem 'unicorn'
+#  gem 'unicorn'
 end
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'rails', '3.2.1'
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
 gem 'rails3-jquery-autocomplete'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -42,7 +42,8 @@ gem "tabletastic"
 # gem 'jbuilder'
 
 # Use unicorn as the web server
- gem 'unicorn'
+# gem 'unicorn'
+ 
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -58,7 +59,7 @@ gem 'simple_form'
 #gem 'jquery-datatables-rails',:git => 'git://github.com/rweng/jquery-datatables-rails'
 gem 'kaminari'
 
-gem 'simplecov', :require => false, :group => :test
+#gem 'simplecov', :require => false, :group => :test
 #gem 'jruby-openssl'
 
 

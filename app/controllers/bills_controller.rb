@@ -1,5 +1,4 @@
 class BillsController < ApplicationController
-  before_filter :authenticate_user!
   autocomplete :bill, :code, :extra_data => [:name, :size]
   
 
