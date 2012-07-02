@@ -1,5 +1,5 @@
 class SuppliersController < ApplicationController
-autocomplete :supplier, :phoneno, :extra_data => [:name], :display_value => :supplier_phoneno
+autocomplete :supplier, :phoneno, :extra_data => [:name,:address], :display_value => :supplier_phoneno
   # GET /suppliers
   # GET /suppliers.json
   def index

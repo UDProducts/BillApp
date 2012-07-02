@@ -29,6 +29,14 @@ def supplier_phoneno
     #return phoneno
  end
   
+def supplier_address
+   self.address  
+  end
+  
+ def supplier_address=(address)
+    self.supplier=Supplier.find_by_address(address) unless address.blank?
+    #return phoneno
+ end
 
 
 end

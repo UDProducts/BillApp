@@ -16,22 +16,29 @@
     <%= Date.today.strftime("%a, %d %b %Y") %>
   </div>
 
- <div class="stock_supplier_phoneno input-prepend long">
-    <span class="add-on"><%= image_tag "small-phone.png"%></span>
-    <%= f.autocomplete_field :supplier_phoneno, autocomplete_supplier_phoneno_suppliers_path, :update_elements => { :name => "#supplier_name" }, :placeholder => "Supplier Cell", :class => "input-large" %>
-  </div>
-
+ 
   
     <div class="stock_supplier_name input-prepend long">
     <span class="add-on"><i class="icon-user"></i></span>
-    <%= f.text_field :supplier_name, :class =>"input-large", :id =>"supplier_name", :placeholder => "Supplier Name" %>
+    <%= f.text_field :supplier_name, :class =>"input-large", :id =>"supplier_name", :placeholder => "Supplier Name" %></div>
+    <div class="stock_supplier_phoneno input-prepend long">
+    <span class="add-on"><%= image_tag "small-phone.png"%></span>
+    <%= f.autocomplete_field :supplier_phoneno, autocomplete_supplier_phoneno_suppliers_path, :update_elements => { :name => "#supplier_name" , :address=> "#supplier_address"}, :placeholder => "Supplier Cell", :class => "input-large" %>
+  </div>
+
 
 <div class="stock_code">
     <%= generate_stock_code %>
     <%= f.hidden_field :code, :value => generate_stock_code %>
   </div>
-
+</br></br>
+<div class="bill_supplier_address input-prepend long">
+    <span class="add-on" id="supplier_residence"><i class="icon-home"></i></span>
+    <%= f.text_field :supplier_address, :class =>"input-large", :id =>"supplier_address", :placeholder => "Supplier Address" %>
   </div>
+
+
+ 
 
     <div align="center" class="cust_inputs">
 <div class="well items_area">

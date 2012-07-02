@@ -61,15 +61,7 @@ find(:all, :include => :customer, :conditions => ['bills.amount LIKE ? OR bills.
    # return dues
   end
   
-def customer_address
-   customer.address  if customer
-  end
-  
- def customer_address=(address)
-    #self.customer=Customer.find_by_phoneno(phoneno) unless phoneno.blank?
-    #return phoneno
- end
-  
+
   
 
  

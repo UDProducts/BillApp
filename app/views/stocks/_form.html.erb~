@@ -16,25 +16,32 @@
     <%= Date.today.strftime("%a, %d %b %Y") %>
   </div>
 
- <div class="stock_supplier_phoneno input-prepend long">
-    <span class="add-on"><%= image_tag "small-phone.png"%></span>
-    <%= f.autocomplete_field :supplier_phoneno, autocomplete_supplier_phoneno_suppliers_path, :update_elements => { :name => "#supplier_name" }, :placeholder => "Supplier Cell", :class => "input-large" %>
-  </div>
-
+ 
   
     <div class="stock_supplier_name input-prepend long">
     <span class="add-on"><i class="icon-user"></i></span>
-    <%= f.text_field :supplier_name, :class =>"input-large", :id =>"supplier_name", :placeholder => "Supplier Name" %>
+    <%= f.text_field :supplier_name, :class =>"input-large", :id =>"supplier_name", :placeholder => "Supplier Name" %></div>
+    <div class="stock_supplier_phoneno input-prepend long">
+    <span class="add-on"><%= image_tag "small-phone.png"%></span>
+    <%= f.autocomplete_field :supplier_phoneno, autocomplete_supplier_phoneno_suppliers_path, :update_elements => { :name => "#supplier_name" , :address=> "#supplier_address"}, :placeholder => "Supplier Cell", :class => "input-large" %>
+  </div>
+
 
 <div class="stock_code">
     <%= generate_stock_code %>
     <%= f.hidden_field :code, :value => generate_stock_code %>
   </div>
-
+</br></br>
+<div class="bill_supplier_address input-prepend long">
+    <span class="add-on" id="residence"><i class="icon-home"></i></span>
+    <%= f.text_field :supplier_address, :class =>"input-large", :id =>"supplier_address", :placeholder => "Supplier Address" %>
   </div>
 
-    <div align="center" class="cust_inputs">
 
+ 
+
+    <div align="center" class="cust_inputs">
+<div class="well items_area">
       <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name", :size1 => "#product_size1", :size2 => "#product_size2", :category => "#product_metric"+rand_number }, :class => "input-small" %> 
  
   <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-small item_product_name", :id => "product_name", :readonly => "true" %>
@@ -45,6 +52,7 @@
  
 
     <%= f.number_field :cost, :placeholder => "Cost", :class => "input-small" %>
+</div>
   </div>
 </br></br></br></br>
   <%= link_to 'Back', stocks_path, :class => "btn info" %>

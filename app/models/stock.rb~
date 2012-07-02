@@ -69,7 +69,7 @@ def supplier_name
   end
   
  def supplier_phoneno=(phoneno)
-    self.supplier=Supplier.find_or_create_by_phoneno(phoneno) unless phoneno.blank?
+    self.supplier=Supplier.find_by_phoneno(phoneno) unless phoneno.blank?
     #return phoneno
  end
   
