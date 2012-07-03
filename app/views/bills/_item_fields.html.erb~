@@ -1,13 +1,13 @@
 <% rand_number = rand(100000).to_s %>
 <div class="items_input_fields" id="item_val" >
   
-  <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name"+rand_number, :size1 => "#product_size1"+rand_number,:size2 => "#product_size2"+rand_number,:category => "#product_metric"+rand_number }, :class => "input-small",:id=>"product_code"%> 
+  <%= f.autocomplete_field :product_code, autocomplete_product_code_products_path, :placeholder => "Type code here", :update_elements => { :name => "#product_name"+rand_number, :size1 => "#product_size1"+rand_number,:size2 => "#product_size2"+rand_number,:category => "#product_metric"+rand_number }, :class => "input-large",:id=>"product_code"%> 
   
   <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-large item_product_name", :id => "product_name"+rand_number, :readonly => "true" %>
   
-  <%= f.text_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1"+rand_number, :readonly => "true" %>
+  <%= f.hidden_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1"+rand_number, :readonly => "true" %>
   
-  <%= f.text_field :product_size2,  :placeholder => "Size2", :class => "input-small", :id => "product_size2"+rand_number, :readonly => "true" %>
+  <%= f.hidden_field :product_size2,  :placeholder => "Size2", :class => "input-small", :id => "product_size2"+rand_number, :readonly => "true" %>
    
   
  

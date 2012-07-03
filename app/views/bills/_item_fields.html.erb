@@ -5,7 +5,7 @@
   
   <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-large item_product_name", :id => "product_name"+rand_number, :readonly => "true" %>
   
-  <%= f.text_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1"+rand_number, :readonly => "true" %>
+  <%= f.hidden_field :product_size1,  :placeholder => "Size1", :class => "input-small", :id => "product_size1"+rand_number, :readonly => "true" %>
   
   <%= f.hidden_field :product_size2,  :placeholder => "Size2", :class => "input-small", :id => "product_size2"+rand_number, :readonly => "true" %>
    

@@ -22,8 +22,7 @@
       if (!this.railsAutoCompleter) {
         this.railsAutoCompleter = new jQuery.railsAutocomplete(this);
       }
-    });
-  };
+
 
   jQuery.railsAutocomplete = function (e) {
     _e = e;
@@ -131,6 +130,10 @@ $("#customers_search_box").keyup(function() {
   });
 $("#suppliers_search_box").keyup(function() {
     $.get($("#suppliers_search_form").attr("action"), $("#suppliers_search_form").serialize(), null, "script");
+    return false;
+  });
+$("#stocks_search_box").keyup(function() {
+    $.get($("#stocks_search_form").attr("action"), $("#stocks_search_form").serialize(), null, "script");
     return false;
   });
   

@@ -35,13 +35,13 @@
     <%= generate_bill_code %>
     <%= f.hidden_field :code, :value => generate_bill_code %>
   </div>
-  </br>
+  
 
 
 </br></br>
 <div class="bill_customer_address input-prepend long">
-    <span class="add-on" id="residence"><i class="icon-home"></i></span>
-    <%= f.text_field :customer_address, :class =>"input-large", :id =>"customer_address", :placeholder => "Customer Address" %>
+    <span class="add-on"><i class="icon-home"></i></span>
+    <%= f.text_area :customer_address, :class =>"input-large", :id =>"customer_address", :placeholder => "Customer Address" %>
   </div>
 
 
@@ -49,8 +49,9 @@
   
     <div class="well items_area">
     <ul class="item_headers_group">
+      <li class="item_header">Product Code</li>
       <li class="item_header">Product Details</li>
-      <li class="item_header">Length</li>
+      <li class="item_header" id="prod_len">Length</li>
       <li class="item_header">Quantity</li>
       <li class="item_header">Volume</li>
       <li class="item_header">Rate</li>
