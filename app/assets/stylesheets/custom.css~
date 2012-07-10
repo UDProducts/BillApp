@@ -536,13 +536,13 @@ float:right;
 #planecharge
 {
 float:right;
-margin-right:25px;
+margin-right:31px;
 }
 
 #discount
 {
 float:right;
-margin-right:0px;
+margin-right:31px;
 }
 
 #net
@@ -553,12 +553,12 @@ margin-right:0px;
 #cusdues
 {
 float:right;
-margin-right:25px;
+margin-right:31px;
 }
 
 #advance
 {
-margin-left:625px;
+margin-left:723px;
 }
 #balance
 {
@@ -617,11 +617,5 @@ height:50px;
 
 }
 span#sqft{
-background-color: #fcf8e3;
-border-color: #c09853;
-display:inline-block;
-font-weight:normal;
-height:18px;
-line-height:18px;
-min-width:16px;
+width:auto;
 }

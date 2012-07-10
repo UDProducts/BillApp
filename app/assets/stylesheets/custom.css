@@ -536,13 +536,13 @@ float:right;
 #planecharge
 {
 float:right;
-margin-right:25px;
+margin-right:31px;
 }
 
 #discount
 {
 float:right;
-margin-right:0px;
+margin-right:31px;
 }
 
 #net
@@ -553,17 +553,17 @@ margin-right:0px;
 #cusdues
 {
 float:right;
-margin-right:25px;
+margin-right:31px;
 }
 
 #advance
 {
-margin-left:625px;
+margin-left:723px;
 }
 #balance
 {
 float:right;
-margin-right:6px;
+margin-right:9px;
 }
 #new_stock{
 width: 900px;
