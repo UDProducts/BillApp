@@ -58,6 +58,9 @@ $(document).ready(function() {
           var $size1_id = $(this).data("size1-id");
           var $size1 = parseFloat($("#"+$size1_id).val(), 10);
           $size1=parseFloat($(this).prev().prev().prev().prev().prev().prev().prev().val());
+           //$size1=$(this).prev().prev().prev().prev().prev().prev().prev().val();
+
+ 	  
           var $size2_id = $(this).data("size2-id");
           var $size2 = parseFloat($("#"+$size2_id).val(), 10);
           $size2=parseFloat($(this).prev().prev().prev().prev().prev().prev().val());
@@ -102,6 +105,7 @@ $(document).ready(function() {
         break;	
       case "3" :
         //alert("1 3");
+        if($size1<1){alert($size1);alert($quantity);alert($size1*$quantity);}
         if(isNaN($size1*$quantity)) {
           $(this).prev().prev().prev().val("0 ft");
         }else{
@@ -233,8 +237,8 @@ $(document).ready(function() {
     
     var $size1_id = $(this).data("size1-id");
     var $size1 = parseFloat($("#"+$size1_id).val(), 10);
-    //var $size1 =parseFloat($(this).prev().prev().prev().prev().val());
-    
+    var $size1 =($(this).prev().prev().prev().prev().val());
+    alert($size1);
     var $size2_id = $(this).data("size2-id");
     var $size2 = parseFloat($("#"+$size2_id).val(), 10);
     //var $size2 = parseFloat($(this).prev().prev().prev().val());
