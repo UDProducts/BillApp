@@ -237,8 +237,8 @@ $(document).ready(function() {
     
     var $size1_id = $(this).data("size1-id");
     var $size1 = parseFloat($("#"+$size1_id).val(), 10);
-    var $size1 =($(this).prev().prev().prev().prev().val());
-    alert($size1);
+    //var $size1 =($(this).prev().prev().prev().prev().val());
+    //alert($size1);
     var $size2_id = $(this).data("size2-id");
     var $size2 = parseFloat($("#"+$size2_id).val(), 10);
     //var $size2 = parseFloat($(this).prev().prev().prev().val());
@@ -273,11 +273,16 @@ $(document).ready(function() {
     alert("quantity= "+$quantity);
     alert("v = "+ ($length*$quantity/144)*$size1*$size2*$rate);
     alert("val="+(($length*$quantity)/144)*$size1*$size2*$rate);
-*/
+*/  
     switch($metric)
-    {
+    { 
       case "1" :
         //alert("1 1");
+         alert("size1= "+$size1);
+        alert("size2= "+$size2);
+        alert("quantity= "+$quantity);
+        alert("rate= "+$rate);
+       alert("length= "+$length);
         if(isNaN((($length*$quantity)/144)*$size1*$size2*$rate)) {
           $("#"+$amount_id).val(0);
         }else{
@@ -287,6 +292,10 @@ $(document).ready(function() {
         break;
       case "2":
        // alert("1 2");
+       // alert("size1= "+$size1);
+        //alert("size2= "+$size2);
+       // alert("quantity= "+$quantity);
+       // alert("rate= "+$rate);
         if(isNaN($size1*$rate*$size2*$quantity)) {
           $("#"+$amount_id).val(0);
         }else{
