@@ -53,7 +53,7 @@
       <li class="item_header">Product Details</li>
       <li class="item_header" id="prod_len">Length</li>
       <li class="item_header">Quantity</li>
-      <li class="item_header">Volume</li>
+      <li class="item_header">Dimension</li>
       <li class="item_header">Rate</li>
       <li class="item_header">Amount</li>
     </ul>
@@ -63,13 +63,25 @@
     <% end %>
      
   </div>
-  <div class="btn dontprint">
+  <div class="btn dontprint hidden">
     <%# render 'add_new_item', :f => f, :items => :items %>
     <%# link_to_add_fields 'Add new',f,:items%>   
 
   </div>
   <div class="bill_final_inputs">
-    <div class="total_amount">
+
+    <div class="total_dim">
+      <div class="input-append">
+         
+        <%= f.text_field :total_ft, :placeholder => "Length", :class => "input-small",:id =>"bill_len" %>
+      <span class="add-on">ft</span>
+       </div>
+      <div class="input-append">
+         
+        <%= f.text_field :total_sqft, :placeholder => "Area", :class => "input-small",:id =>"bill_area" %>
+      <span class="add-on">sft</span>
+       </div>
+      
        
       <div class="input-append">
          
@@ -77,7 +89,11 @@
       <span class="add-on">cft</span>
        </div>
              
-      <div class="input-append">
+
+    </div>
+    <div class="total_amount">
+<span class="firstrow">
+            <div class="input-append">
          
         <%= text_field_tag :planecharge,nil, :placeholder => "P.Charges", :class => "input-small",:id =>"bill_plane" %>
       <span class="add-on">Rs.</span>
@@ -93,19 +109,20 @@
       <%= f.text_field :discount,:placeholder =>"Discount", :class => "input-small bill_discount", :id =>   	 	"bill_discount"  %> 
          <span class="add-on">Rs.</span>
       </div>
- 
-
-      
-      
-
-         
-       <div class="input-append">
+<div class="input-append">
 
     <%= f.text_field :advance, :placeholder => "Advance", :class => "input-small advance_input",:id =>"bill_advance" %>
     <span class="add-on">Rs.</span>
       </div>
     </div>
      
+ 
+</span>
+      
+      
+
+         
+       
     
       
     <div class="subalign">    

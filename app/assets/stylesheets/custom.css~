@@ -628,5 +628,13 @@ background:brown;
 
 }
 .navbar .nav#nav-search > li > a{
-color:wheat;
+color:lightgray;
 }
+div.total_dim{
+float:right;
+}
+span.firstrow{
+float:right;
+margin-right:12px;
+}
+

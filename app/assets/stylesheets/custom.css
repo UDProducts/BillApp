@@ -630,3 +630,11 @@ background:brown;
 .navbar .nav#nav-search > li > a{
 color:lightgray;
 }
+div.total_dim{
+float:left;
+}
+span.firstrow{
+float:right;
+margin-right:12px;
+}
+
