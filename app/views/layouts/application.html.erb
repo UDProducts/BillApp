@@ -66,25 +66,30 @@
             <li><%= link_to "Supplier", new_supplier_path, :class=>"bill" %></li>
           </ul>
           
-          <ul class="nav pull-right">
-            <li><%= link_to image_tag("white-pie.png"), statistics_path, :class => "image_button" %></li>
-             <li class="dropdown" id="menu_search">
+            <ul class="nav pull-right search">
+            
+            <!-- <li class="dropdown" id="menu_search">
 
               <a class="dropdown-toggle bill" data-toggle="dropdown" href="#menu_search">
                 Search
                 <b class="caret"></b>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu">-->
+               
+               <ul class="nav" id="nav-search">
+               <li><%= link_to image_tag("white-pie.png"), statistics_path, :class => "image_button" %></li>
                <li><%= link_to "Products", products_path %></li>
                <li><%= link_to "Bills", bills_path %></li>
                <li><%= link_to "Customers", customers_path %></li>
                <li><%= link_to "Stocks", stocks_path %></li>
 	       <li><%= link_to "Suppliers", suppliers_path %></li>
-              </ul>
-            </li>
+              
+            
              <% if user_signed_in? %>
                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class=>"bill pull-right" %></li>
              <% end %>
+              </ul>
+              
           </ul>
          </div>
         </div>

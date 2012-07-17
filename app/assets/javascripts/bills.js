@@ -87,6 +87,16 @@ $(document).ready(function() {
           
         }
         $item_volume = $(this).prev().prev().prev().val().replace("cft","");
+        $total_volume = parseFloat($item_volume) + parseFloat($total_volume);
+        if(isNaN($total_volume)) {
+            $("#bill_volume").val($temp_volume);
+
+          } else {
+           //alert($total_volume);
+          //alert("1");
+            $("#bill_volume").val($total_volume);
+          }
+          
         break;
       case "2":
        // alert("1 2");
@@ -105,7 +115,7 @@ $(document).ready(function() {
         break;	
       case "3" :
         //alert("1 3");
-        if($size1<1){alert($size1);alert($quantity);alert($size1*$quantity);}
+        
         if(isNaN($size1*$quantity)) {
           $(this).prev().prev().prev().val("0 ft");
         }else{
@@ -117,17 +127,9 @@ $(document).ready(function() {
     }
       // $item_volume = parseFloat((((($length*$quantity)/144)*$size1*$size2)).toFixed(2));
        
-         $total_volume = parseFloat($item_volume) + parseFloat($total_volume);
+         
           //alert($item_volume);
           //$total_volume =  parseFloat($item_volume) + parseFloat($total_volume);
-          if(isNaN($total_volume)) {
-            $("#bill_volume").val($temp_volume);
-// alert("0");
-          } else {
-           //alert($total_volume);
-          //alert("1");
-            $("#bill_volume").val($total_volume);
-          }
           
 
             
@@ -222,13 +224,13 @@ $(document).ready(function() {
         var $rate = parseFloat($(this).val(), 10);
       //alert(("#"+($(this).prev().data("length-id"))).val());
        // <ul class="item_headers_group">
-    var $q_id=$(this).prev().data("length-id");
-    var $q = parseFloat($("#"+$q_id).val(),10);
-    //alert($q);
+    //var $q_id=$(this).prev().prev().data("length-id");
+    //var $q = parseFloat($("#"+$q_id).val(),10);
+   // alert($q);
     //alert($("#"+$q_id).val());
     var $quantity_id = $(this).data("quantity-id");
     var $quantity = parseFloat($("#"+$quantity_id).val(), 10);
-    //alert($quantity);
+   // alert("quantity="+$quantity);
     // var $rate = $(this).prev().val();
     
     if(isNaN($quantity)) {
@@ -241,21 +243,30 @@ $(document).ready(function() {
     //alert($size1);
     var $size2_id = $(this).data("size2-id");
     var $size2 = parseFloat($("#"+$size2_id).val(), 10);
+    //alert("size2-id= "+$size2_id);
+    //alert("size2= "+$size2);
     //var $size2 = parseFloat($(this).prev().prev().prev().val());
     
     //var $length_id = $(this).data("length-id");
     //var $length = parseFloat($("#"+$length_id).val(), 10);
     var $length_id = $(this).data("length-id");
-    var $length = parseFloat($("#"+$length_id).val(), 10);
+     //alert("length-id="+$length_id);
+     
+   // var $length = parseFloat($("#"+$length_id).val(), 10);
+     var $length = parseFloat($(this).prev().prev().prev().val(), 10);
+     //alert("length="+$length);
+   // var $length = parseFloat($length_id.val(), 10);
+    //var $length = $("#"+$length_id).attr("value");
+    //alert("length= "+$(this).data("length-id").value);
     //var $quantity = parseFloat($(this).prev().prev().val()); 
      
-    if(isNaN($length)) {
+    /*if(isNaN($length)) {
       $length = 1
-    }
+    }*/
     
     var $metric_id = $(this).data("metric-id");
     var $metric = $("#"+$metric_id).val();
-    //alert($metric);
+   // alert("metric="+$metric);
   //  var $metric = parseFloat($(this).next().next().val()); 
     
     var $amount_id = $(this).data("amount-id");
@@ -278,11 +289,11 @@ $(document).ready(function() {
     { 
       case "1" :
         //alert("1 1");
-         alert("size1= "+$size1);
-        alert("size2= "+$size2);
-        alert("quantity= "+$quantity);
-        alert("rate= "+$rate);
-       alert("length= "+$length);
+         //alert("size1= "+$size1);
+        //alert("size2= "+$size2);
+        //alert("quantity= "+$quantity);
+        //alert("rate= "+$rate);
+       //alert("length= "+$length);
         if(isNaN((($length*$quantity)/144)*$size1*$size2*$rate)) {
           $("#"+$amount_id).val(0);
         }else{
@@ -291,11 +302,11 @@ $(document).ready(function() {
         }
         break;
       case "2":
-       // alert("1 2");
-       // alert("size1= "+$size1);
-        //alert("size2= "+$size2);
-       // alert("quantity= "+$quantity);
-       // alert("rate= "+$rate);
+        //alert("1 2");
+        //alert("size1= "+$size1);
+       //alert("size2= "+$size2);
+       //alert("quantity= "+$quantity);
+        //alert("rate= "+$rate);
         if(isNaN($size1*$rate*$size2*$quantity)) {
           $("#"+$amount_id).val(0);
         }else{
@@ -628,7 +639,7 @@ $('input#bill_discount').live('keyup', function() {
     var rand=Math.floor((Math.random()*100000)+1).toString();
     if (e.which == 13 ||e.keyCode == 13 ) 
     {  e.preventDefault();
-      add_fields(this, "items", "<div class=\"items_input_fields\" id=\"item_val\" >\n  \n  <input class=\"input-small ui-autocomplete-input\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name"+rand+"&quot;,&quot;size1&quot;:&quot;#product_size1"+rand+"&quot;,&quot;size2&quot;:&quot;#product_size2"+rand+"&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"product_code"+rand+"\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n  <input class=\"input-large item_product_name\" id=\"product_name"+rand+"\" name=\"bill[items_attributes][new_items][product_name]\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_product_size1\" id=\"product_size1"+rand+"\" name=\"bill[items_attributes][new_items][product_size1]\" size=\"30\" type=\"hidden\"  readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size2\" id=\"product_size2"+rand+"\" name=\"bill[items_attributes][new_items][product_size2]\" size=\"30\" type=\"hidden\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_quantity\" id=\"item_quantity"+rand+"\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" \/> <input class=\"input-small item_cft\" id=\"item_volume"+rand+"\" name=\"bill[items_attributes][new_items][cft]\" size=\"30\" type=\"text\" placeholder=\"Volume\"readonly=\"readonly\" \/>\n\n <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][total_amount]\" placeholder=\"Total Amount\" type=\"text\" /> \n    \n     <input class=\"input-small\" id=\"product_metric"+rand+"\"data-rate-id=\"item_rate"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\"  name=\"metric\" type=\"hidden\" />\n  \n   <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" /><span id=\"remove\"><a href=\"#\" onclick=\"remove_fields(this); return false;\"><i class=\'icon-minus-sign close_item\'>  <\/i><\/a><\/span>\n\n<\/div>\n\n "); $('.input-small.ui-autocomplete-input:last').focus();return false;}
+      add_fields(this, "items", "<div class=\"items_input_fields\" id=\"item_val\" >\n  \n  <input class=\"input-small ui-autocomplete-input\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name"+rand+"&quot;,&quot;size1&quot;:&quot;#product_size1"+rand+"&quot;,&quot;size2&quot;:&quot;#product_size2"+rand+"&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"product_code"+rand+"\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n  <input class=\"input-large item_product_name\" id=\"product_name"+rand+"\" name=\"bill[items_attributes][new_items][product_name]\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_product_size1\" id=\"product_size1"+rand+"\" name=\"bill[items_attributes][new_items][product_size1]\" size=\"30\" type=\"hidden\"  readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size2\" id=\"product_size2"+rand+"\" name=\"bill[items_attributes][new_items][product_size2]\" size=\"30\" type=\"hidden\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_quantity\" id=\"item_quantity"+rand+"\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" \/> <input class=\"input-small item_cft\" id=\"item_volume"+rand+"\" name=\"bill[items_attributes][new_items][cft]\" size=\"30\" type=\"text\" placeholder=\"Volume\"readonly=\"readonly\" \/>\n\n <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\"  data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][total_amount]\" placeholder=\"Total Amount\" type=\"text\" /> \n    \n     <input class=\"input-small\" id=\"product_metric"+rand+"\"data-rate-id=\"item_rate"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\"data-rate-id=\"item_rate"+rand+"\"  name=\"metric\" type=\"hidden\" />\n  \n   <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" /><span id=\"remove\"><a href=\"#\" onclick=\"remove_fields(this); return false;\"><i class=\'icon-minus-sign close_item\'>  <\/i><\/a><\/span>\n\n<\/div>\n\n "); $('.input-small.ui-autocomplete-input:last').focus();return false;}
 
 //$(this).next().focus();
   });

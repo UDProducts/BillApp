@@ -623,4 +623,10 @@ width:auto;
 span#cus_addre{
 margin-left:-5px;
 }
+ul#nav-search{
+background:brown;
 
+}
+.navbar .nav#nav-search > li > a{
+color:lightgray;
+}

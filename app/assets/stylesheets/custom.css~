@@ -621,6 +621,12 @@ span#sqft{
 width:auto;
 }
 span#cus_addre{
-margin-left:28px;
+margin-left:-5px;
 }
+ul#nav-search{
+background:brown;
 
+}
+.navbar .nav#nav-search > li > a{
+color:wheat;
+}

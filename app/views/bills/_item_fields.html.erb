@@ -21,7 +21,7 @@
     
   <%= f.text_field :total_amount,  :placeholder =>"Total Amount", :class => "input-small item_amount", :id => "item_amount" + rand_number %> 
   
-  <%= hidden_field_tag :metric, nil, :class => "input-small item_metric", :id => "product_metric"+rand_number ,:data => { :size1_id => "product_size1"+rand_number, :length_id => "item_length" + rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  }%>
+  <%= hidden_field_tag :metric, nil, :class => "input-small item_metric", :id => "product_metric"+rand_number ,:data => { :size1_id => "product_size1"+rand_number, :length_id => "item_length" + rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number,:rate_id =>"item_rate"+rand_number  }%>
   
   
   <%= f.hidden_field :_destroy, :class => "item_destroy" %>
