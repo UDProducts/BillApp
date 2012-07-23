@@ -15,6 +15,19 @@ function remove_fields(link) {
 
 
 $(document).ready(function() {
+$("#accordionNested").msAccordion({defaultid:2});
+$("#accordionNestedChild").msAccordion({defaultid:2, vertical:true});	
+/*$(".collapse").collapse()({
+  toggle: true,
+  show:false
+  
+  });
+
+//$(".collapse").collapse();
+ //$('div#two').liteAccordion();
+/*$('div#two').live('click', function(){
+$('div#two').liteAccordion();
+});*/
 
   var $x=0;
   $('input#bill_plane').live('keyup', function() {
@@ -148,6 +161,7 @@ $(document).ready(function() {
             $("#bill_len").val($total_len);
           }
         break;
+       case "4" :$(this).prev().prev().prev().val("0");
     }
       // $item_volume = parseFloat((((($length*$quantity)/144)*$size1*$size2)).toFixed(2));
        
@@ -347,6 +361,8 @@ $(document).ready(function() {
           $("#"+$amount_id).val(($size1*$rate*$quantity).toFixed(2));
         }
         break;
+      case "4" :
+        $("#"+$amount_id).val(($rate*$quantity).toFixed(2));
     }
             
     $('input#bill_gross').val(parseFloat($('div.items_input_fields input.item_amount').sumValues()));
@@ -577,11 +593,11 @@ $('div.items_input_fields input.item_vat').live('keyup',function() {
    $('input#bill_gross').live('keyup',function(e) {
   var keyCode = e.keyCode || e.which; 
    
-   if (keyCode == 9) { 
+   if (keyCode == 9 || keyCode == 13 ) { 
      e.preventDefault(); 
      var $dues = parseFloat($('input#customer_dues').val()).toFixed(2);
      // alert($dues);
-     // alert($dues);
+      
     if(isNaN($dues)) {
    	  parseFloat($('input#customer_dues').val($('input#bill_balance').val())).toFixed(2);
     }else{
@@ -601,11 +617,31 @@ $('input.item_amount').live('keydown', function(e){
    e.preventDefault();
     $("#add_new_item").trigger('click');
   }*/
-  
-  if(keyCode == 13) {
+  //$("div.items_input_fields input").each(function () {
+  if(keyCode == 13) {//alert($(this).next().val());
     e.preventDefault();
-    $("#bill_plane").focus();
+    var $x=0;
+   // var $i=0;
+    $("div.items_input_fields input").each(function () {
+      if ($(this).attr("name") === "metric") 
+       {//$i++;
+        //alert("this val:"+$(this).val());
+    if($(this).val()=='1')
+     $x=1;
+     
+      }
+    });
+    
   }
+     
+   if($x==1)
+   {
+      $('#bill_plane').focus();
+   }
+    else
+    {
+      $('#bill_discount').focus();
+    }
 });
  
   $('input#bill_vat').live('keyup', function() {
@@ -651,23 +687,27 @@ $('input#bill_discount').live('keyup', function() {
   	});
   	return sum;
   };
- $('input').live( 'keydown',function(e) {
-       // var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-        if(e.which == 13 || e.keyCode==13) {
+ $('input').live( 'keydown',function(e) {//alert($(this).attr("class")); 
+        var $key = $(this).attr("class");
+        //alert($key);
+      if($key!="input-small item_amount" ){
+        if( e.which == 13 || e.keyCode == 13 ) {
             e.preventDefault();
             var inputs = $(this).closest('form').find(':input:visible');
             inputs.eq( inputs.index($(this))+ 1 ).focus();
             e.preventDefault();
         }
+      }
     });
 
-  $("span#remove").live("keydown", function(e){//alert(e.which);
+  $("input.item_amount").live("keydown", function(e){//alert(e.which);
     var rand=Math.floor((Math.random()*100000)+1).toString();
-    if (e.which == 13 ||e.keyCode == 13 ) 
+    if (e.which == 107 ||e.keyCode == 107) 
     {  e.preventDefault();
       add_fields(this, "items", "<div class=\"items_input_fields\" id=\"item_val\" >\n  \n  <input class=\"input-small ui-autocomplete-input\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name"+rand+"&quot;,&quot;size1&quot;:&quot;#product_size1"+rand+"&quot;,&quot;size2&quot;:&quot;#product_size2"+rand+"&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"product_code"+rand+"\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n  <input class=\"input-large item_product_name\" id=\"product_name"+rand+"\" name=\"bill[items_attributes][new_items][product_name]\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_product_size1\" id=\"product_size1"+rand+"\" name=\"bill[items_attributes][new_items][product_size1]\" size=\"30\" type=\"hidden\"  readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size2\" id=\"product_size2"+rand+"\" name=\"bill[items_attributes][new_items][product_size2]\" size=\"30\" type=\"hidden\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_quantity\" id=\"item_quantity"+rand+"\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" \/> <input class=\"input-small item_cft\" id=\"item_volume"+rand+"\" name=\"bill[items_attributes][new_items][cft]\" size=\"30\" type=\"text\" placeholder=\"Volume\"readonly=\"readonly\" \/>\n\n <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-length-id=\"item_length"+rand+"\"data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\"   data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][total_amount]\" placeholder=\"Total Amount\" type=\"text\" /> \n    \n     <input class=\"input-small\" id=\"product_metric"+rand+"\"data-rate-id=\"item_rate"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\"data-rate-id=\"item_rate"+rand+"\"  name=\"metric\" type=\"hidden\" />\n  \n   <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" /><span id=\"remove\"><a href=\"#\" onclick=\"remove_fields(this); return false;\"><i class=\'icon-minus-sign close_item\'>  <\/i><\/a><\/span>\n\n<\/div>\n\n "); $('.input-small.ui-autocomplete-input:last').focus();return false;}
 
 //$(this).next().focus();
+           
   });
 
 
@@ -728,3 +768,4 @@ $('#new_bill').submit();
 
 	
        
+

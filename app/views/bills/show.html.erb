@@ -58,16 +58,24 @@
 </br></br>
 <div class="bill_final_inputs">
  
-  <b id="cft">Tot.cft:
-   <%= @bill.total_cft %></b>
-
   <b id="gross">Gross:
     <%= @bill.gross %></b>
-
-  
   <b id="vat">Vat:
   <%= @bill.vatamt %></b>
 
+  </br>
+  <b id="cft">Tot.cft:
+   <%= @bill.total_cft %></b>
+   </br>
+  <b id="sft">Tot.sft:
+   <%= @bill.total_sqft %></b>
+  </br>
+  <b id="ft">Tot.ft:
+   <%= @bill.total_ft %></b>
+
+  
+  
+  
   <b id="tot">Tot:
     <%= @bill.amount %></b>
 
@@ -82,7 +90,7 @@
   <%= @bill.customer_dues %> </b>
   
 
-  </br>
+  </br></br>
 
   <b id="totalquantity">Tot.Nos:
    <%= @total_qty %></b>

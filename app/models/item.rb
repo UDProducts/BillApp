@@ -49,7 +49,10 @@ class Item < ActiveRecord::Base
  self.product= Product.find_by_category(category) unless name.blank?
  end
 
-  
+  def product_items
+   self.product=Product.all
+   return self.product
+  end
 
 
 end

@@ -1,0 +1,15 @@
+.accordionWrapper{display:inline-block; background-color:#fff; overflow:hidden;}
+/*.accordionWrapper div{vertical-align:top; border:0; margin:0; padding:0}*/
+.accordionWrapper div{display:inline; float:left; margin:auto;}
+.accordionWrapper div.title{cursor:pointer;}
+.accordionWrapper div.content{display:none;}
+div.accordionWrapper div.set,div#accordionNestedChild div.set
+{
+/* Rotate div */
+transform:rotate(-90deg);
+-ms-transform:rotate(-90deg); /* Internet Explorer */
+-moz-transform:rotate(-90deg); /* Firefox */
+-webkit-transform:rotate(-90deg); /* Safari and Chrome */
+-o-transform:rotate(-90deg); /* Opera */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); 
+}

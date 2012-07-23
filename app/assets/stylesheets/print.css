@@ -40,7 +40,7 @@ margin-right:20px;
 #discount
 {
 float:right;
-margin-right:20px;
+margin-right:12px;
 }
 
 #net
@@ -51,7 +51,7 @@ margin-right:0px;
 #cusdues
 {
 float:right;
-margin-right:19px;
+margin-right:15px;
 }
 
 
@@ -59,13 +59,13 @@ margin-right:19px;
 #balance
 {
 float:right;
-margin-right:5px;
+margin-right:1px;
 }
 
 #advance
 {
-margin-left:333px;
-float:left;
+margin-right:14px;
+float:right;
 }
 
 .dontprint {display: none}

@@ -25,7 +25,7 @@
   </div>
      <div class="bill_customer_phoneno input-prepend long">
     <span class="add-on"><%= image_tag "small-phone.png"%></span>
-    <%= f.autocomplete_field :customer_phoneno, autocomplete_customer_phoneno_customers_path, :update_elements => { :name => "#customer_name", :balance => "#customer_dues",:address =>"#customer_address" }, :placeholder => "Customer Cell", :class => "input-large" %>
+    <%= f.autocomplete_field :customer_phoneno, autocomplete_customer_phoneno_customers_path, :update_elements => { :name => "#customer_name", :balance => "#customer_dues",:address =>"#bill_customer_address" }, :placeholder => "Customer Cell", :class => "input-large" %>
   </div>
 <div class="input-prepend">
     <span class="add-on">Rs.</span>
@@ -186,3 +186,5 @@
 </div>
 <% end %>
 </center>
+
+

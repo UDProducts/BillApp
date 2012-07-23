@@ -510,9 +510,20 @@ html, body {
 #cft
 {
  float:left;
- margin-top:1px;
+ margin-top:-18px;
 }
-
+#sft
+{
+float:left;
+margin-top:-7px;
+margin-left:0px;
+}
+#ft
+{
+float:left;
+margin-top:1px;
+margin-left:0px;
+}
 #totalquantity
 {
  float:left;
@@ -521,7 +532,7 @@ html, body {
 #gross
 {
  float:left;
-margin-left:70px;
+margin-left:270px;
 }
 #vat
 {
@@ -531,39 +542,47 @@ margin-right:130px;
 #tot
 {
 float:right;
+margin-top:-54px;
 }
 
 #planecharge
 {
 float:right;
 margin-right:31px;
+margin-top:-50px;
 }
 
 #discount
 {
 float:right;
-margin-right:31px;
+margin-right:17px;
+margin-top:-48px;
 }
 
 #net
 {
 float:right;
 margin-right:0px;
+margin-top:-62px;
 }
 #cusdues
 {
 float:right;
-margin-right:31px;
+margin-right:22px;
+margin-top:-46px;
 }
 
 #advance
 {
-margin-left:723px;
+float:right;
+margin-right:22px;
+margin-top:-60px;
 }
 #balance
 {
 float:right;
-margin-right:9px;
+margin-right:2px;
+margin-top:-40px;
 }
 #new_stock{
 width: 900px;

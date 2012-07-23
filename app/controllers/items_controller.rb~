@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-#before_filter :product_items
+before_filter :product_items
 helper_method :sort_column, :sort_direction, :sort_directionbyname
 autocomplete :item, :rate, :column_name => "rate"
   # GET /items

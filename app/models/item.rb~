@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
 
 
  def product_code
-  product.code.substring(0,3) if product
+  product.code if product
  end
 
  def product_code=(code)
