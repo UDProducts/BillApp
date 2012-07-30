@@ -656,4 +656,7 @@ span.firstrow{
 float:right;
 margin-right:12px;
 }
+div.accordion-body.collapse{
+height:auto;
+}
 

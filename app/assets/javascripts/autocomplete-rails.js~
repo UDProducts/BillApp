@@ -22,7 +22,8 @@
       if (!this.railsAutoCompleter) {
         this.railsAutoCompleter = new jQuery.railsAutocomplete(this);
       }
-
+    });
+  };
 
   jQuery.railsAutocomplete = function (e) {
     _e = e;
@@ -136,6 +137,16 @@ $("#stocks_search_box").keyup(function() {
     $.get($("#stocks_search_form").attr("action"), $("#stocks_search_form").serialize(), null, "script");
     return false;
   });
+$('div.accordion-inner').live('click',function(){
+var sizecode=$(this).text();
+var sep=sizecode.split('-');
+if(sizecode.length<100)
+{
+$("input#product_code:last").val(sep[1]);
+jQuery(this).trigger('railsAutocomplete.select');
+}
+
+});
   
  
 });

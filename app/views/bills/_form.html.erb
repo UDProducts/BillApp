@@ -1,3 +1,4 @@
+<% rand_number = rand(100000).to_s %>
 <% if @bill.errors.any? %>
   <div class="alert alert-block alert-error fade in">
     <button class="close" data-dismiss="alert">x</button>
@@ -187,4 +188,183 @@
 <% end %>
 </center>
 
+ <div class="accordion" id="accordion2">
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                  Category 1
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">
+             <%= @uniqs1.each_with_index do |name,index| %>
+              
+          <div class="accordion" id=<%= name %> data="<%= name %>" >
+
+           <div class="accordion-group">
+            <div class="accordion-heading">
+             <a class="accordion-toggle" data-toggle="collapse" data-parent= <%= name %>  href="#<%= index %>">
+                 <%= name.to_s %>
+                </a>
+              </div>
+              <div id=<%= index %> class="accordion-body collapse">
+              
+               <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
+                  @all.each do |item|
+                   @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
+                   @code=item.code 
+                   @size1=item.size1.to_s
+                   @size2=item.size2.to_s
+                   @metric=item.category.to_s
+               %>                  
+                <div class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                  
+                  <%= @size %>
+                  
+                </div>
+                  
+               <% end %> 
+	     
+              </div>
+            </div>
+           </div> 
+       <% end %>
+      </div>
+      </div>
+       
+      <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseB">
+                  Category 2
+                </a>
+              </div>
+              <div id="collapseB" class="accordion-body collapse">
+                <div class="accordion-inner">
+             <%= @uniqs2.each_with_index do |name,index| %>
+              
+          <div class="accordion" id=<%= name %> data="<%= name %>">
+
+           <div class="accordion-group">
+            <div class="accordion-heading">
+             <a class="accordion-toggle" data-toggle="collapse" data-parent= <%= name %>  href="#<%= (index+1)*10 %>">
+                  <%= name %>  	
+                  </a>
+              </div>
+              <div id=<%= (index+1)*10 %> class="accordion-body collapse">
+             <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
+                  @all.each do |item|
+                   @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
+                   @code=item.code 
+                   @size1=item.size1.to_s
+                   @size2=item.size2.to_s
+                   @metric=item.category.to_s
+               %>        
+		 
+               
+                  
+                <div class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                  
+                  <%= @size %>
+                  
+                </div>
+                  
+               <% end %> 
+              </div>
+            </div>
+           </div> 
+       <% end %>
+      </div>
+      </div>
+      </div>
+
+       <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseC">
+                  Category 3
+                </a>
+              </div>
+              <div id="collapseC" class="accordion-body collapse">
+                <div class="accordion-inner">
+             <%= @uniqs3.each_with_index do |name,index| %>
+              
+          <div class="accordion" id=<%= name %> data="<%= name %>" >
+
+           <div class="accordion-group">
+            <div class="accordion-heading">
+             <a class="accordion-toggle" data-toggle="collapse" data-parent= <%= name %>  href="#<%= (index+1)*101 %>">
+                  <%= name %>
+                </a>
+              </div>
+              <div id=<%= (index+1)*101 %> class="accordion-body collapse">
+               <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
+                  @all.each do |item|
+                   @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
+                   @code=item.code 
+                   @size1=item.size1.to_s
+                   @size2=item.size2.to_s
+                   @metric=item.category.to_s
+               %>      
+		 
+               
+                  
+                <div class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                  
+                  <%= @size %>
+                  
+                </div>
+                  
+               <% end %> 
+              </div>
+            </div>
+           </div> 
+       <% end %>
+      </div>
+      </div>
+<div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseD">
+                  Category 4
+                </a>
+              </div>
+              <div id="collapseD" class="accordion-body collapse">
+                <div class="accordion-inner">
+             <%= @uniqs4.each_with_index do |name,index| %>
+              
+          <div class="accordion" id=<%= name %> data="<%= name %>">
+
+           <div class="accordion-group">
+            <div class="accordion-heading">
+             <a class="accordion-toggle" data-toggle="collapse" data-parent= <%= name %>  href="#<%= (1+index)*1000 %>">
+                  <%= name %>
+                </a>
+              </div>
+              <div id=<%= (1+index)*1000 %> class="accordion-body collapse">
+               <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
+                  @all.each do |item|
+                   @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
+                   @code=item.code 
+                   @size1=item.size1.to_s
+                   @size2=item.size2.to_s
+                   @metric=item.category.to_s
+               %>                   
+		 
+               
+                  
+                <div class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                  
+                  <%= @size %>
+                  
+                </div>
+                  
+               <% end %> 
+ 
+              </div>
+            </div>
+           </div> 
+       <% end %>
+      </div>
+      </div>
+         
+          </div>
 

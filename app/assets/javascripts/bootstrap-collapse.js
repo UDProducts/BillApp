@@ -145,6 +145,10 @@
 
   $(function () {
     $('div.accordion').on('click.collapse.data-api', '[data-toggle=collapse]', function ( e ) {
+      var autoHeight = $( ".accordion" ).accordion( "option", "autoHeight" );
+//setter
+      $( ".accordion" ).accordion( "option", "autoHeight", false );
+
       var $this = $(this), href
         , target = $this.attr('data-target')
           || e.preventDefault()

@@ -145,6 +145,10 @@
 
   $(function () {
     $('div.accordion').on('click.collapse.data-api', '[data-toggle=collapse]', function ( e ) {
+      var autoHeight = $( ".selector" ).accordion( "option", "autoHeight" );
+//setter
+      $( ".selector" ).accordion( "option", "autoHeight", false );
+
       var $this = $(this), href
         , target = $this.attr('data-target')
           || e.preventDefault()
@@ -163,7 +167,7 @@
             option = $(target).data('collapse') ? 'toggle' : $this.data()
             //alert($this.data().val());
             $(target).collapse(option)
-   // })
+    })
 });
 
 }(window.jQuery);
