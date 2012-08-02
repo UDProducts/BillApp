@@ -70,7 +70,7 @@ ul.item_headers_group {
     
   li.item_header {
 
-    margin-right: 43px;
+    margin-right: 40px;
     padding-left: 5px;
     padding-right: 1.5%;
     padding-top: 5px;
@@ -84,3 +84,11 @@ ul.item_headers_group {
 .input-prepend.long {
   width: 247px;
 }
+ul.accordion-body collapse li
+{
+width:4em;
+overflow:hidden;
+float:left;
+color:red;
+}
+

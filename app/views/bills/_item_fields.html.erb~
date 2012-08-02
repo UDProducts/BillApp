@@ -5,9 +5,9 @@
   
   <%= f.text_field :product_name, :placeholder => "Product Name", :class => "input-large item_product_name", :id => "product_name"+rand_number, :readonly => "true" %>
   
-  <%= f.text_field :product_size1,  :placeholder => "Size1", :class => "input-small item_product_size1", :id => "product_size1"+rand_number, :readonly => "true" %>
+  <%= f.hidden_field :product_size1,  :placeholder => "Size1", :class => "input-small item_product_size1", :id => "product_size1"+rand_number, :readonly => "true" %>
   
-  <%= f.text_field :product_size2,  :placeholder => "Size2", :class => "input-small item_product_size2", :id => "product_size2"+rand_number, :readonly => "true" %>
+  <%= f.hidden_field :product_size2,  :placeholder => "Size2", :class => "input-small item_product_size2", :id => "product_size2"+rand_number, :readonly => "true" %>
    
   
  <%= f.text_field :length, :id => "item_length" + rand_number, :placeholder =>"Length", :class => "input-small item_length", :data => { :rate_id => "item_rate" + rand_number, :amount_id =>  "item_amount" + rand_number, :metric_id =>"product_metric"+rand_number, :size1_id => "product_size1"+rand_number, :size2_id => "product_size2"+rand_number, :quantity_id => "sold_qty"+rand_number  }  %> 

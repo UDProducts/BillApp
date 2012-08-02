@@ -15,8 +15,15 @@ function remove_fields(link) {
 
 
 $(document).ready(function() {
-
-$('div.accordion-inner').live('click',function(){//alert($(this).text());
+$('div.accordion-heading').live('click',function(){
+$(this).show("slide",{direction: "right"},1000);
+});
+$('li.accordion-inner').live('click',function(){//alert($(this).text());
+//alert($(this).width());
+//$(this).css({position:'absolute', display:'inline',width:'20%',
+  //     overflow: 'hidden',background: 'red', float: 'left'});
+//var $id=$(this).attr('id');
+//$("li.accordion-inner[id!=$id]").hide();
 var sizecode=$(this).text();
 var sep=sizecode.split('-');
 //alert("sizecode="+sizecode);
@@ -29,7 +36,7 @@ $("input.ui-autocomplete-input:last").val($(this).attr("code"));
 //alert($(this).closest('div.accordion').attr("data"));
 var $prod_name=$(this).closest('div.accordion').attr("data").concat("(").concat(sizecode).concat(")");
 $prod_name=$prod_name.replace(/\s/g, "");
-alert($prod_name);
+//alert($prod_name);
 $("input.item_product_name:last").val($prod_name);
 $("input.item_product_size1:last").val($(this).attr("size1"));
 $("input.item_product_size2:last").val($(this).attr("size2"));
@@ -40,6 +47,7 @@ $("input.item_product_name:last").change();
 $("input.item_product_name:last").keyup();
 $("input.item_product_size1:last").keyup();
 $("input.item_product_size2:last").keyup();
+$("input.item_length:last").focus();
 }
 
 //alert($(this).closest('div.accordion').attr("id"));
@@ -404,7 +412,7 @@ $('div#two').liteAccordion();
 });
   
   $('div.items_input_fields input.item_quantity').live('keyup',function() {
-        var $quantity = parseFloat($(this).val(), 10);
+      var $quantity = parseFloat($(this).val(), 10);
        // <ul class="item_headers_group">
 
     var $rate_id = $(this).data("rate-id");
@@ -488,11 +496,11 @@ $('div#two').liteAccordion();
     $('input#bill_gross').val(parseFloat($('div.items_input_fields input.item_amount').sumValues()));
     //$(this).next().next().focus();
 });
-$('div.items_input_fields input.item_quantity').live('change',function() {
+$('div.items_input_fields input.item_quantity').live('change',function(e) {
 $(this).next().next().focus();
 });
-  $('div.items_input_fields input.item_length').live('keyup',function() {
-    var $length = parseFloat($(this).val(), 10);
+  $('div.items_input_fields input.item_length').live('keyup',function(e) {//alert("ji");
+      var $length = parseFloat($(this).val(), 10);
        // <ul class="item_headers_group">
 
     var $rate_id = $(this).data("rate-id");
@@ -610,7 +618,7 @@ $('div.items_input_fields input.item_vat').live('keyup',function() {
   });
 
 
-  $('input#bill_advance').live('keyup', function() {
+  $('input#bill_advance').live('keyup', function(e) {
     var $advance = parseFloat($('input#bill_advance').val(), 10).toFixed(2);
     var $bill_total = parseFloat($('input#bill_total').val(), 10).toFixed(2);
     //var $dues = parseFloat($('input#customer_dues').val(), 10).toFixed(2);
@@ -638,6 +646,7 @@ $('div.items_input_fields input.item_vat').live('keyup',function() {
     }else{
    	  $('input#customer_dues').val((parseFloat($('input#bill_balance').val())+parseFloat($dues)));
     }
+
     
     
   } 
@@ -645,9 +654,9 @@ $('div.items_input_fields input.item_vat').live('keyup',function() {
   
    });
 
-$('input.item_amount').live('keydown', function(e){
+$('input.item_amount').live('keyup', function(e){
   var keyCode = e.keyCode || e.which;
-  
+  //alert(keyCode);
  /* if(keyCode == 9) {
    e.preventDefault();
     $("#add_new_item").trigger('click');
@@ -725,7 +734,7 @@ $('input#bill_discount').live('keyup', function() {
  $('input').live( 'keydown',function(e) {//alert($(this).attr("class")); 
         var $key = $(this).attr("class");
         //alert($key);
-      if($key!="input-small item_amount" ){
+      if($key!="input-small item_amount"||$key!="input-small advance_input"){
         if( e.which == 13 || e.keyCode == 13 ) {
             e.preventDefault();
             var inputs = $(this).closest('form').find(':input:visible');
@@ -733,13 +742,20 @@ $('input#bill_discount').live('keyup', function() {
             e.preventDefault();
         }
       }
+      
     });
+  $('input.advance_input').live('keydown',function(e){
+      if( e.which == 13 || e.keyCode == 13 ) {
+       e.preventDefault();
+       $('#new_bill').submit();
+      }
+  });
 
-  $("input.item_amount").live("keydown", function(e){//alert(e.which);
+  $("input.item_rate").live("keydown", function(e){//alert(e.which);
     var rand=Math.floor((Math.random()*100000)+1).toString();
     if (e.which == 107 ||e.keyCode == 107) 
     {  e.preventDefault();
-      add_fields(this, "items", "<div class=\"items_input_fields\" id=\"item_val\" >\n  \n  <input class=\"input-small ui-autocomplete-input\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name"+rand+"&quot;,&quot;size1&quot;:&quot;#product_size1"+rand+"&quot;,&quot;size2&quot;:&quot;#product_size2"+rand+"&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"product_code"+rand+"\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n  <input class=\"input-large item_product_name\" id=\"product_name"+rand+"\" name=\"bill[items_attributes][new_items][product_name]\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_product_size1\" id=\"product_size1"+rand+"\" name=\"bill[items_attributes][new_items][product_size1]\" size=\"30\" type=\"hidden\"  readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size2\" id=\"product_size2"+rand+"\" name=\"bill[items_attributes][new_items][product_size2]\" size=\"30\" type=\"hidden\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_quantity\" id=\"item_quantity"+rand+"\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" \/> <input class=\"input-small item_cft\" id=\"item_volume"+rand+"\" name=\"bill[items_attributes][new_items][cft]\" size=\"30\" type=\"text\" placeholder=\"Volume\"readonly=\"readonly\" \/>\n\n <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-length-id=\"item_length"+rand+"\"data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\"   data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][total_amount]\" placeholder=\"Total Amount\" type=\"text\" /> \n    \n     <input class=\"input-small item_metric\" id=\"product_metric"+rand+"\"data-rate-id=\"item_rate"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\"data-rate-id=\"item_rate"+rand+"\"  name=\"metric\" type=\"hidden\" />\n  \n   <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" /><span id=\"remove\"><a href=\"#\" onclick=\"remove_fields(this); return false;\"><i class=\'icon-minus-sign close_item\'>  <\/i><\/a><\/span>\n\n<\/div>\n\n "); $('.input-small.ui-autocomplete-input:last').focus();return false;}
+      add_fields(this, "items", "<div class=\"items_input_fields\" id=\"item_val\" >\n  \n  <input class=\"input-small ui-autocomplete-input\" data-autocomplete=\"/products/autocomplete_product_code\" data-update-elements=\"{&quot;name&quot;:&quot;#product_name"+rand+"&quot;,&quot;size1&quot;:&quot;#product_size1"+rand+"&quot;,&quot;size2&quot;:&quot;#product_size2"+rand+"&quot;,&quot;category&quot;:&quot;#product_metric"+rand+"&quot;}\" id=\"product_code"+rand+"\" name=\"bill[items_attributes][new_items][product_code]\" placeholder=\"Type code here\" size=\"30\" type=\"text\" /> \n\n  <input class=\"input-large item_product_name\" id=\"product_name"+rand+"\" name=\"bill[items_attributes][new_items][product_name]\" size=\"30\" type=\"text\" placeholder=\"Product Name\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_product_size1\" id=\"product_size1"+rand+"\" name=\"bill[items_attributes][new_items][product_size1]\" size=\"30\" type=\"hidden\"  readonly=\"readonly\" \/>\n\n <input class=\"input-small item_product_size2\" id=\"product_size2"+rand+"\" name=\"bill[items_attributes][new_items][product_size2]\" size=\"30\" type=\"hidden\" readonly=\"readonly\" \/>\n\n  <input class=\"input-small item_length\" id=\"item_length"+rand+" \"name=\"bill[items_attributes][new_items][length]\" size=\"30\" type=\"text\" placeholder=\"Length\" data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][length]\"  \/> \n      \n    <input class=\"input-small item_quantity\" id=\"item_quantity"+rand+"\"  name=\"bill[items_attributes][new_items][sold_qty]\" size=\"30\" type=\"text\" placeholder=\"Sold Quantity\" data-metric-id=\"product_metric"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-rate-id=\"item_rate"+rand+"\" data-amount-id=\"item_amount"+rand+"\" \/> <input class=\"input-small item_cft\" id=\"item_volume"+rand+"\" name=\"bill[items_attributes][new_items][cft]\" size=\"30\" type=\"text\" placeholder=\"Volume\"readonly=\"readonly\" \/>\n\n <input class=\"input-small item_rate\" id=\"item_rate"+rand+" \" size=\"30\" type=\"text\" placeholder=\"Rate\" data-length-id=\"item_length"+rand+"\"data-metric-id=\"product_metric"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\"   data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\" data-amount-id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][rate]\"\/> \n      \n<input class=\"input-small item_amount\" id=\"item_amount"+rand+"\" name=\"bill[items_attributes][new_items][total_amount]\" placeholder=\"Total Amount\" type=\"text\" readonly=\"readonly\" \/> \n    \n     <input class=\"input-small item_metric\" id=\"product_metric"+rand+"\"data-rate-id=\"item_rate"+rand+"\" data-quantity-id=\"item_quantity"+rand+"\" data-length-id=\"item_length"+rand+"\" data-size1-id=\"product_size1"+rand+"\" data-size2-id=\"product_size2"+rand+"\"data-rate-id=\"item_rate"+rand+"\"  name=\"metric\" type=\"hidden\" />\n  \n   <input id=\"bill_items_attributes_new_items__destroy\" name=\"bill[items_attributes][new_items][_destroy]\" type=\"hidden\" value=\"false\" /><span id=\"remove\"><a href=\"#\" onclick=\"remove_fields(this); return false;\"><i class=\'icon-minus-sign close_item\'>  <\/i><\/a><\/span>\n\n<\/div>\n\n "); $('.input-small.ui-autocomplete-input:last').focus();return false;}
 
 //$(this).next().focus();
            
@@ -796,6 +812,19 @@ alert($(this).val());
 $('#new_bill').submit();
 });
   */
+//$("div.panel").show();
+$(".trigger").live('click',function(){
+               // if($("div.panel").is(":hidden"))
+                 // { //alert("hidden");
+		    //$("div.panel").slideDown("fast"); 
+                      //$(this).toggleClass("active"); 	
+                 // }
+                //else
+		$("div.panel").toggle("fast");
+                //alert($("div.panel").is(":hidden"));
+		$(this).toggleClass("active");
+		return false;
+	});
 
 });
   

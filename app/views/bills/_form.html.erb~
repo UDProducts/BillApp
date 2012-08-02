@@ -21,15 +21,15 @@
      
 
     <div class="bill_customer_name input-prepend long">
-    <span class="add-on"><i class="icon-user"></i></span>
+    <span class="add-on" id="cus_name"><i class="icon-user"></i></span>
     <%= f.text_field :customer_name, :class =>"input-large", :id =>"customer_name", :placeholder => "Customer Name" %>
   </div>
      <div class="bill_customer_phoneno input-prepend long">
-    <span class="add-on"><%= image_tag "small-phone.png"%></span>
+    <span class="add-on" id="phone_no"><%= image_tag "small-phone.png",:id=>"cu_phone"%></span>
     <%= f.autocomplete_field :customer_phoneno, autocomplete_customer_phoneno_customers_path, :update_elements => { :name => "#customer_name", :balance => "#customer_dues",:address =>"#bill_customer_address" }, :placeholder => "Customer Cell", :class => "input-large" %>
   </div>
-<div class="input-prepend">
-    <span class="add-on">Rs.</span>
+<div class="bill_outs input-prepend">
+    <span class="add-on" id="cus_due">Rs.</span>
         <%= f.text_field :customer_dues, :placeholder => "Dues", :class => "input-small dues_input" , :id =>"customer_dues"%>
    </div>
 <div class="bill_code">
@@ -74,19 +74,19 @@
     <div class="total_dim">
       <div class="input-append">
          
-        <%= f.text_field :total_ft, :placeholder => "Length", :class => "input-small",:id =>"bill_len" %>
+        <%= f.text_field :total_ft, :placeholder => "Length", :class => "input-small",:id =>"bill_len",:readonly => "true"  %>
       <span class="add-on">ft</span>
        </div>
       <div class="input-append">
          
-        <%= f.text_field :total_sqft, :placeholder => "Area", :class => "input-small",:id =>"bill_area" %>
+        <%= f.text_field :total_sqft, :placeholder => "Area", :class => "input-small",:id =>"bill_area",:readonly => "true"  %>
       <span class="add-on">sft</span>
        </div>
       
        
       <div class="input-append">
          
-        <%= f.text_field :total_cft, :placeholder => "Volume", :class => "input-small",:id =>"bill_volume" %>
+        <%= f.text_field :total_cft, :placeholder => "Volume", :class => "input-small",:id =>"bill_volume",:readonly => "true"  %>
       <span class="add-on">cft</span>
        </div>
              
@@ -128,29 +128,29 @@
       
     <div class="subalign">    
 <div class="input-append">
-         <%= f.text_field :gross, :placeholder => "Gross Amount", :class => "input-small bill_gross",:id =>"bill_gross" %>
+         <%= f.text_field :gross, :placeholder => "Gross Amount", :class => "input-small bill_gross",:id =>"bill_gross",:readonly => "true"  %>
     <span class="add-on">Rs.</span>
       </div>
       <div class="input-append">
          
-        <%= f.text_field :planecharge, :placeholder => "P.Amount", :class => "input-small",:id =>"bill_plane_amt" %>
+        <%= f.text_field :planecharge, :placeholder => "P.Amount", :class => "input-small",:id =>"bill_plane_amt",:readonly => "true"  %>
       <span class="add-on">Rs.</span>
        </div>
       <div class="input-append">
 
-    <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small bill_net",:id =>"bill_net" %>
+    <%= f.text_field :net, :placeholder => "Net Amt", :class => "input-small bill_net",:id =>"bill_net",:readonly => "true"  %>
     <span class="add-on">Rs.</span>
      </div>
 
      <div class="input-append">
 
-    <%= f.text_field :amount, :placeholder => "Total Amt", :class => "input-small bill_total",:id =>"bill_total" %>
+    <%= f.text_field :amount, :placeholder => "Total Amt", :class => "input-small bill_total",:id =>"bill_total" ,:readonly => "true" %>
     <span class="add-on">Rs.</span>
      </div>
 
     <div class="input-append">
 
-    <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small bill_balance",:id =>"bill_balance" %>
+    <%= f.text_field :balance, :placeholder => "Balance", :class => "input-small bill_balance",:id =>"bill_balance" ,:readonly => "true" %>
     <span class="add-on">Rs.</span>
      </div>
 
@@ -187,12 +187,14 @@
 </div>
 <% end %>
 </center>
+</div>
+
 
  <div class="accordion" id="accordion2">
-
+ <div class="panel">
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"   href="#collapseOne">
                   Category 1
                 </a>
               </div>
@@ -208,7 +210,7 @@
                  <%= name.to_s %>
                 </a>
               </div>
-              <div id=<%= index %> class="accordion-body collapse">
+              <ul id=<%= index %> class="accordion-body collapse">
               
                <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
                   @all.each do |item|
@@ -217,22 +219,23 @@
                    @size1=item.size1.to_s
                    @size2=item.size2.to_s
                    @metric=item.category.to_s
+                   
                %>                  
-                <div class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                <li class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>" >
                   
                   <%= @size %>
                   
-                </div>
+                </li>
                   
                <% end %> 
 	     
-              </div>
+              </ul>
             </div>
            </div> 
        <% end %>
       </div>
       </div>
-       
+      </div>
       <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseB">
@@ -251,8 +254,8 @@
                   <%= name %>  	
                   </a>
               </div>
-              <div id=<%= (index+1)*10 %> class="accordion-body collapse">
-             <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
+              <ul id=<%= (index+1)*10 %> class="accordion-body collapse">
+             <% @all=Product.find(:all,:conditions => ['name LIKE ? and metric=2',name+'%' ] )
                   @all.each do |item|
                    @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
                    @code=item.code 
@@ -263,14 +266,14 @@
 		 
                
                   
-                <div class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                <li class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
                   
                   <%= @size %>
                   
-                </div>
+                </li>
                   
                <% end %> 
-              </div>
+              </ul>
             </div>
            </div> 
        <% end %>
@@ -296,7 +299,7 @@
                   <%= name %>
                 </a>
               </div>
-              <div id=<%= (index+1)*101 %> class="accordion-body collapse">
+              <ul id=<%= (index+1)*101 %> class="accordion-body collapse">
                <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
                   @all.each do |item|
                    @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
@@ -308,14 +311,14 @@
 		 
                
                   
-                <div class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                <li class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
                   
                   <%= @size %>
                   
-                </div>
+                </li>
                   
                <% end %> 
-              </div>
+              </ul>
             </div>
            </div> 
        <% end %>
@@ -339,7 +342,7 @@
                   <%= name %>
                 </a>
               </div>
-              <div id=<%= (1+index)*1000 %> class="accordion-body collapse">
+              <ul id=<%= (1+index)*1000 %> class="accordion-body collapse">
                <% @all=Product.find(:all,:conditions => ['name LIKE ?',name+'%' ] )
                   @all.each do |item|
                    @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
@@ -351,15 +354,15 @@
 		 
                
                   
-                <div class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
+                <li class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
                   
                   <%= @size %>
                   
-                </div>
+                </li>
                   
                <% end %> 
  
-              </div>
+              </ul>
             </div>
            </div> 
        <% end %>
@@ -368,3 +371,9 @@
          
           </div>
 
+</div>
+
+
+</div>
+
+<a class="trigger" href="#">Categories</a>
