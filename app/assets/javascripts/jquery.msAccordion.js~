@@ -96,6 +96,6 @@
 		}
 })(jQuery);
 $(document).ready(function() {
-$("div#accordionNested").msAccordion({defaultid:2});
-$("div#accordionNestedChild").msAccordion({defaultid:2, vertical:true});	
+$("#accordionNested").msAccordion({defaultid:2});
+$("#accordionNestedChild").msAccordion({defaultid:2, vertical:true});	
 });

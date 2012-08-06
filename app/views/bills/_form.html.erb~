@@ -199,7 +199,7 @@
                 </a>
               </div>
               <div id="collapseOne" class="accordion-body collapse">
-                <div class="accordion-inner">
+                <div class="accordion-inner" >
              <%= @uniqs1.each_with_index do |name,index| %>
               
           <div class="accordion" id=<%= name %> data="<%= name %>" >
@@ -220,13 +220,14 @@
                    @size2=item.size2.to_s
                    @metric=item.category.to_s
                    
-               %>                  
+               %>  
+                <div class = "subpanel">                
                 <li class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>" >
                   
                   <%= @size %>
                   
                 </li>
-                  
+                 </div> 
                <% end %> 
 	     
               </ul>
@@ -255,7 +256,7 @@
                   </a>
               </div>
               <ul id=<%= (index+1)*10 %> class="accordion-body collapse">
-             <% @all=Product.find(:all,:conditions => ['name LIKE ? and metric=2',name+'%' ] )
+             <% @all=Product.find(:all,:conditions => ['name LIKE ? and category=2',name+'%' ] )
                   @all.each do |item|
                    @size=item.size1.to_s.concat('X').concat(item.size2.to_s)
                    @code=item.code 
@@ -264,14 +265,14 @@
                    @metric=item.category.to_s
                %>        
 		 
-               
+                <div class="subpanel">
                   
                 <li class="accordion-inner"code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
                   
                   <%= @size %>
                   
                 </li>
-                  
+                 </div> 
                <% end %> 
               </ul>
             </div>
@@ -309,14 +310,14 @@
                    @metric=item.category.to_s
                %>      
 		 
-               
+               <div class="subpanel">
                   
                 <li class="accordion-inner" code="<%= @code %>" size1="<%= @size1 %>" size2="<%= @size2 %>" metric="<%= @metric %>">
                   
                   <%= @size %>
                   
                 </li>
-                  
+                </div>  
                <% end %> 
               </ul>
             </div>

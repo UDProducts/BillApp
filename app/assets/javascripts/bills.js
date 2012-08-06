@@ -16,7 +16,7 @@ function remove_fields(link) {
 
 $(document).ready(function() {
 $('li.accordion-inner').live('click',function(){//alert($(this).text());
-//alert($(this).width());
+
 //$(this).css({position:'absolute', display:'inline',width:'20%',
   //     overflow: 'hidden',background: 'red', float: 'left'});
 //var $id=$(this).attr('id');
@@ -74,7 +74,7 @@ $('div#two').liteAccordion();
      if(isNaN($total_volume * $(this).val())) {
         $("#bill_plane_amt").val(0);
      } else {
-        $("#bill_plane_amt").val($total_volume * $(this).val());
+        $("#bill_plane_amt").val(parseFloat($total_volume * $(this).val()).toFixed(2));
      }       
   });
   var y=0;
@@ -707,6 +707,20 @@ $('input.item_amount').live('keyup', function(e){
 
 $('input#bill_discount').live('keyup', function() {
     var $bill_net = parseFloat($('input#bill_net').val());
+    var $bill_plane_amt = parseFloat($('input#bill_plane_amt').val());
+    
+    //alert($bill_plane_amt);
+    if(isNaN($bill_net))
+    {
+     $('input#bill_net').val($('input#bill_gross').val());
+     $bill_net = parseFloat($('input#bill_net').val());
+    }
+    if(isNaN($bill_plane_amt))
+    {
+     $('input#bill_plane_amt').val(0);
+     
+    }
+
     var $bill_discount = parseFloat($('input#bill_discount').val());
     //alert($int_vamount + $bill_gross);
     if(isNaN( $bill_net - $bill_discount)) {
@@ -744,7 +758,13 @@ $('input#bill_discount').live('keyup', function() {
   $('input.advance_input').live('keydown',function(e){
       if( e.which == 13 || e.keyCode == 13 ) {
        e.preventDefault();
-       $('#new_bill').submit();
+       $('input#btn-save').focus();
+      }
+  });
+  $('input#btn-save').live('keydown',function(e){
+     if( e.which == 13 || e.keyCode == 13 ) {
+       e.preventDefault();
+       $("#new_bill").submit();
       }
   });
 

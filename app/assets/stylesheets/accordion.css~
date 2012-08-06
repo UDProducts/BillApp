@@ -3,9 +3,9 @@
 .accordionWrapper div{display:inline; float:left; margin:auto;}
 .accordionWrapper div.title{cursor:pointer;}
 .accordionWrapper div.content{display:none;}
-div.accordionWrapper div.set,div#accordionNestedChild div.set
+div.accordion-heading,div#accordionNestedChild
 {
-/* Rotate div */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Rotate div */
 transform:rotate(-90deg);
 -ms-transform:rotate(-90deg); /* Internet Explorer */
 -moz-transform:rotate(-90deg); /* Firefox */
